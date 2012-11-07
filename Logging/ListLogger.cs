@@ -52,7 +52,7 @@ namespace Profiler.Logging
         private void AddListItem(ListViewItem item)
         {
             list.Items.Add(item);
-            list.TopItem = item;
+            item.EnsureVisible();
         }
     }
 }
