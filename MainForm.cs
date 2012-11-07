@@ -36,6 +36,7 @@ namespace Profiler
         {
             MainForm form = new MainForm();
             form.disconnectMenuItem.Visible = false;
+            form.connectMenuItem.Visible = false;
             form.Show();
             Context.Communicator.Connect(port);
             form.EnableControlsForConnection(Context.Communicator.IsConnected());

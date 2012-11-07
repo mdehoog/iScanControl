@@ -10,6 +10,7 @@ namespace Profiler.Serial
     public class DummyQueueCommunicator : AbstractQueueCommunicator
     {
         private bool connected = false;
+        private SerialPort port;
         
         public override ErrorCode SendPacket(ISerialCommand sourceComand, byte[] packet, out string commandId, out string response)
         {
@@ -36,6 +37,7 @@ namespace Profiler.Serial
         public override void Connect(SerialPort port)
         {
             Context.Logger.Info("Connected to device on port " + port.PortName + " at " + port.BaudRate + " baud");
+            this.port = port;
             connected = true;
         }
 
