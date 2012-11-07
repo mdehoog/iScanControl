@@ -11,12 +11,27 @@ namespace Profiler
     public class Context
     {
         //start with some valid defaults
-        private static Logger logger = new ConsoleLogger();
-        private static ICommunicator communicator = new DummyQueueCommunicator();
-        //private static ICommunicator communicator = new SerialCommunicator();
-        private static readonly ControlLinker controlLinker = new ControlLinker();
-        private static readonly ControlColorer controlColorer = new ControlColorer();
-        private static readonly ConnectorRegistry connectorRegistry = new ConnectorRegistry();
+        private static Logger logger;
+        private static ICommunicator communicator;
+        private static ControlLinker controlLinker;
+        private static ControlColorer controlColorer;
+        private static ConnectorRegistry connectorRegistry;
+
+        static Context()
+        {
+            Reset();
+        }
+
+        public static void Reset()
+        {
+            //start with some valid defaults
+            logger = new ConsoleLogger();
+            communicator = new DummyQueueCommunicator();
+            //communicator = new SerialCommunicator();
+            controlLinker = new ControlLinker();
+            controlColorer = new ControlColorer();
+            connectorRegistry = new ConnectorRegistry();
+        }
 
         public static Logger Logger
         {

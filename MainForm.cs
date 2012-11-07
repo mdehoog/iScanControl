@@ -24,16 +24,29 @@ namespace Profiler
         private ColorMatrix colorInverse;
         private bool changingCTP = false;
         private Size initialFormSize;
+        private static MainForm currentForm;
 
         public MainForm()
         {
+            Context.Reset();
             InitializeComponent();
             Context.Logger = new ListLogger(log);
             Context.Logger.Info("Application started");
+            currentForm = this;
+            this.Disposed += new EventHandler(MainForm_Disposed);
+        }
+
+        private void MainForm_Disposed(object sender, EventArgs e)
+        {
+            currentForm = null;
         }
 
         public static MainForm Start(SerialPort port)
         {
+            if (currentForm != null)
+            {
+                return currentForm;
+            }
             MainForm form = new MainForm();
             form.disconnectMenuItem.Visible = false;
             form.connectMenuItem.Visible = false;
