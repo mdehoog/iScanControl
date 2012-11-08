@@ -29,7 +29,17 @@ namespace Profiler.Serial
             }
 
             port.DiscardOutBuffer();
-            port.Write(packet, 0, packet.Length);
+            try
+            {
+                port.Write(packet, 0, packet.Length);
+            }
+            catch (Exception e)
+            {
+                Context.Logger.Error(e);
+                commandId = null;
+                response = null;
+                return ErrorCode.UnknownError;
+            }
             return DuoProtocol.ReadResponse(port, out commandId, out response);
         }
 
