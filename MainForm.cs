@@ -953,12 +953,12 @@ namespace Profiler
 
         private void ctpImportButton_MouseHover(object sender, EventArgs e)
         {
-            toolTip.SetToolTip(ctpImportButton, "Import colors from file...");
+            toolTip.SetToolTip(ctpImportButton, "Import colors from file");
         }
 
         private void ctpExportButton_MouseHover(object sender, EventArgs e)
         {
-            toolTip.SetToolTip(ctpExportButton, "Export colors to file...");
+            toolTip.SetToolTip(ctpExportButton, "Export colors to file");
         }
 
         private void RefreshSavedColors()
@@ -966,6 +966,7 @@ namespace Profiler
             ctpSavedColors.Items.Clear();
             ctpSavedColors.Items.AddRange(UserSettings.Instance.SavedColors.ToArray());
             UpdateRemoveButtonEnabled();
+            ctpExportButton.Enabled = ctpSavedColors.Items.Count > 0;
         }
 
         private void ctpAddButton_Click(object sender, EventArgs e)

@@ -26,8 +26,8 @@ namespace Profiler
         {
             //start with some valid defaults
             logger = new ConsoleLogger();
-            communicator = new DummyQueueCommunicator();
-            //communicator = new SerialCommunicator();
+            //communicator = new DummyQueueCommunicator();
+            communicator = new SerialCommunicator();
             controlLinker = new ControlLinker();
             controlColorer = new ControlColorer();
             connectorRegistry = new ConnectorRegistry();
