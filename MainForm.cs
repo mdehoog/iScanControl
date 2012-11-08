@@ -13,6 +13,8 @@ using System.IO;
 using Profiler.Protocol;
 using Profiler.Conversion;
 using System.IO.Ports;
+using Profiler.Settings;
+using System.Xml.Serialization;
 
 namespace Profiler
 {
@@ -23,6 +25,7 @@ namespace Profiler
         private ColorMatrix colorMatrix;
         private ColorMatrix colorInverse;
         private bool changingCTP = false;
+        private bool selectingSavedColor = false;
         private Size initialFormSize;
         private static MainForm currentForm;
 
@@ -34,11 +37,13 @@ namespace Profiler
             Context.Logger.Info("Application started");
             currentForm = this;
             this.Disposed += new EventHandler(MainForm_Disposed);
+            RefreshSavedColors();
         }
 
         private void MainForm_Disposed(object sender, EventArgs e)
         {
             currentForm = null;
+            UserSettings.Save();
         }
 
         public static MainForm Start(SerialPort port)
@@ -198,6 +203,7 @@ namespace Profiler
             EnableControlsInGroup(ctpParametersGroup, connected, false);
             EnableControlsInGroup(ctpMatricesGroup, connected, false);
             UpdateCTPButtons(connected);
+            UpdateRemoveButtonEnabled();
         }
 
         private string LastUsedDirectory
@@ -600,14 +606,10 @@ namespace Profiler
 
             ctpColor.Items.AddRange(LabeledColorVector.Values);
             ctpColor.SelectedIndex = 0;
-            ctpCheckerColor.Items.AddRange(ColorChecker.Values);
-            ctpCheckerColor.SelectedIndex = 0;
 
             ctpPresets.CheckedChanged += new EventHandler(ctpRadio_ValueChanged);
-            ctpChecker.CheckedChanged += new EventHandler(ctpRadio_ValueChanged);
             ctpManual.CheckedChanged += new EventHandler(ctpRadio_ValueChanged);
 
-            ctpCheckerColor.SelectedValueChanged += new EventHandler(ctpGeneral_ValueChanged);
             ctpGamma.ValueChanged += new EventHandler(ctpGeneral_ValueChanged);
             ctpLuminance.ValueChanged += new EventHandler(ctpGeneral_ValueChanged);
             ctpSaturation.ValueChanged += new EventHandler(ctpGeneral_ValueChanged);
@@ -663,7 +665,6 @@ namespace Profiler
         {
             EnableControlsInGroup(ctpPresetsGroup, ctpPresets.Checked, false);
             EnableControlsInGroup(ctpManualGroup, ctpManual.Checked, true);
-            EnableControlsInGroup(ctpCheckerGroup, ctpChecker.Checked, false);
             UpdateCustomTestPattern(false, false, false);
         }
 
@@ -748,13 +749,6 @@ namespace Profiler
                 double saturation = (double)ctpSaturation.Value / 100.0;
                 ColorConversion.fromHSL(hue, luminance, saturation, colorMatrix, colorInverse, gamma, out rgb, out xyY, out XYZ);
             }
-            else if (ctpChecker.Checked)
-            {
-                ColorVector d50xyY = (ColorVector)ctpCheckerColor.SelectedItem;
-                ColorVector d50XYZ = ColorConversion.xyYtoXYZ(d50xyY);
-                XYZ = ColorConversion.d50toD65(d50XYZ);
-                ColorConversion.fromXYZ(XYZ, colorInverse, gamma, out rgb, out xyY);
-            }
             else if (xyzChanged)
             {
                 ColorConversion.fromXYZ(XYZ, colorInverse, gamma, out rgb, out xyY);
@@ -796,6 +790,11 @@ namespace Profiler
             int ib = Math.Max(0, Math.Min(255, (int)(min + ((double)b / 100.0) * (max - min))));
 
             ctpPreview.BackColor = Color.FromArgb(ir, ig, ib);
+
+            if (!selectingSavedColor)
+            {
+                ctpSavedColors.SelectedItem = null;
+            }
 
             changingCTP = false;
         }
@@ -883,7 +882,7 @@ namespace Profiler
                 {
                     contextMenuStrip.Show(Cursor.Position);
                 }
-            } 
+            }
         }
 
         private void contextCopyItem_Click(object sender, EventArgs e)
@@ -940,6 +939,195 @@ namespace Profiler
             {
                 showLog.Text = "Hide Log";
             }
+        }
+
+        private void ctpAddButton_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(ctpAddButton, "Save this color");
+        }
+
+        private void ctpRemoveButton_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(ctpRemoveButton, "Delete selected color");
+        }
+
+        private void ctpImportButton_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(ctpImportButton, "Import colors from file...");
+        }
+
+        private void ctpExportButton_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(ctpExportButton, "Export colors to file...");
+        }
+
+        private void RefreshSavedColors()
+        {
+            ctpSavedColors.Items.Clear();
+            ctpSavedColors.Items.AddRange(UserSettings.Instance.SavedColors.ToArray());
+            UpdateRemoveButtonEnabled();
+        }
+
+        private void ctpAddButton_Click(object sender, EventArgs e)
+        {
+            decimal r = ctpRed.Value;
+            decimal g = ctpGreen.Value;
+            decimal b = ctpBlue.Value;
+            decimal cx = ctpxyYx.Value;
+            decimal cy = ctpxyYy.Value;
+            decimal cY = ctpxyYcY.Value;
+            decimal X = ctpXYZX.Value;
+            decimal Y = ctpXYZY.Value;
+            decimal Z = ctpXYZZ.Value;
+            double gamma = (double)ctpGamma.Value;
+
+            ColorVector rgb = new ColorVector((double)r / 100.0, (double)g / 100.0, (double)b / 100.0);
+            ColorVector xyY = new ColorVector((double)cx, (double)cy, (double)cY);
+            ColorVector XYZ = new ColorVector((double)X, (double)Y, (double)Z);
+
+            SaveColor saveColor = new SaveColor(xyY, XYZ, rgb);
+            if (saveColor.ShowDialog(this) == DialogResult.OK)
+            {
+                UserSettings.Instance.AddSavedColor(saveColor.Color);
+                RefreshSavedColors();
+                ctpSavedColors.SelectedItem = saveColor.Color;
+            }
+        }
+
+        private void ctpRemoveButton_Click(object sender, EventArgs e)
+        {
+            if (ctpSavedColors.SelectedItem != null)
+            {
+                int index = ctpSavedColors.SelectedIndex;
+                UserSettings.Instance.RemoveSavedColor((SavedColor)ctpSavedColors.SelectedItem);
+                RefreshSavedColors();
+                while(index > ctpSavedColors.Items.Count - 1)
+                {
+                    index--;
+                }
+                if (index >= 0)
+                {
+                    ctpSavedColors.SelectedIndex = index;
+                }
+            }
+        }
+
+        private void ctpSavedColors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateRemoveButtonEnabled();
+
+            if (selectingSavedColor)
+                return;
+
+            selectingSavedColor = true;
+            try
+            {
+                if (ctpSavedColors.SelectedItem != null)
+                {
+                    ctpManual.Checked = true;
+
+                    SavedColor color = (SavedColor)ctpSavedColors.SelectedItem;
+                    switch (color.Type)
+                    {
+                        case SavedColor.SavedColorTypeEnum.RGB:
+                            ctpRed.Value = (decimal)(color.X * 100.0);
+                            ctpGreen.Value = (decimal)(color.Y * 100.0);
+                            ctpBlue.Value = (decimal)(color.Z * 100.0);
+                            break;
+                        case SavedColor.SavedColorTypeEnum.xyY:
+                            ctpxyYx.Value = (decimal)color.X;
+                            ctpxyYy.Value = (decimal)color.Y;
+                            ctpxyYcY.Value = (decimal)color.Z;
+                            break;
+                        case SavedColor.SavedColorTypeEnum.XYZ:
+                            ctpXYZX.Value = (decimal)color.X;
+                            ctpXYZY.Value = (decimal)color.Y;
+                            ctpXYZZ.Value = (decimal)color.Z;
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            selectingSavedColor = false;
+        }
+
+        private void UpdateRemoveButtonEnabled()
+        {
+            ctpRemoveButton.Enabled = ctpSavedColors.SelectedItem != null;
+        }
+
+        private void ctpImportButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                try
+                {
+                    SavedColor[] colors = ImportSavedColors(openFileDialog.FileName);
+                    foreach (SavedColor color in colors)
+                    {
+                        UserSettings.Instance.AddSavedColor(color);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                RefreshSavedColors();
+            }
+        }
+
+        private void ctpExportButton_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                try
+                {
+                    ExportSavedColors(saveFileDialog.FileName, UserSettings.Instance.SavedColors.ToArray());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private static SavedColor[] ImportSavedColors(string file)
+        {
+            SavedColor[] colors = null;
+            FileStream stream = null;
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(SavedColor[]));
+                FileInfo fi = new FileInfo(file);
+                if (fi.Exists)
+                {
+                    stream = fi.OpenRead();
+                    colors = (SavedColor[])serializer.Deserialize(stream);
+                }
+            }
+            finally
+            {
+                if (stream != null) stream.Close();
+            }
+            return colors;
+        }
+
+        private static void ExportSavedColors(string file, SavedColor[] colors)
+        {
+                StreamWriter writer = null;
+                try
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(SavedColor[]));
+                    writer = new StreamWriter(file, false);
+                    serializer.Serialize(writer, colors);
+                }
+                finally
+                {
+                    if (writer != null) writer.Close();
+                }
         }
     }
 }

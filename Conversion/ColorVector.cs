@@ -77,5 +77,10 @@ namespace Profiler.Conversion
             string f = String.Format("{{0,{0}}} {{1,{0}}} {{2,{0}}}", n);
             return String.Format(f, x, y, z);
         }
+
+        public string ToRGBString(double multiplier)
+        {
+            return (int)(x * multiplier) + " " + (int)(y * multiplier) + " " + (int)(z * multiplier);
+        }
     }
 }

@@ -346,11 +346,10 @@
             this.ctpW100 = new System.Windows.Forms.Button();
             this.ctpW75 = new System.Windows.Forms.Button();
             this.ctpParametersGroup = new System.Windows.Forms.GroupBox();
-            this.ctpChecker = new System.Windows.Forms.RadioButton();
-            this.ctpCheckerGroup = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.ctpCheckerColor = new System.Windows.Forms.ComboBox();
+            this.ctpExportButton = new System.Windows.Forms.Button();
             this.ctpManual = new System.Windows.Forms.RadioButton();
+            this.ctpImportButton = new System.Windows.Forms.Button();
             this.ctpPresets = new System.Windows.Forms.RadioButton();
             this.ctpManualGroup = new System.Windows.Forms.GroupBox();
             this.ctpPreview = new System.Windows.Forms.Label();
@@ -384,6 +383,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.ctpAddButton = new System.Windows.Forms.Button();
+            this.ctpSavedColors = new System.Windows.Forms.ComboBox();
+            this.ctpRemoveButton = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.connectMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -424,6 +426,9 @@
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextCopyItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLog = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.tabControl.SuspendLayout();
             this.settingsTab.SuspendLayout();
             this.otherGroup.SuspendLayout();
@@ -569,7 +574,6 @@
             this.ctpSizeGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctpSize)).BeginInit();
             this.ctpParametersGroup.SuspendLayout();
-            this.ctpCheckerGroup.SuspendLayout();
             this.ctpManualGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctpxyYcY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctpXYZZ)).BeginInit();
@@ -4890,14 +4894,14 @@
             this.ctpMatricesGroup.Controls.Add(this.label10);
             this.ctpMatricesGroup.Location = new System.Drawing.Point(6, 136);
             this.ctpMatricesGroup.Name = "ctpMatricesGroup";
-            this.ctpMatricesGroup.Size = new System.Drawing.Size(325, 159);
+            this.ctpMatricesGroup.Size = new System.Drawing.Size(325, 135);
             this.ctpMatricesGroup.TabIndex = 5;
             this.ctpMatricesGroup.TabStop = false;
             this.ctpMatricesGroup.Text = "RGB <-> XYZ Matrices";
             // 
             // ctpMatrix
             // 
-            this.ctpMatrix.Location = new System.Drawing.Point(64, 33);
+            this.ctpMatrix.Location = new System.Drawing.Point(64, 21);
             this.ctpMatrix.Multiline = true;
             this.ctpMatrix.Name = "ctpMatrix";
             this.ctpMatrix.ReadOnly = true;
@@ -4907,7 +4911,7 @@
             // 
             // ctpMatrixInverse
             // 
-            this.ctpMatrixInverse.Location = new System.Drawing.Point(64, 89);
+            this.ctpMatrixInverse.Location = new System.Drawing.Point(64, 77);
             this.ctpMatrixInverse.Multiline = true;
             this.ctpMatrixInverse.Name = "ctpMatrixInverse";
             this.ctpMatrixInverse.ReadOnly = true;
@@ -4918,7 +4922,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 36);
+            this.label9.Location = new System.Drawing.Point(20, 24);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 13);
             this.label9.TabIndex = 17;
@@ -4927,7 +4931,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 92);
+            this.label10.Location = new System.Drawing.Point(13, 80);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 19;
@@ -4937,7 +4941,7 @@
             // 
             this.ctpEnableGroup.Controls.Add(this.ctpSend);
             this.ctpEnableGroup.Controls.Add(this.ctpEnable);
-            this.ctpEnableGroup.Location = new System.Drawing.Point(340, 301);
+            this.ctpEnableGroup.Location = new System.Drawing.Point(340, 277);
             this.ctpEnableGroup.Name = "ctpEnableGroup";
             this.ctpEnableGroup.Size = new System.Drawing.Size(416, 50);
             this.ctpEnableGroup.TabIndex = 4;
@@ -5284,7 +5288,7 @@
             this.ctpSizeGroup.Controls.Add(this.ctpSize);
             this.ctpSizeGroup.Controls.Add(this.ctpW100);
             this.ctpSizeGroup.Controls.Add(this.ctpW75);
-            this.ctpSizeGroup.Location = new System.Drawing.Point(6, 301);
+            this.ctpSizeGroup.Location = new System.Drawing.Point(6, 277);
             this.ctpSizeGroup.Name = "ctpSizeGroup";
             this.ctpSizeGroup.Size = new System.Drawing.Size(325, 50);
             this.ctpSizeGroup.TabIndex = 2;
@@ -5293,9 +5297,9 @@
             // 
             // ctpW10
             // 
-            this.ctpW10.Location = new System.Drawing.Point(284, 19);
+            this.ctpW10.Location = new System.Drawing.Point(284, 18);
             this.ctpW10.Name = "ctpW10";
-            this.ctpW10.Size = new System.Drawing.Size(33, 20);
+            this.ctpW10.Size = new System.Drawing.Size(33, 21);
             this.ctpW10.TabIndex = 20;
             this.ctpW10.Text = "10";
             this.ctpW10.UseVisualStyleBackColor = true;
@@ -5304,7 +5308,7 @@
             // 
             this.ctpW25.Location = new System.Drawing.Point(245, 18);
             this.ctpW25.Name = "ctpW25";
-            this.ctpW25.Size = new System.Drawing.Size(33, 20);
+            this.ctpW25.Size = new System.Drawing.Size(33, 21);
             this.ctpW25.TabIndex = 19;
             this.ctpW25.Text = "25";
             this.ctpW25.UseVisualStyleBackColor = true;
@@ -5331,7 +5335,7 @@
             // 
             this.ctpW50.Location = new System.Drawing.Point(206, 18);
             this.ctpW50.Name = "ctpW50";
-            this.ctpW50.Size = new System.Drawing.Size(33, 20);
+            this.ctpW50.Size = new System.Drawing.Size(33, 21);
             this.ctpW50.TabIndex = 18;
             this.ctpW50.Text = "50";
             this.ctpW50.UseVisualStyleBackColor = true;
@@ -5352,7 +5356,7 @@
             // 
             this.ctpW100.Location = new System.Drawing.Point(128, 18);
             this.ctpW100.Name = "ctpW100";
-            this.ctpW100.Size = new System.Drawing.Size(33, 20);
+            this.ctpW100.Size = new System.Drawing.Size(33, 21);
             this.ctpW100.TabIndex = 16;
             this.ctpW100.Text = "100";
             this.ctpW100.UseVisualStyleBackColor = true;
@@ -5361,73 +5365,70 @@
             // 
             this.ctpW75.Location = new System.Drawing.Point(167, 18);
             this.ctpW75.Name = "ctpW75";
-            this.ctpW75.Size = new System.Drawing.Size(33, 20);
+            this.ctpW75.Size = new System.Drawing.Size(33, 21);
             this.ctpW75.TabIndex = 17;
             this.ctpW75.Text = "75";
             this.ctpW75.UseVisualStyleBackColor = true;
             // 
             // ctpParametersGroup
             // 
-            this.ctpParametersGroup.Controls.Add(this.ctpChecker);
-            this.ctpParametersGroup.Controls.Add(this.ctpCheckerGroup);
+            this.ctpParametersGroup.Controls.Add(this.label22);
+            this.ctpParametersGroup.Controls.Add(this.ctpExportButton);
             this.ctpParametersGroup.Controls.Add(this.ctpManual);
+            this.ctpParametersGroup.Controls.Add(this.ctpImportButton);
             this.ctpParametersGroup.Controls.Add(this.ctpPresets);
             this.ctpParametersGroup.Controls.Add(this.ctpManualGroup);
             this.ctpParametersGroup.Controls.Add(this.ctpPresetsGroup);
+            this.ctpParametersGroup.Controls.Add(this.ctpAddButton);
+            this.ctpParametersGroup.Controls.Add(this.ctpSavedColors);
+            this.ctpParametersGroup.Controls.Add(this.ctpRemoveButton);
             this.ctpParametersGroup.Location = new System.Drawing.Point(340, 6);
             this.ctpParametersGroup.Name = "ctpParametersGroup";
-            this.ctpParametersGroup.Size = new System.Drawing.Size(416, 289);
+            this.ctpParametersGroup.Size = new System.Drawing.Size(416, 265);
             this.ctpParametersGroup.TabIndex = 1;
             this.ctpParametersGroup.TabStop = false;
             this.ctpParametersGroup.Text = "Color";
             // 
-            // ctpChecker
-            // 
-            this.ctpChecker.AutoSize = true;
-            this.ctpChecker.Location = new System.Drawing.Point(10, 137);
-            this.ctpChecker.Name = "ctpChecker";
-            this.ctpChecker.Size = new System.Drawing.Size(68, 17);
-            this.ctpChecker.TabIndex = 4;
-            this.ctpChecker.Text = "Checker:";
-            this.ctpChecker.UseVisualStyleBackColor = true;
-            // 
-            // ctpCheckerGroup
-            // 
-            this.ctpCheckerGroup.Controls.Add(this.label22);
-            this.ctpCheckerGroup.Controls.Add(this.ctpCheckerColor);
-            this.ctpCheckerGroup.Location = new System.Drawing.Point(79, 121);
-            this.ctpCheckerGroup.Name = "ctpCheckerGroup";
-            this.ctpCheckerGroup.Size = new System.Drawing.Size(325, 49);
-            this.ctpCheckerGroup.TabIndex = 5;
-            this.ctpCheckerGroup.TabStop = false;
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(44, 20);
+            this.label22.Location = new System.Drawing.Point(38, 236);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(34, 13);
-            this.label22.TabIndex = 16;
-            this.label22.Text = "Color:";
+            this.label22.Size = new System.Drawing.Size(35, 13);
+            this.label22.TabIndex = 18;
+            this.label22.Text = "Save:";
             // 
-            // ctpCheckerColor
+            // ctpExportButton
             // 
-            this.ctpCheckerColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ctpCheckerColor.FormattingEnabled = true;
-            this.ctpCheckerColor.Location = new System.Drawing.Point(84, 17);
-            this.ctpCheckerColor.Name = "ctpCheckerColor";
-            this.ctpCheckerColor.Size = new System.Drawing.Size(121, 21);
-            this.ctpCheckerColor.TabIndex = 16;
+            this.ctpExportButton.Image = global::Profiler.Properties.Resources.export;
+            this.ctpExportButton.Location = new System.Drawing.Point(381, 231);
+            this.ctpExportButton.Name = "ctpExportButton";
+            this.ctpExportButton.Size = new System.Drawing.Size(23, 23);
+            this.ctpExportButton.TabIndex = 6;
+            this.ctpExportButton.UseVisualStyleBackColor = true;
+            this.ctpExportButton.Click += new System.EventHandler(this.ctpExportButton_Click);
+            this.ctpExportButton.MouseHover += new System.EventHandler(this.ctpExportButton_MouseHover);
             // 
             // ctpManual
             // 
             this.ctpManual.AutoSize = true;
-            this.ctpManual.Location = new System.Drawing.Point(10, 218);
+            this.ctpManual.Location = new System.Drawing.Point(10, 162);
             this.ctpManual.Name = "ctpManual";
             this.ctpManual.Size = new System.Drawing.Size(63, 17);
             this.ctpManual.TabIndex = 2;
             this.ctpManual.Text = "Manual:";
             this.ctpManual.UseVisualStyleBackColor = true;
+            // 
+            // ctpImportButton
+            // 
+            this.ctpImportButton.Image = global::Profiler.Properties.Resources.import;
+            this.ctpImportButton.Location = new System.Drawing.Point(352, 231);
+            this.ctpImportButton.Name = "ctpImportButton";
+            this.ctpImportButton.Size = new System.Drawing.Size(23, 23);
+            this.ctpImportButton.TabIndex = 3;
+            this.ctpImportButton.UseVisualStyleBackColor = true;
+            this.ctpImportButton.Click += new System.EventHandler(this.ctpImportButton_Click);
+            this.ctpImportButton.MouseHover += new System.EventHandler(this.ctpImportButton_MouseHover);
             // 
             // ctpPresets
             // 
@@ -5455,7 +5456,7 @@
             this.ctpManualGroup.Controls.Add(this.ctpBlue);
             this.ctpManualGroup.Controls.Add(this.ctpGreen);
             this.ctpManualGroup.Controls.Add(this.ctpRed);
-            this.ctpManualGroup.Location = new System.Drawing.Point(79, 176);
+            this.ctpManualGroup.Location = new System.Drawing.Point(79, 120);
             this.ctpManualGroup.Name = "ctpManualGroup";
             this.ctpManualGroup.Size = new System.Drawing.Size(325, 101);
             this.ctpManualGroup.TabIndex = 3;
@@ -5608,7 +5609,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 73);
+            this.label6.Location = new System.Drawing.Point(8, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 8;
@@ -5678,7 +5679,7 @@
             // 
             this.ctpS25.Location = new System.Drawing.Point(281, 72);
             this.ctpS25.Name = "ctpS25";
-            this.ctpS25.Size = new System.Drawing.Size(33, 20);
+            this.ctpS25.Size = new System.Drawing.Size(33, 21);
             this.ctpS25.TabIndex = 15;
             this.ctpS25.Text = "25";
             this.ctpS25.UseVisualStyleBackColor = true;
@@ -5687,7 +5688,7 @@
             // 
             this.ctpS50.Location = new System.Drawing.Point(242, 72);
             this.ctpS50.Name = "ctpS50";
-            this.ctpS50.Size = new System.Drawing.Size(33, 20);
+            this.ctpS50.Size = new System.Drawing.Size(33, 21);
             this.ctpS50.TabIndex = 14;
             this.ctpS50.Text = "50";
             this.ctpS50.UseVisualStyleBackColor = true;
@@ -5696,7 +5697,7 @@
             // 
             this.ctpS75.Location = new System.Drawing.Point(203, 72);
             this.ctpS75.Name = "ctpS75";
-            this.ctpS75.Size = new System.Drawing.Size(33, 20);
+            this.ctpS75.Size = new System.Drawing.Size(33, 21);
             this.ctpS75.TabIndex = 13;
             this.ctpS75.Text = "75";
             this.ctpS75.UseVisualStyleBackColor = true;
@@ -5705,7 +5706,7 @@
             // 
             this.ctpS100.Location = new System.Drawing.Point(164, 72);
             this.ctpS100.Name = "ctpS100";
-            this.ctpS100.Size = new System.Drawing.Size(33, 20);
+            this.ctpS100.Size = new System.Drawing.Size(33, 21);
             this.ctpS100.TabIndex = 12;
             this.ctpS100.Text = "100";
             this.ctpS100.UseVisualStyleBackColor = true;
@@ -5714,7 +5715,7 @@
             // 
             this.ctpL25.Location = new System.Drawing.Point(281, 46);
             this.ctpL25.Name = "ctpL25";
-            this.ctpL25.Size = new System.Drawing.Size(33, 20);
+            this.ctpL25.Size = new System.Drawing.Size(33, 21);
             this.ctpL25.TabIndex = 8;
             this.ctpL25.Text = "25";
             this.ctpL25.UseVisualStyleBackColor = true;
@@ -5732,7 +5733,7 @@
             // 
             this.ctpL50.Location = new System.Drawing.Point(242, 46);
             this.ctpL50.Name = "ctpL50";
-            this.ctpL50.Size = new System.Drawing.Size(33, 20);
+            this.ctpL50.Size = new System.Drawing.Size(33, 21);
             this.ctpL50.TabIndex = 7;
             this.ctpL50.Text = "50";
             this.ctpL50.UseVisualStyleBackColor = true;
@@ -5750,7 +5751,7 @@
             // 
             this.ctpL75.Location = new System.Drawing.Point(203, 46);
             this.ctpL75.Name = "ctpL75";
-            this.ctpL75.Size = new System.Drawing.Size(33, 20);
+            this.ctpL75.Size = new System.Drawing.Size(33, 21);
             this.ctpL75.TabIndex = 6;
             this.ctpL75.Text = "75";
             this.ctpL75.UseVisualStyleBackColor = true;
@@ -5780,7 +5781,7 @@
             // 
             this.ctpL100.Location = new System.Drawing.Point(164, 46);
             this.ctpL100.Name = "ctpL100";
-            this.ctpL100.Size = new System.Drawing.Size(33, 20);
+            this.ctpL100.Size = new System.Drawing.Size(33, 21);
             this.ctpL100.TabIndex = 5;
             this.ctpL100.Text = "100";
             this.ctpL100.UseVisualStyleBackColor = true;
@@ -5823,6 +5824,38 @@
             this.label12.Size = new System.Drawing.Size(34, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Color:";
+            // 
+            // ctpAddButton
+            // 
+            this.ctpAddButton.Image = global::Profiler.Properties.Resources.add;
+            this.ctpAddButton.Location = new System.Drawing.Point(294, 231);
+            this.ctpAddButton.Name = "ctpAddButton";
+            this.ctpAddButton.Size = new System.Drawing.Size(23, 23);
+            this.ctpAddButton.TabIndex = 1;
+            this.ctpAddButton.UseVisualStyleBackColor = true;
+            this.ctpAddButton.Click += new System.EventHandler(this.ctpAddButton_Click);
+            this.ctpAddButton.MouseHover += new System.EventHandler(this.ctpAddButton_MouseHover);
+            // 
+            // ctpSavedColors
+            // 
+            this.ctpSavedColors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ctpSavedColors.FormattingEnabled = true;
+            this.ctpSavedColors.Location = new System.Drawing.Point(79, 232);
+            this.ctpSavedColors.Name = "ctpSavedColors";
+            this.ctpSavedColors.Size = new System.Drawing.Size(209, 21);
+            this.ctpSavedColors.TabIndex = 0;
+            this.ctpSavedColors.SelectedIndexChanged += new System.EventHandler(this.ctpSavedColors_SelectedIndexChanged);
+            // 
+            // ctpRemoveButton
+            // 
+            this.ctpRemoveButton.Image = global::Profiler.Properties.Resources.remove;
+            this.ctpRemoveButton.Location = new System.Drawing.Point(323, 231);
+            this.ctpRemoveButton.Name = "ctpRemoveButton";
+            this.ctpRemoveButton.Size = new System.Drawing.Size(23, 23);
+            this.ctpRemoveButton.TabIndex = 2;
+            this.ctpRemoveButton.UseVisualStyleBackColor = true;
+            this.ctpRemoveButton.Click += new System.EventHandler(this.ctpRemoveButton_Click);
+            this.ctpRemoveButton.MouseHover += new System.EventHandler(this.ctpRemoveButton_MouseHover);
             // 
             // menuStrip
             // 
@@ -6154,6 +6187,14 @@
             this.showLog.UseVisualStyleBackColor = true;
             this.showLog.Click += new System.EventHandler(this.showLog_Click);
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6338,8 +6379,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctpSize)).EndInit();
             this.ctpParametersGroup.ResumeLayout(false);
             this.ctpParametersGroup.PerformLayout();
-            this.ctpCheckerGroup.ResumeLayout(false);
-            this.ctpCheckerGroup.PerformLayout();
             this.ctpManualGroup.ResumeLayout(false);
             this.ctpManualGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctpxyYcY)).EndInit();
@@ -6748,11 +6787,7 @@
         private System.Windows.Forms.Button ctpW75;
         private System.Windows.Forms.Button ctpEnable;
         private System.Windows.Forms.ToolStripMenuItem windowResizeMenuItem;
-        private System.Windows.Forms.ComboBox ctpCheckerColor;
         private System.Windows.Forms.Label ctpPreview;
-        private System.Windows.Forms.RadioButton ctpChecker;
-        private System.Windows.Forms.GroupBox ctpCheckerGroup;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox ctpMatricesGroup;
         private System.Windows.Forms.ListView log;
         private System.Windows.Forms.ColumnHeader logLevelColumn;
@@ -6761,6 +6796,15 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem contextCopyItem;
         private System.Windows.Forms.Button showLog;
+        private System.Windows.Forms.ComboBox ctpSavedColors;
+        private System.Windows.Forms.Button ctpAddButton;
+        private System.Windows.Forms.Button ctpExportButton;
+        private System.Windows.Forms.Button ctpImportButton;
+        private System.Windows.Forms.Button ctpRemoveButton;
+        private System.Windows.Forms.ToolTip toolTip;
+        public System.Windows.Forms.Label label22;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

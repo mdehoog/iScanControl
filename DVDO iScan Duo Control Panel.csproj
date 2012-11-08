@@ -72,6 +72,12 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="SaveColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveColor.Designer.cs">
+      <DependentUpon>SaveColor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Backup.cs" />
     <Compile Include="BackupDialog.cs">
       <SubType>Form</SubType>
@@ -124,6 +130,10 @@
     <Compile Include="Serial\SerialCommunicator.cs" />
     <Compile Include="Serial\SerialQueryCommand.cs" />
     <Compile Include="Serial\SerialSetCommand.cs" />
+    <Compile Include="Settings\AbstractSettings.cs" />
+    <Compile Include="Settings\Constants.cs" />
+    <Compile Include="Settings\SavedColor.cs" />
+    <Compile Include="Settings\UserSettings.cs" />
     <Compile Include="UI\BooleanConnector.cs" />
     <Compile Include="UI\ButtonConnector.cs" />
     <Compile Include="UI\ConnectorRegistry.cs" />
@@ -160,6 +170,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SaveColor.resx">
+      <DependentUpon>SaveColor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,6 +211,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dvdo_abt_logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
