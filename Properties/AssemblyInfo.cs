@@ -9,9 +9,9 @@ using System.Resources;
 [assembly: AssemblyTitle("DVDO iScan Duo Control Panel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Cellophane Software")]
+[assembly: AssemblyCompany("Qixle")]
 [assembly: AssemblyProduct("DVDO iScan Duo Control Panel")]
-[assembly: AssemblyCopyright("Copyright © Michael de Hoog 2011")]
+[assembly: AssemblyCopyright("Copyright © Michael de Hoog 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
