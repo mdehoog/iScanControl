@@ -1002,7 +1002,7 @@ namespace Profiler
                 int index = ctpSavedColors.SelectedIndex;
                 UserSettings.Instance.RemoveSavedColor((SavedColor)ctpSavedColors.SelectedItem);
                 RefreshSavedColors();
-                while(index > ctpSavedColors.Items.Count - 1)
+                while (index > ctpSavedColors.Items.Count - 1)
                 {
                     index--;
                 }
@@ -1058,6 +1058,7 @@ namespace Profiler
         private void UpdateRemoveButtonEnabled()
         {
             ctpRemoveButton.Enabled = ctpSavedColors.SelectedItem != null;
+            ctpExportButton.Enabled = ctpSavedColors.Items.Count > 0;
         }
 
         private void ctpImportButton_Click(object sender, EventArgs e)
@@ -1118,17 +1119,17 @@ namespace Profiler
 
         private static void ExportSavedColors(string file, SavedColor[] colors)
         {
-                StreamWriter writer = null;
-                try
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(SavedColor[]));
-                    writer = new StreamWriter(file, false);
-                    serializer.Serialize(writer, colors);
-                }
-                finally
-                {
-                    if (writer != null) writer.Close();
-                }
+            StreamWriter writer = null;
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(SavedColor[]));
+                writer = new StreamWriter(file, false);
+                serializer.Serialize(writer, colors);
+            }
+            finally
+            {
+                if (writer != null) writer.Close();
+            }
         }
     }
 }
