@@ -155,6 +155,8 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SaveColor";
             this.Text = "Save new color";
             this.groupBox1.ResumeLayout(false);
