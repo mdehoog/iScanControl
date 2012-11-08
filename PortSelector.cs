@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
+using Profiler.Settings;
 
 namespace Profiler
 {
@@ -18,36 +19,6 @@ namespace Profiler
         public PortSelector()
         {
             InitializeComponent();
-        }
-
-        private string LastPortName
-        {
-            get
-            {
-                object o = Application.UserAppDataRegistry.GetValue("LastPortName");
-                if (o != null && o is string)
-                    return (string)o;
-                return null;
-            }
-            set
-            {
-                Application.UserAppDataRegistry.SetValue("LastPortName", value);
-            }
-        }
-
-        private int LastBaudRate
-        {
-            get
-            {
-                object o = Application.UserAppDataRegistry.GetValue("LastBaudRate");
-                if (o != null && o is int)
-                    return (int)o;
-                return 0;
-            }
-            set
-            {
-                Application.UserAppDataRegistry.SetValue("LastBaudRate", value);
-            }
         }
 
         private void PortSelector_Load(object sender, EventArgs e)
@@ -67,7 +38,7 @@ namespace Profiler
             int selectedPortIndex = 0;
             int selectedBaudIndex = 3;
 
-            string lastPortName = LastPortName;
+            string lastPortName = UserSettings.Instance.LastPortName;
             if (lastPortName != null)
             {
                 int index = portNames.ToList<string>().IndexOf(lastPortName);
@@ -75,7 +46,7 @@ namespace Profiler
                     selectedPortIndex = index;
             }
 
-            int lastBaudRate = LastBaudRate;
+            int lastBaudRate = UserSettings.Instance.LastBaudRate;
             {
                 int index = baudRates.ToList<object>().IndexOf(lastBaudRate);
                 if (index >= 0)
@@ -97,7 +68,7 @@ namespace Profiler
             private set
             {
                 selectedPortName = value;
-                LastPortName = value;
+                UserSettings.Instance.LastPortName = value;
             }
         }
 
@@ -107,7 +78,7 @@ namespace Profiler
             private set
             {
                 selectedBaudRate = value;
-                LastBaudRate = value;
+                UserSettings.Instance.LastBaudRate = value;
             }
         }
 
