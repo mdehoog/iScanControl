@@ -28,6 +28,8 @@ namespace Profiler
         private bool selectingSavedColor = false;
         private Size initialFormSize;
         private static MainForm currentForm;
+        private bool keyboardControl = false;
+        private IgnoreCommandListener<ListValue> remoteCommandListener = new IgnoreCommandListener<ListValue>();
 
         public MainForm()
         {
@@ -501,25 +503,9 @@ namespace Profiler
             SetupIncrements();
         }
 
-        private void dayNightProfileCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ListValue value = (ListValue)dayNightProfileCombo.SelectedItem;
-            if (value != null)
-            {
-                if (value.Value == 0) //day
-                {
-                    copyProfileButton.Text = "Copy settings to Night profile";
-                }
-                else if (value.Value == 1) //night
-                {
-                    copyProfileButton.Text = "Copy settings to Day profile";
-                }
-            }
-        }
-
         private void copyProfileButton_Click(object sender, EventArgs e)
         {
-            ListValue value = (ListValue)dayNightProfileCombo.SelectedItem;
+            ListValue value = (ListValue)profileCombo.SelectedItem;
             if (value == null)
                 return;
 
@@ -552,7 +538,7 @@ namespace Profiler
                 }
 
                 //swap the profile
-                dayNightProfileCombo.SelectedItem = DuoListValues.DayNightProfileValues.ValueToValue(day ? 1 : 0);
+                profileCombo.SelectedItem = DuoListValues.DayNightProfileValues.ValueToValue(day ? 1 : 0);
                 //plug in the old values
                 for (int i = 0; i < values.Count; i++)
                 {
@@ -1130,6 +1116,81 @@ namespace Profiler
             {
                 if (writer != null) writer.Close();
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (Context.Communicator.IsConnected())
+            {
+                int? command = null;
+                if (keyData == Keys.M)
+                {
+                    //menu key
+                    keyboardControl = true;
+                    command = 5;
+                }
+                else if (keyboardControl)
+                {
+                    if (keyData == Keys.Escape)
+                    {
+                        //exit key
+                        keyboardControl = false;
+                        command = 7;
+                    }
+                    else if (keyData == Keys.Return)
+                    {
+                        command = 6;
+                    }
+                    else if (keyData == Keys.Left)
+                    {
+                        command = 1;
+                    }
+                    else if (keyData == Keys.Right)
+                    {
+                        command = 2;
+                    }
+                    else if (keyData == Keys.Up)
+                    {
+                        command = 3;
+                    }
+                    else if (keyData == Keys.Down)
+                    {
+                        command = 4;
+                    }
+                }
+                if (command.HasValue)
+                {
+                    //reset the timer
+                    int? interval =
+                        menuTimeoutCombo.SelectedItem == DuoListValues.MenuTimeoutValue40 ? 40000 :
+                        menuTimeoutCombo.SelectedItem == DuoListValues.MenuTimeoutValue160 ? 160000 :
+                        (int?)null;
+                    menuTimeoutTimer.Enabled = false;
+                    if (interval.HasValue)
+                    {
+                        menuTimeoutTimer.Interval = interval.Value;
+                        menuTimeoutTimer.Enabled = true;
+                    }
+
+                    SendRemoteCommand(command.Value);
+                    //capture the keystroke
+                    return true;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void SendRemoteCommand(int value)
+        {
+            ListCommand command = DuoCommands.RemoteButtonCommand;
+            ListValue listValue = command.ListValues.ValueToValue(value);
+            Context.Communicator.SetValue<ListValue>(command, listValue, remoteCommandListener, 0);
+        }
+
+        private void menuTimeoutTimer_Tick(object sender, EventArgs e)
+        {
+            keyboardControl = false;
+            menuTimeoutTimer.Enabled = false;
         }
     }
 }

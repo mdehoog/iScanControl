@@ -73,6 +73,11 @@ namespace Profiler.Protocol
             new ListValue("Auto", 0),
             new ListValue("ITU BT.601", 1),
             new ListValue("ITU BT.709", 2));
+        public static readonly ListValues OutputDeepColorValues = new ListValues(1,
+            new ListValue("Off", 0),
+            new ListValue("Auto", 1),
+            new ListValue("10-bit", 2),
+            new ListValue("12-bit", 3));
         public static readonly ListValues OutputVideoLevelValues = new ListValues(0,
             new ListValue("Auto", 0),
             new ListValue("Video", 1),
@@ -90,6 +95,10 @@ namespace Profiler.Protocol
             new ListValue("RGB", 1),
             new ListValue("YCbCr 4:2:2", 2),
             new ListValue("YCbCr 4:4:4", 3));
+        public static readonly ListValues InputDeepColorValues = new ListValues(0,
+            new ListValue("Off", 0),
+            new ListValue("30-bit", 1),
+            new ListValue("36-bit", 2));
         public static readonly ListValues InputColorimetryValues = new ListValues(0,
             new ListValue("Auto", 0),
             new ListValue("ITU BT.601", 1),
@@ -98,10 +107,13 @@ namespace Profiler.Protocol
             new ListValue("Off", 0),
             new ListValue("Mode 1", 1),
             new ListValue("Mode 2", 2));
+        public static readonly ListValue MenuTimeoutValueOff = new ListValue("Off", 0);
+        public static readonly ListValue MenuTimeoutValue40 = new ListValue("40 seconds", 1);
+        public static readonly ListValue MenuTimeoutValue160 = new ListValue("160 seconds", 2);
         public static readonly ListValues MenuTimeoutValues = new ListValues(1,
-            new ListValue("Off", 0),
-            new ListValue("40 seconds", 1),
-            new ListValue("160 seconds", 2));
+            MenuTimeoutValueOff,
+            MenuTimeoutValue40,
+            MenuTimeoutValue160);
         public static readonly ListValue TestPatternValueOff = new ListValue("Off", 0);
         public static readonly ListValue TestPatternValueWhite = new ListValue("White", 28);
         public static readonly ListValues TestPatternValues = new ListValues(0,
@@ -157,6 +169,17 @@ namespace Profiler.Protocol
             new ListValue("HDMI Video", 1),
             new ListValue("HDMI Audio", 2),
             new ListValue("Optical", 3));
+        public static readonly ListValues InputPictureARValues = new ListValues(2,
+            new ListValue("4:3", 1),
+            new ListValue("5:4", 3),
+            new ListValue("16:9", 2));
+        public static readonly ListValues InputActiveARValues = new ListValues(4,
+            new ListValue("4:3", 1),
+            new ListValue("1.55:1", 2),
+            new ListValue("1.66:1", 3),
+            new ListValue("16:9", 4),
+            new ListValue("1.85:1", 5),
+            new ListValue("2.35:1", 6));
         public static readonly ListValues InputARPresetValues = new ListValues(1,
             new ListValue("16:9 Full Frame", 1),
             new ListValue("4:3 Full Frame", 2),
@@ -205,6 +228,26 @@ namespace Profiler.Protocol
         public static readonly ListValues DayNightProfileValues = new ListValues(0,
             new ListValue("Day", 0),
             new ListValue("Night", 1));
+        public static readonly ListValues BitRateValues = new ListValues(4,
+            new ListValue("4800", 1),
+            new ListValue("9600", 2),
+            new ListValue("14400", 3),
+            new ListValue("19200", 4),
+            new ListValue("38400", 5),
+            new ListValue("57600", 6),
+            new ListValue("115200", 7));
+        public static readonly ListValues ComponentInputValues = new ListValues(0,
+            new ListValue("Single Sync", 0),
+            new ListValue("Triple Sync", 1),
+            new ListValue("AGC Disable", 2));
+        public static readonly ListValues FrontPanelBrightnessValues = new ListValues(3,
+            new ListValue("Off", 0),
+            new ListValue("Low", 1),
+            new ListValue("Medium", 2),
+            new ListValue("High", 3));
+        public static readonly ListValues PassThruValues = new ListValues(2,
+            new ListValue("Auto", 2),
+            new ListValue("On", 1));
 
         public static readonly ListValues RemoteButtonValues = new ListValues(-1,
             new ListValue("Menu Button", 5),

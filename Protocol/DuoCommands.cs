@@ -14,9 +14,12 @@ namespace Profiler.Protocol
         public static readonly ListCommand InputColorSpaceCommand = new ListCommand("Input Color Space", "87", true, DuoListValues.InputColorSpaceValues);
         public static readonly ListCommand InputColorimetryCommand = new ListCommand("Input Colorimetry", "EF", true, DuoListValues.InputColorimetryValues);
         public static readonly ListCommand InputVideoLevelCommand = new ListCommand("Input Video Level", "F0", true, DuoListValues.InputVideoLevelValues);
+        public static readonly ListCommand InputDeepColorCommand = new ListCommand("Input Deep Color", "F8", true, DuoListValues.InputDeepColorValues);
         public static readonly ListCommand InputChromaticityCommand = new ListCommand("Input Chromaticity", "DB", true, DuoListValues.InputChromaticityValues);
         public static readonly ListCommand HotPlugSourceCommand = new ListCommand("Hot Plug Source", "71", true, DuoListValues.HotPlugSourceValues);
         public static readonly ListCommand AudioInputCommand = new ListCommand("Audio Input", "4A", true, DuoListValues.AudioInputValues);
+        public static readonly ListCommand InputPictureARCommand = new ListCommand("Input Picture Aspect Ratio", "4E", true, DuoListValues.InputPictureARValues); //serial automation header says pictureAR is 4E, masking is F7
+        public static readonly ListCommand InputActiveARCommand = new ListCommand("Input Active Aspect Ratio", "50", true, DuoListValues.InputActiveARValues);
         public static readonly ListCommand InputARPresetsCommand = new ListCommand("Input Aspect Ratio Presets", "30", true, DuoListValues.InputARPresetValues);
         public static readonly ListCommand MosquitoNRCommand = new ListCommand("Mosquito Noise Reduction", "CA" /*"C8"*/, true, DuoListValues.MosquitoNRValues); //docs say C8, but works with CA!
         public static readonly ListCommand CueCorrectionCommand = new ListCommand("CUE Correction", "28", true, DuoListValues.CUECorrectionValues);
@@ -28,6 +31,7 @@ namespace Profiler.Protocol
         public static readonly ListCommand OutputColorimetryCommand = new ListCommand("Output Colorimetry", "E5", true, DuoListValues.OutputColorimetryValues);
         public static readonly ListCommand OutputVideoLevelCommand = new ListCommand("Output Video Level", "E6", true, DuoListValues.OutputVideoLevelValues);
         public static readonly ListCommand OutputChromaticityCommand = new ListCommand("Output Chromaticity", "DC", true, DuoListValues.OutputChromaticityValues);
+        public static readonly ListCommand OutputDeepColorCommand = new ListCommand("Output Deep Color", "F9", true, DuoListValues.OutputDeepColorValues);
         public static readonly ListCommand OutputHDCPModeCommand = new ListCommand("Output HDCP Mode", "EA", true, DuoListValues.OutputHDCPModeValues);
         public static readonly ListCommand AudioOutputCommand = new ListCommand("Audio Output", "BA", true, DuoListValues.AudioOutputValues);
         public static readonly ListCommand AutoWakeupCommand = new ListCommand("Auto Wakeup", "2E", true, DuoListValues.AutoWakeupValues);
@@ -42,6 +46,10 @@ namespace Profiler.Protocol
         public static readonly ListCommand ResetCommand = new ListCommand("Reset", "AE", false, false, DuoListValues.ResetValues);
         public static readonly ListCommand FactoryDefaultCommand = new ListCommand("Factory Default", "AC", false, false, DuoListValues.FactoryDefaultValues);
         public static readonly ListCommand FirmwareUpdateCommand = new ListCommand("Firmware Update", "AD", false, false, DuoListValues.FirmwareUpdateValues);
+        public static readonly ListCommand BitRateCommand = new ListCommand("RS232 Baud Rate", "A3", true, DuoListValues.BitRateValues);
+        public static readonly ListCommand ComponentInputsCommand = new ListCommand("Component Inputs", "FD", true, DuoListValues.ComponentInputValues);
+        public static readonly ListCommand FrontPanelBrightnessCommand = new ListCommand("Front Panel Brightness", "EC", true, DuoListValues.FrontPanelBrightnessValues);
+        public static readonly ListCommand PassThruCommand = new ListCommand("3D Pass Through", "A7", true, DuoListValues.PassThruValues);
 
         public static readonly DecimalCommand AudioDelayCommand = new DecimalCommand("Audio Delay", "4B", 0);
         public static readonly DecimalCommand HorizontalStretchCommand = new DecimalCommand("Horizontal Stretch", "40", 1, 3);
@@ -58,17 +66,22 @@ namespace Profiler.Protocol
         public static readonly DecimalCommand EdgeEnhancementCommand = new DecimalCommand("Edge Enhancement", "C9" /*"CA"*/, 0); //docs say CA, but Duo works with C9!
         public static readonly DecimalCommand UnderscanCommand = new DecimalCommand("Underscan", "8B", 0);
         public static readonly DecimalCommand BorderLevelCommand = new DecimalCommand("Border Level", "4F", 0);
-        public static readonly DecimalCommand MaskLevelCommand = new DecimalCommand("Mask Level", "4E", 0);
+        public static readonly DecimalCommand MaskLevelCommand = new DecimalCommand("Mask Level", "F7", 0); //serial automation header says pictureAR is 4E, masking is F7
 
         public static readonly BooleanCommand GameModeCommand = new BooleanCommand("Game Mode", "2D", true, false);
         public static readonly BooleanCommand InputHDCPModeCommand = new BooleanCommand("Input HDCP Mode", "86", true, true);
         public static readonly BooleanCommand OneOneFrameRateCommand = new BooleanCommand("1:1 Frame Rate", "2F", true, false);
         public static readonly BooleanCommand SecondOutputCommand = new BooleanCommand("Second Output", "75", true, false);
         public static readonly BooleanCommand AutoStandbyCommand = new BooleanCommand("Auto Standby", "83", true, true);
+        public static readonly BooleanCommand AutoInputARCommand = new BooleanCommand("Auto Input Aspect Ratio", "B0", true, true);
+        public static readonly BooleanCommand PanoramaCommand = new BooleanCommand("Panorama", "A6", true, false);
+        public static readonly BooleanCommand CMSBypassCommand = new BooleanCommand("CMS Bypass", "FA", true, false);
+        public static readonly BooleanCommand RGBsComponent1Command = new BooleanCommand("RGBs Component 1", "FB", true, false);
+        public static readonly BooleanCommand RGBsComponent2Command = new BooleanCommand("RGBs Component 2", "FC", true, false);
+        public static readonly BooleanCommand OSDInputIndicatorCommand = new BooleanCommand("OSD Input Indicator", "F6", true, true);
 
         public static readonly StringCommand ProductNameCommand = new StringCommand("Product Name", "A8");
         public static readonly StringCommand VersionNumberCommand = new StringCommand("Version Number", "A9");
-
 
         /*public static readonly DecimalCommand UCRedxCommand = new DecimalCommand("User Chromaticity - Red-x", "DD", "0", 4);
         public static readonly DecimalCommand UCRedyCommand = new DecimalCommand("User Chromaticity - Red-y", "DD", "1", 4);

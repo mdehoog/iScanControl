@@ -20,73 +20,75 @@ namespace Profiler.UI
         private IConnector[][][] colorGamutConnectors;
         private IConnector[][] grayscaleConnectors;
 
+        private IConnector autoARConnector;
+        private IConnector activeARConnector;
+        private IConnector pictureARConnector;
+        private IConnector panoramaARConnector;
+        private IConnector presetARConnector;
+
         public void ConnectControls(MainForm form)
         {
-            ConnectListControls(form);
-            ConnectBooleanControls(form);
-            ConnectDecimalControls(form);
-            ConnectMultiParameterControls(form);
-            ConnectStringControls(form);
-            ConnectButtonControls(form);
+            ConnectInputSelectControls(form);
+            ConnectOutputSelectControls(form);
+            ConnectAspectRatioControls(form);
+            ConnectInputControls(form);
+            ConnectPictureControls(form);
+            ConnectOutputControls(form);
+            ConnectConfigurationControls(form);
+            ConnectRemoteControls(form);
+            ConnectOtherControls(form);
+            ConnectCMSControls(form);
+
             ConnectSpecialControls(form);
 
             ConnectDependants();
         }
 
-        private void ConnectListControls(MainForm form)
+        private void ConnectInputSelectControls(MainForm form)
         {
             inputSelectConnector = ConnectListControl(DuoCommands.InputSelectCommand, form.inputSelectCombo, form.inputSelectLabel, CommandCategory.Input);
             inputSelectConnector.DelayAfterSet = 2000;
+        }
+
+        private void ConnectOutputSelectControls(MainForm form)
+        {
+            ConnectListControl(DuoCommands.OutputSelectCommand, form.outputSelectCombo, form.outputSelectLabel, CommandCategory.Output);
+        }
+
+        private void ConnectAspectRatioControls(MainForm form)
+        {
+            inputConnectors.Add(autoARConnector = ConnectBooleanControl(DuoCommands.AutoInputARCommand, form.autoARCheck, form.autoARLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(pictureARConnector = ConnectListControl(DuoCommands.InputPictureARCommand, form.pictureARCombo, form.pictureARLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(activeARConnector = ConnectListControl(DuoCommands.InputActiveARCommand, form.activeARCombo, form.activeARLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(horizontalStretchConnector = ConnectDecimalControl(DuoCommands.HorizontalStretchCommand, form.horizontalStretchSpinner, form.horizontalStretchLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(verticalStretchConnector = ConnectDecimalControl(DuoCommands.VerticalStretchCommand, form.verticalStretchSpinner, form.verticalStretchLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(horizontalShiftConnector = ConnectDecimalControl(DuoCommands.HorizontalShiftCommand, form.horizontalShiftSpinner, form.horizontalShiftLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(verticalShiftConnector = ConnectDecimalControl(DuoCommands.VerticalShiftCommand, form.verticalShiftSpinner, form.verticalShiftLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(ConnectDecimalControl(DuoCommands.ZoomCommand, form.zoomSpinner, form.zoomLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(panoramaARConnector = ConnectBooleanControl(DuoCommands.PanoramaCommand, form.panoramaCheck, form.panoramaLabel, CommandCategory.AspectRatio));
+            inputConnectors.Add(presetARConnector = ConnectListControl(DuoCommands.InputARPresetsCommand, form.inputARPresetsCombo, form.inputARPresetsLabel, CommandCategory.AspectRatio));
+        }
+
+        private void ConnectInputControls(MainForm form)
+        {
             inputConnectors.Add(ConnectListControl(DuoCommands.Prep480pCommand, form.prep480pCombo, form.prep480pLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.Prep1080pCommand, form.prep1080pCombo, form.prep1080pLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.DeinterlacerModeCommand, form.deinterlacerModeCombo, form.deinterlacerModeLabel, CommandCategory.Input));
+            inputConnectors.Add(ConnectBooleanControl(DuoCommands.GameModeCommand, form.gameModeCheck, form.gameModeLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.InputColorSpaceCommand, form.inputColorSpaceCombo, form.inputColorSpaceLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.InputColorimetryCommand, form.inputColorimetryCombo, form.inputColorimetryLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.InputVideoLevelCommand, form.inputVideoLevelCombo, form.inputVideoLevelLabel, CommandCategory.Input));
+            inputConnectors.Add(ConnectListControl(DuoCommands.InputDeepColorCommand, form.inputDeepColorCombo, form.inputDeepColorLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.InputChromaticityCommand, form.inputChromaticityCombo, form.inputChromaticityLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.HotPlugSourceCommand, form.hotPlugSourceCombo, form.hotPlugSourceLabel, CommandCategory.Input));
-            inputConnectors.Add(ConnectListControl(DuoCommands.AudioInputCommand, form.audioInputCombo, form.audioInputLabel, CommandCategory.Input));
-            inputConnectors.Add(ConnectListControl(DuoCommands.InputARPresetsCommand, form.inputARPresetsCombo, form.inputARPresetsLabel, CommandCategory.AspectRatio));
-            inputConnectors.Add(ConnectListControl(DuoCommands.MosquitoNRCommand, form.mosquitoNRCombo, form.mosquitoNRLabel, CommandCategory.Picture));
-            inputConnectors.Add(ConnectListControl(DuoCommands.CueCorrectionCommand, form.cueCorrectionCombo, form.cueCorrectionLabel, CommandCategory.Picture));
-            ConnectListControl(DuoCommands.OutputSelectCommand, form.outputSelectCombo, form.outputSelectLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.OutputVideoFormatCommand, form.outputVideoFormatCombo, form.outputVideoFormatLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.FrameLockModeCommand, form.frameLockModeCombo, form.frameLockModeLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.DisplayAspectRatioCommand, form.displayAspectRatioCombo, form.displayAspectRatioLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.OutputColorSpaceCommand, form.outputColorSpaceCombo, form.outputColorSpaceLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.OutputColorimetryCommand, form.outputColorimetryCombo, form.outputColorimetryLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.OutputVideoLevelCommand, form.outputVideoLevelCombo, form.outputVideoLevelLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.OutputChromaticityCommand, form.outputChromaticityCombo, form.outputChromaticityLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.OutputHDCPModeCommand, form.outputHDCPModeCombo, form.outputHDCPModeLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.AudioOutputCommand, form.audioOutputCombo, form.audioOutputLabel, CommandCategory.Output);
-            ConnectListControl(DuoCommands.AutoWakeupCommand, form.autoWakeupCombo, form.autoWakeupLabel, CommandCategory.Configuration);
-            ConnectListControl(DuoCommands.MenuTimeoutCommand, form.menuTimeoutCombo, form.menuTimeoutLabel, CommandCategory.Configuration);
-            dayNightProfileConnector = ConnectListControl(DuoCommands.DayNightCommand, form.dayNightProfileCombo, form.dayNightProfileLabel, CommandCategory.CMS);
-            ConnectListControl(DuoCommands.InfoScreenCommand, form.infoScreenCombo, form.infoScreenLabel, CommandCategory.Remote);
-            ConnectListControl(DuoCommands.TestPatternCommand, form.testPatternCombo, form.testPatternLabel, CommandCategory.Remote);
-        }
-
-        private void ConnectBooleanControls(MainForm form)
-        {
-            inputConnectors.Add(ConnectBooleanControl(DuoCommands.GameModeCommand, form.gameModeCheck, form.gameModeLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectBooleanControl(DuoCommands.InputHDCPModeCommand, form.inputHDCPModeCheck, form.inputHDCPModeLabel, CommandCategory.Input));
-            ConnectBooleanControl(DuoCommands.OneOneFrameRateCommand, form.oneOneFrameRateCheck, form.oneOneFrameRateLabel, CommandCategory.Output);
-            ConnectBooleanControl(DuoCommands.SecondOutputCommand, form.secondOutputCheck, form.secondOutputLabel, CommandCategory.Output);
-            ConnectBooleanControl(DuoCommands.AutoStandbyCommand, form.autoStandbyCheck, form.autoStandbyLabel, CommandCategory.Configuration);
+            inputConnectors.Add(ConnectListControl(DuoCommands.PassThruCommand, form.passThruCombo, form.passThruLabel, CommandCategory.Configuration));
+            inputConnectors.Add(ConnectListControl(DuoCommands.AudioInputCommand, form.audioInputCombo, form.audioInputLabel, CommandCategory.Input));
+            inputConnectors.Add(ConnectDecimalControl(DuoCommands.AudioDelayCommand, form.audioDelaySpinner, form.audioDelayLabel, CommandCategory.Input));
         }
 
-        private void ConnectDecimalControls(MainForm form)
+        private void ConnectPictureControls(MainForm form)
         {
-            inputConnectors.Add(ConnectDecimalControl(DuoCommands.AudioDelayCommand, form.audioDelaySpinner, form.audioDelayLabel, CommandCategory.Input));
-            horizontalStretchConnector = ConnectDecimalControl(DuoCommands.HorizontalStretchCommand, form.horizontalStretchSpinner, form.horizontalStretchLabel, CommandCategory.AspectRatio);
-            verticalStretchConnector = ConnectDecimalControl(DuoCommands.VerticalStretchCommand, form.verticalStretchSpinner, form.verticalStretchLabel, CommandCategory.AspectRatio);
-            horizontalShiftConnector = ConnectDecimalControl(DuoCommands.HorizontalShiftCommand, form.horizontalShiftSpinner, form.horizontalShiftLabel, CommandCategory.AspectRatio);
-            verticalShiftConnector = ConnectDecimalControl(DuoCommands.VerticalShiftCommand, form.verticalShiftSpinner, form.verticalShiftLabel, CommandCategory.AspectRatio);
-            inputConnectors.Add(horizontalStretchConnector);
-            inputConnectors.Add(verticalStretchConnector);
-            inputConnectors.Add(horizontalShiftConnector);
-            inputConnectors.Add(verticalShiftConnector);
-            inputConnectors.Add(ConnectDecimalControl(DuoCommands.ZoomCommand, form.zoomSpinner, form.zoomLabel, CommandCategory.AspectRatio));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.BrightnessCommand, form.brightnessSpinner, form.brightnessLabel, CommandCategory.Picture));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.ContrastCommand, form.contrastSpinner, form.contrastLabel, CommandCategory.Picture));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.SaturationCommand, form.saturationSpinner, form.saturationLabel, CommandCategory.Picture));
@@ -94,13 +96,72 @@ namespace Profiler.UI
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.YCDelayCommand, form.ycDelaySpinner, form.ycDelayLabel, CommandCategory.Picture));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.DetailEnhancementCommand, form.detailEnhancementSpinner, form.detailEnhancementLabel, CommandCategory.Picture));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.EdgeEnhancementCommand, form.edgeEnhancementSpinner, form.edgeEnhancementLabel, CommandCategory.Picture));
-            ConnectDecimalControl(DuoCommands.UnderscanCommand, form.underscanSpinner, form.underscanLabel, CommandCategory.Output);
-            ConnectDecimalControl(DuoCommands.BorderLevelCommand, form.borderLevelSpinner, form.borderLevelLabel, CommandCategory.Output);
-            ConnectDecimalControl(DuoCommands.MaskLevelCommand, form.maskLevelSpinner, form.maskLevelLabel, CommandCategory.Output);
+            inputConnectors.Add(ConnectListControl(DuoCommands.MosquitoNRCommand, form.mosquitoNRCombo, form.mosquitoNRLabel, CommandCategory.Picture));
+            inputConnectors.Add(ConnectListControl(DuoCommands.CueCorrectionCommand, form.cueCorrectionCombo, form.cueCorrectionLabel, CommandCategory.Picture));
         }
 
-        private void ConnectMultiParameterControls(MainForm form)
+        private void ConnectOutputControls(MainForm form)
         {
+            ConnectBooleanControl(DuoCommands.SecondOutputCommand, form.secondOutputCheck, form.secondOutputLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.OutputVideoFormatCommand, form.outputVideoFormatCombo, form.outputVideoFormatLabel, CommandCategory.Output);
+            ConnectDecimalControl(DuoCommands.UnderscanCommand, form.underscanSpinner, form.underscanLabel, CommandCategory.Output);
+            ConnectBooleanControl(DuoCommands.OneOneFrameRateCommand, form.oneOneFrameRateCheck, form.oneOneFrameRateLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.FrameLockModeCommand, form.frameLockModeCombo, form.frameLockModeLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.DisplayAspectRatioCommand, form.displayAspectRatioCombo, form.displayAspectRatioLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.OutputColorSpaceCommand, form.outputColorSpaceCombo, form.outputColorSpaceLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.OutputColorimetryCommand, form.outputColorimetryCombo, form.outputColorimetryLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.OutputVideoLevelCommand, form.outputVideoLevelCombo, form.outputVideoLevelLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.OutputChromaticityCommand, form.outputChromaticityCombo, form.outputChromaticityLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.OutputDeepColorCommand, form.outputDeepColorCombo, form.outputDeepColorLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.OutputHDCPModeCommand, form.outputHDCPModeCombo, form.outputHDCPModeLabel, CommandCategory.Output);
+            ConnectDecimalControl(DuoCommands.BorderLevelCommand, form.borderLevelSpinner, form.borderLevelLabel, CommandCategory.Output);
+            ConnectDecimalControl(DuoCommands.MaskLevelCommand, form.maskLevelSpinner, form.maskLevelLabel, CommandCategory.Output);
+            ConnectListControl(DuoCommands.AudioOutputCommand, form.audioOutputCombo, form.audioOutputLabel, CommandCategory.Output);
+        }
+
+        private void ConnectConfigurationControls(MainForm form)
+        {
+            ConnectBooleanControl(DuoCommands.AutoStandbyCommand, form.autoStandbyCheck, form.autoStandbyLabel, CommandCategory.Configuration);
+            ConnectListControl(DuoCommands.AutoWakeupCommand, form.autoWakeupCombo, form.autoWakeupLabel, CommandCategory.Configuration);
+            ConnectListControl(DuoCommands.BitRateCommand, form.bitRateCombo, form.bitRateLabel, CommandCategory.Configuration);
+            ConnectListControl(DuoCommands.ComponentInputsCommand, form.componentInputsCombo, form.componentInputsLabel, CommandCategory.Configuration);
+            ConnectBooleanControl(DuoCommands.RGBsComponent1Command, form.rgbsComponent1Check, form.rgbsComponent1Label, CommandCategory.Configuration);
+            ConnectBooleanControl(DuoCommands.RGBsComponent2Command, form.rgbsComponent2Check, form.rgbsComponent2Label, CommandCategory.Configuration);
+            ConnectListControl(DuoCommands.MenuTimeoutCommand, form.menuTimeoutCombo, form.menuTimeoutLabel, CommandCategory.Configuration);
+            ConnectListControl(DuoCommands.FrontPanelBrightnessCommand, form.frontPanelBrightnessCombo, form.frontPanelBrightnessLabel, CommandCategory.Configuration);
+            ConnectBooleanControl(DuoCommands.OSDInputIndicatorCommand, form.osdInputIndicatorCheck, form.osdInputIndicatorLabel, CommandCategory.Configuration);
+        }
+
+        private void ConnectRemoteControls(MainForm form)
+        {
+            ConnectListControl(DuoCommands.InfoScreenCommand, form.infoScreenCombo, form.infoScreenLabel, CommandCategory.Remote);
+            ConnectListControl(DuoCommands.TestPatternCommand, form.testPatternCombo, form.testPatternLabel, CommandCategory.Remote);
+
+            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 1, form.leftButton, CommandCategory.Remote);
+            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 2, form.rightButton, CommandCategory.Remote);
+            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 3, form.upButton, CommandCategory.Remote);
+            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 4, form.downButton, CommandCategory.Remote);
+            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 5, form.menuButton, CommandCategory.Remote);
+            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 6, form.enterButton, CommandCategory.Remote);
+            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 7, form.exitButton, CommandCategory.Remote);
+        }
+
+        private void ConnectOtherControls(MainForm form)
+        {
+            ConnectStringControl(DuoCommands.ProductNameCommand, form.productNameText, form.productNameLabel, CommandCategory.Other);
+            ConnectStringControl(DuoCommands.VersionNumberCommand, form.versionNumberText, form.versionNumberLabel, CommandCategory.Other);
+
+            ConnectButtonControl(DuoCommands.PowerCommand, 0, form.offButton, CommandCategory.Other);
+            ConnectButtonControl(DuoCommands.PowerCommand, 1, form.onButton, CommandCategory.Other);
+            ConnectButtonControl(DuoCommands.ResetCommand, 0, form.resetButton, CommandCategory.Other);
+            ConnectButtonControl(DuoCommands.FirmwareUpdateCommand, 0, form.firmwareUpdateButton, CommandCategory.Other);
+        }
+
+        private void ConnectCMSControls(MainForm form)
+        {
+            dayNightProfileConnector = ConnectListControl(DuoCommands.DayNightCommand, form.profileCombo, form.dayNightProfileLabel, CommandCategory.CMS);
+            ConnectBooleanControl(DuoCommands.CMSBypassCommand, form.bypassCMSCheck, null, CommandCategory.CMS);
+
             /*ConnectMultiParameterControls(new DecimalCommand[][]
             {
                 new DecimalCommand[]{ DuoCommands.UCRedxCommand, DuoCommands.UCRedyCommand },
@@ -183,30 +244,6 @@ namespace Profiler.UI
             {
                 form.g0Label, form.g10Label, form.g20Label, form.g30Label, form.g40Label, form.g50Label, form.g60Label, form.g70Label, form.g80Label, form.g90Label, form.g100Label
             }, CommandCategory.CMS);
-        }
-
-        private void ConnectStringControls(MainForm form)
-        {
-            ConnectStringControl(DuoCommands.ProductNameCommand, form.productNameText, form.productNameLabel, CommandCategory.Other);
-            ConnectStringControl(DuoCommands.VersionNumberCommand, form.versionNumberText, form.versionNumberLabel, CommandCategory.Other);
-        }
-
-        private void ConnectButtonControls(MainForm form)
-        {
-            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 1, form.leftButton, CommandCategory.Remote);
-            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 2, form.rightButton, CommandCategory.Remote);
-            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 3, form.upButton, CommandCategory.Remote);
-            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 4, form.downButton, CommandCategory.Remote);
-            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 5, form.menuButton, CommandCategory.Remote);
-            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 6, form.enterButton, CommandCategory.Remote);
-            ConnectButtonControl(DuoCommands.RemoteButtonCommand, 7, form.exitButton, CommandCategory.Remote);
-
-            ConnectButtonControl(DuoCommands.PowerCommand, 0, form.offButton, CommandCategory.Other);
-            ConnectButtonControl(DuoCommands.PowerCommand, 1, form.onButton, CommandCategory.Other);
-
-            ConnectButtonControl(DuoCommands.ResetCommand, 0, form.resetButton, CommandCategory.Other);
-
-            ConnectButtonControl(DuoCommands.FirmwareUpdateCommand, 0, form.firmwareUpdateButton, CommandCategory.Other);
         }
 
         private void ConnectSpecialControls(MainForm form)
@@ -303,6 +340,22 @@ namespace Profiler.UI
             {
                 inputSelectConnector.AddDependantConnector(connector);
             }
+
+            autoARConnector.AddDependantConnector(presetARConnector);
+            autoARConnector.AddDependantConnector(activeARConnector);
+            autoARConnector.AddDependantConnector(pictureARConnector);
+            autoARConnector.AddDependantConnector(panoramaARConnector);
+            
+            presetARConnector.AddDependantConnector(autoARConnector);
+            presetARConnector.AddDependantConnector(activeARConnector);
+            presetARConnector.AddDependantConnector(pictureARConnector);
+            presetARConnector.AddDependantConnector(panoramaARConnector);
+
+            activeARConnector.AddDependantConnector(autoARConnector);
+            activeARConnector.AddDependantConnector(panoramaARConnector);
+
+            pictureARConnector.AddDependantConnector(autoARConnector);
+            panoramaARConnector.AddDependantConnector(autoARConnector);
         }
     }
 }

@@ -32,31 +32,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.settingsTab = new System.Windows.Forms.TabPage();
-            this.otherGroup = new System.Windows.Forms.GroupBox();
-            this.onButton = new System.Windows.Forms.Button();
-            this.firmwareUpdateButton = new System.Windows.Forms.Button();
-            this.offButton = new System.Windows.Forms.Button();
-            this.factoryDefaultCombo = new System.Windows.Forms.ComboBox();
-            this.factoryDefaultLabel = new System.Windows.Forms.Label();
-            this.versionNumberText = new System.Windows.Forms.TextBox();
-            this.resetButton = new System.Windows.Forms.Button();
-            this.productNameText = new System.Windows.Forms.TextBox();
-            this.productNameLabel = new System.Windows.Forms.Label();
-            this.versionNumberLabel = new System.Windows.Forms.Label();
             this.aspectRatioGroup = new System.Windows.Forms.GroupBox();
+            this.activeARCombo = new System.Windows.Forms.ComboBox();
+            this.pictureARCombo = new System.Windows.Forms.ComboBox();
+            this.autoARCheck = new System.Windows.Forms.CheckBox();
+            this.panoramaCheck = new System.Windows.Forms.CheckBox();
+            this.verticalStretchLabel = new System.Windows.Forms.Label();
+            this.verticalShiftLabel = new System.Windows.Forms.Label();
+            this.panoramaLabel = new System.Windows.Forms.Label();
+            this.activeARLabel = new System.Windows.Forms.Label();
+            this.pictureARLabel = new System.Windows.Forms.Label();
+            this.autoARLabel = new System.Windows.Forms.Label();
             this.inputARPresetsCombo = new System.Windows.Forms.ComboBox();
             this.inputARPresetsLabel = new System.Windows.Forms.Label();
             this.horizontalStretchLabel = new System.Windows.Forms.Label();
             this.zoomLabel = new System.Windows.Forms.Label();
-            this.verticalStretchLabel = new System.Windows.Forms.Label();
             this.horizontalShiftLabel = new System.Windows.Forms.Label();
-            this.verticalShiftLabel = new System.Windows.Forms.Label();
             this.zoomSpinner = new System.Windows.Forms.NumericUpDown();
             this.horizontalStretchSpinner = new System.Windows.Forms.NumericUpDown();
             this.verticalStretchSpinner = new System.Windows.Forms.NumericUpDown();
             this.horizontalShiftSpinner = new System.Windows.Forms.NumericUpDown();
             this.verticalShiftSpinner = new System.Windows.Forms.NumericUpDown();
             this.inputAdjustGroup = new System.Windows.Forms.GroupBox();
+            this.passThruLabel = new System.Windows.Forms.Label();
+            this.inputDeepColorCombo = new System.Windows.Forms.ComboBox();
+            this.passThruCombo = new System.Windows.Forms.ComboBox();
+            this.inputDeepColorLabel = new System.Windows.Forms.Label();
             this.gameModeCheck = new System.Windows.Forms.CheckBox();
             this.prep480pLabel = new System.Windows.Forms.Label();
             this.prep1080pLabel = new System.Windows.Forms.Label();
@@ -82,29 +83,9 @@
             this.audioInputLabel = new System.Windows.Forms.Label();
             this.audioDelaySpinner = new System.Windows.Forms.NumericUpDown();
             this.audioDelayLabel = new System.Windows.Forms.Label();
-            this.remoteGroup = new System.Windows.Forms.GroupBox();
-            this.testPatternCombo = new System.Windows.Forms.ComboBox();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.testPatternLabel = new System.Windows.Forms.Label();
-            this.leftButton = new System.Windows.Forms.Button();
-            this.rightButton = new System.Windows.Forms.Button();
-            this.upButton = new System.Windows.Forms.Button();
-            this.downButton = new System.Windows.Forms.Button();
-            this.infoScreenCombo = new System.Windows.Forms.ComboBox();
-            this.menuButton = new System.Windows.Forms.Button();
-            this.enterButton = new System.Windows.Forms.Button();
-            this.infoScreenLabel = new System.Windows.Forms.Label();
-            this.configurationGroup = new System.Windows.Forms.GroupBox();
-            this.autoStandbyLabel = new System.Windows.Forms.Label();
-            this.menuTimeoutLabel = new System.Windows.Forms.Label();
-            this.menuTimeoutCombo = new System.Windows.Forms.ComboBox();
-            this.autoStandbyCheck = new System.Windows.Forms.CheckBox();
-            this.autoWakeupLabel = new System.Windows.Forms.Label();
-            this.autoWakeupCombo = new System.Windows.Forms.ComboBox();
-            this.outputGroup = new System.Windows.Forms.GroupBox();
-            this.outputSelectCombo = new System.Windows.Forms.ComboBox();
-            this.outputSelectLabel = new System.Windows.Forms.Label();
             this.outputSetupGroup = new System.Windows.Forms.GroupBox();
+            this.outputDeepColorCombo = new System.Windows.Forms.ComboBox();
+            this.outputDeepColorLabel = new System.Windows.Forms.Label();
             this.outputColorimetryCombo = new System.Windows.Forms.ComboBox();
             this.audioOutputCombo = new System.Windows.Forms.ComboBox();
             this.outputChromaticityCombo = new System.Windows.Forms.ComboBox();
@@ -136,6 +117,9 @@
             this.frameLockModeLabel = new System.Windows.Forms.Label();
             this.outputColorSpaceLabel = new System.Windows.Forms.Label();
             this.outputVideoLevelLabel = new System.Windows.Forms.Label();
+            this.outputGroup = new System.Windows.Forms.GroupBox();
+            this.outputSelectCombo = new System.Windows.Forms.ComboBox();
+            this.outputSelectLabel = new System.Windows.Forms.Label();
             this.inputGroup = new System.Windows.Forms.GroupBox();
             this.inputSelectCombo = new System.Windows.Forms.ComboBox();
             this.inputSelectLabel = new System.Windows.Forms.Label();
@@ -158,6 +142,49 @@
             this.mosquitoNRLabel = new System.Windows.Forms.Label();
             this.cueCorrectionCombo = new System.Windows.Forms.ComboBox();
             this.cueCorrectionLabel = new System.Windows.Forms.Label();
+            this.configurationTab = new System.Windows.Forms.TabPage();
+            this.otherGroup = new System.Windows.Forms.GroupBox();
+            this.onButton = new System.Windows.Forms.Button();
+            this.firmwareUpdateButton = new System.Windows.Forms.Button();
+            this.offButton = new System.Windows.Forms.Button();
+            this.factoryDefaultCombo = new System.Windows.Forms.ComboBox();
+            this.factoryDefaultLabel = new System.Windows.Forms.Label();
+            this.versionNumberText = new System.Windows.Forms.TextBox();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.productNameText = new System.Windows.Forms.TextBox();
+            this.productNameLabel = new System.Windows.Forms.Label();
+            this.versionNumberLabel = new System.Windows.Forms.Label();
+            this.remoteGroup = new System.Windows.Forms.GroupBox();
+            this.testPatternCombo = new System.Windows.Forms.ComboBox();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.testPatternLabel = new System.Windows.Forms.Label();
+            this.leftButton = new System.Windows.Forms.Button();
+            this.rightButton = new System.Windows.Forms.Button();
+            this.upButton = new System.Windows.Forms.Button();
+            this.downButton = new System.Windows.Forms.Button();
+            this.infoScreenCombo = new System.Windows.Forms.ComboBox();
+            this.menuButton = new System.Windows.Forms.Button();
+            this.enterButton = new System.Windows.Forms.Button();
+            this.infoScreenLabel = new System.Windows.Forms.Label();
+            this.configurationGroup = new System.Windows.Forms.GroupBox();
+            this.rgbsComponent1Label = new System.Windows.Forms.Label();
+            this.rgbsComponent2Label = new System.Windows.Forms.Label();
+            this.frontPanelBrightnessLabel = new System.Windows.Forms.Label();
+            this.menuTimeoutLabel = new System.Windows.Forms.Label();
+            this.menuTimeoutCombo = new System.Windows.Forms.ComboBox();
+            this.osdInputIndicatorLabel = new System.Windows.Forms.Label();
+            this.osdInputIndicatorCheck = new System.Windows.Forms.CheckBox();
+            this.frontPanelBrightnessCombo = new System.Windows.Forms.ComboBox();
+            this.rgbsComponent2Check = new System.Windows.Forms.CheckBox();
+            this.rgbsComponent1Check = new System.Windows.Forms.CheckBox();
+            this.componentInputsCombo = new System.Windows.Forms.ComboBox();
+            this.bitRateCombo = new System.Windows.Forms.ComboBox();
+            this.autoStandbyLabel = new System.Windows.Forms.Label();
+            this.autoStandbyCheck = new System.Windows.Forms.CheckBox();
+            this.componentInputsLabel = new System.Windows.Forms.Label();
+            this.autoWakeupLabel = new System.Windows.Forms.Label();
+            this.bitRateLabel = new System.Windows.Forms.Label();
+            this.autoWakeupCombo = new System.Windows.Forms.ComboBox();
             this.cmsTab = new System.Windows.Forms.TabPage();
             this.incrementGroup = new System.Windows.Forms.GroupBox();
             this.oneIncrementRadio = new System.Windows.Forms.RadioButton();
@@ -187,8 +214,9 @@
             this.ucGreenLabel = new System.Windows.Forms.Label();
             this.ucRedLabel = new System.Windows.Forms.Label();
             this.profileGroup = new System.Windows.Forms.GroupBox();
+            this.bypassCMSCheck = new System.Windows.Forms.CheckBox();
             this.copyProfileButton = new System.Windows.Forms.Button();
-            this.dayNightProfileCombo = new System.Windows.Forms.ComboBox();
+            this.profileCombo = new System.Windows.Forms.ComboBox();
             this.dayNightProfileLabel = new System.Windows.Forms.Label();
             this.colorGamutGroup = new System.Windows.Forms.GroupBox();
             this.cgCyancYSpinner = new System.Windows.Forms.NumericUpDown();
@@ -429,9 +457,9 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.menuTimeoutTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl.SuspendLayout();
             this.settingsTab.SuspendLayout();
-            this.otherGroup.SuspendLayout();
             this.aspectRatioGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horizontalStretchSpinner)).BeginInit();
@@ -440,13 +468,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.verticalShiftSpinner)).BeginInit();
             this.inputAdjustGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.audioDelaySpinner)).BeginInit();
-            this.remoteGroup.SuspendLayout();
-            this.configurationGroup.SuspendLayout();
-            this.outputGroup.SuspendLayout();
             this.outputSetupGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maskLevelSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.borderLevelSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.underscanSpinner)).BeginInit();
+            this.outputGroup.SuspendLayout();
             this.inputGroup.SuspendLayout();
             this.pictureGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brightnessSpinner)).BeginInit();
@@ -456,6 +482,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ycDelaySpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailEnhancementSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeEnhancementSpinner)).BeginInit();
+            this.configurationTab.SuspendLayout();
+            this.otherGroup.SuspendLayout();
+            this.remoteGroup.SuspendLayout();
+            this.configurationGroup.SuspendLayout();
             this.cmsTab.SuspendLayout();
             this.incrementGroup.SuspendLayout();
             this.testPatternGroup.SuspendLayout();
@@ -595,160 +625,153 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.settingsTab);
+            this.tabControl.Controls.Add(this.configurationTab);
             this.tabControl.Controls.Add(this.cmsTab);
             this.tabControl.Controls.Add(this.customTab);
             this.tabControl.Location = new System.Drawing.Point(12, 27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(843, 482);
+            this.tabControl.Size = new System.Drawing.Size(825, 453);
             this.tabControl.TabIndex = 0;
             // 
             // settingsTab
             // 
-            this.settingsTab.Controls.Add(this.otherGroup);
             this.settingsTab.Controls.Add(this.aspectRatioGroup);
             this.settingsTab.Controls.Add(this.inputAdjustGroup);
-            this.settingsTab.Controls.Add(this.remoteGroup);
-            this.settingsTab.Controls.Add(this.configurationGroup);
-            this.settingsTab.Controls.Add(this.outputGroup);
             this.settingsTab.Controls.Add(this.outputSetupGroup);
+            this.settingsTab.Controls.Add(this.outputGroup);
             this.settingsTab.Controls.Add(this.inputGroup);
             this.settingsTab.Controls.Add(this.pictureGroup);
             this.settingsTab.Location = new System.Drawing.Point(4, 22);
             this.settingsTab.Name = "settingsTab";
             this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.settingsTab.Size = new System.Drawing.Size(835, 456);
+            this.settingsTab.Size = new System.Drawing.Size(817, 427);
             this.settingsTab.TabIndex = 1;
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
             // 
-            // otherGroup
-            // 
-            this.otherGroup.Controls.Add(this.onButton);
-            this.otherGroup.Controls.Add(this.firmwareUpdateButton);
-            this.otherGroup.Controls.Add(this.offButton);
-            this.otherGroup.Controls.Add(this.factoryDefaultCombo);
-            this.otherGroup.Controls.Add(this.factoryDefaultLabel);
-            this.otherGroup.Controls.Add(this.versionNumberText);
-            this.otherGroup.Controls.Add(this.resetButton);
-            this.otherGroup.Controls.Add(this.productNameText);
-            this.otherGroup.Controls.Add(this.productNameLabel);
-            this.otherGroup.Controls.Add(this.versionNumberLabel);
-            this.otherGroup.Location = new System.Drawing.Point(628, 288);
-            this.otherGroup.Name = "otherGroup";
-            this.otherGroup.Size = new System.Drawing.Size(201, 161);
-            this.otherGroup.TabIndex = 8;
-            this.otherGroup.TabStop = false;
-            this.otherGroup.Text = "Other";
-            // 
-            // onButton
-            // 
-            this.onButton.Location = new System.Drawing.Point(30, 19);
-            this.onButton.Name = "onButton";
-            this.onButton.Size = new System.Drawing.Size(43, 23);
-            this.onButton.TabIndex = 0;
-            this.onButton.Text = "On";
-            this.onButton.UseVisualStyleBackColor = true;
-            // 
-            // firmwareUpdateButton
-            // 
-            this.firmwareUpdateButton.Location = new System.Drawing.Point(30, 127);
-            this.firmwareUpdateButton.Name = "firmwareUpdateButton";
-            this.firmwareUpdateButton.Size = new System.Drawing.Size(141, 23);
-            this.firmwareUpdateButton.TabIndex = 9;
-            this.firmwareUpdateButton.Text = "Firmware Update";
-            this.firmwareUpdateButton.UseVisualStyleBackColor = true;
-            // 
-            // offButton
-            // 
-            this.offButton.Location = new System.Drawing.Point(79, 19);
-            this.offButton.Name = "offButton";
-            this.offButton.Size = new System.Drawing.Size(43, 23);
-            this.offButton.TabIndex = 1;
-            this.offButton.Text = "Off";
-            this.offButton.UseVisualStyleBackColor = true;
-            // 
-            // factoryDefaultCombo
-            // 
-            this.factoryDefaultCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.factoryDefaultCombo.FormattingEnabled = true;
-            this.factoryDefaultCombo.Location = new System.Drawing.Point(95, 100);
-            this.factoryDefaultCombo.Name = "factoryDefaultCombo";
-            this.factoryDefaultCombo.Size = new System.Drawing.Size(100, 21);
-            this.factoryDefaultCombo.TabIndex = 8;
-            // 
-            // factoryDefaultLabel
-            // 
-            this.factoryDefaultLabel.AutoSize = true;
-            this.factoryDefaultLabel.Location = new System.Drawing.Point(7, 103);
-            this.factoryDefaultLabel.Name = "factoryDefaultLabel";
-            this.factoryDefaultLabel.Size = new System.Drawing.Size(82, 13);
-            this.factoryDefaultLabel.TabIndex = 7;
-            this.factoryDefaultLabel.Text = "Factory Default:";
-            // 
-            // versionNumberText
-            // 
-            this.versionNumberText.Location = new System.Drawing.Point(95, 74);
-            this.versionNumberText.Name = "versionNumberText";
-            this.versionNumberText.ReadOnly = true;
-            this.versionNumberText.Size = new System.Drawing.Size(100, 20);
-            this.versionNumberText.TabIndex = 6;
-            // 
-            // resetButton
-            // 
-            this.resetButton.Location = new System.Drawing.Point(128, 19);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(43, 23);
-            this.resetButton.TabIndex = 2;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
-            // 
-            // productNameText
-            // 
-            this.productNameText.Location = new System.Drawing.Point(95, 48);
-            this.productNameText.Name = "productNameText";
-            this.productNameText.ReadOnly = true;
-            this.productNameText.Size = new System.Drawing.Size(100, 20);
-            this.productNameText.TabIndex = 4;
-            // 
-            // productNameLabel
-            // 
-            this.productNameLabel.AutoSize = true;
-            this.productNameLabel.Location = new System.Drawing.Point(11, 51);
-            this.productNameLabel.Name = "productNameLabel";
-            this.productNameLabel.Size = new System.Drawing.Size(78, 13);
-            this.productNameLabel.TabIndex = 3;
-            this.productNameLabel.Text = "Product Name:";
-            // 
-            // versionNumberLabel
-            // 
-            this.versionNumberLabel.AutoSize = true;
-            this.versionNumberLabel.Location = new System.Drawing.Point(4, 77);
-            this.versionNumberLabel.Name = "versionNumberLabel";
-            this.versionNumberLabel.Size = new System.Drawing.Size(85, 13);
-            this.versionNumberLabel.TabIndex = 5;
-            this.versionNumberLabel.Text = "Version Number:";
-            // 
             // aspectRatioGroup
             // 
+            this.aspectRatioGroup.Controls.Add(this.activeARCombo);
+            this.aspectRatioGroup.Controls.Add(this.pictureARCombo);
+            this.aspectRatioGroup.Controls.Add(this.autoARCheck);
+            this.aspectRatioGroup.Controls.Add(this.panoramaCheck);
+            this.aspectRatioGroup.Controls.Add(this.verticalStretchLabel);
+            this.aspectRatioGroup.Controls.Add(this.verticalShiftLabel);
+            this.aspectRatioGroup.Controls.Add(this.panoramaLabel);
+            this.aspectRatioGroup.Controls.Add(this.activeARLabel);
+            this.aspectRatioGroup.Controls.Add(this.pictureARLabel);
+            this.aspectRatioGroup.Controls.Add(this.autoARLabel);
             this.aspectRatioGroup.Controls.Add(this.inputARPresetsCombo);
             this.aspectRatioGroup.Controls.Add(this.inputARPresetsLabel);
             this.aspectRatioGroup.Controls.Add(this.horizontalStretchLabel);
             this.aspectRatioGroup.Controls.Add(this.zoomLabel);
-            this.aspectRatioGroup.Controls.Add(this.verticalStretchLabel);
             this.aspectRatioGroup.Controls.Add(this.horizontalShiftLabel);
-            this.aspectRatioGroup.Controls.Add(this.verticalShiftLabel);
             this.aspectRatioGroup.Controls.Add(this.zoomSpinner);
             this.aspectRatioGroup.Controls.Add(this.horizontalStretchSpinner);
             this.aspectRatioGroup.Controls.Add(this.verticalStretchSpinner);
             this.aspectRatioGroup.Controls.Add(this.horizontalShiftSpinner);
             this.aspectRatioGroup.Controls.Add(this.verticalShiftSpinner);
-            this.aspectRatioGroup.Location = new System.Drawing.Point(213, 6);
+            this.aspectRatioGroup.Location = new System.Drawing.Point(6, 118);
             this.aspectRatioGroup.Name = "aspectRatioGroup";
-            this.aspectRatioGroup.Size = new System.Drawing.Size(188, 177);
+            this.aspectRatioGroup.Size = new System.Drawing.Size(182, 279);
             this.aspectRatioGroup.TabIndex = 2;
             this.aspectRatioGroup.TabStop = false;
-            this.aspectRatioGroup.Text = "Aspect Ratio";
+            this.aspectRatioGroup.Text = "Input Aspect Ratio";
+            // 
+            // activeARCombo
+            // 
+            this.activeARCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.activeARCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.activeARCombo.FormattingEnabled = true;
+            this.activeARCombo.Location = new System.Drawing.Point(87, 69);
+            this.activeARCombo.Name = "activeARCombo";
+            this.activeARCombo.Size = new System.Drawing.Size(65, 21);
+            this.activeARCombo.TabIndex = 28;
+            // 
+            // pictureARCombo
+            // 
+            this.pictureARCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pictureARCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.pictureARCombo.FormattingEnabled = true;
+            this.pictureARCombo.Location = new System.Drawing.Point(87, 42);
+            this.pictureARCombo.Name = "pictureARCombo";
+            this.pictureARCombo.Size = new System.Drawing.Size(65, 21);
+            this.pictureARCombo.TabIndex = 26;
+            // 
+            // autoARCheck
+            // 
+            this.autoARCheck.AutoSize = true;
+            this.autoARCheck.Location = new System.Drawing.Point(87, 19);
+            this.autoARCheck.Name = "autoARCheck";
+            this.autoARCheck.Size = new System.Drawing.Size(65, 17);
+            this.autoARCheck.TabIndex = 27;
+            this.autoARCheck.Text = "Enabled";
+            this.autoARCheck.UseVisualStyleBackColor = true;
+            // 
+            // panoramaCheck
+            // 
+            this.panoramaCheck.AutoSize = true;
+            this.panoramaCheck.Location = new System.Drawing.Point(87, 226);
+            this.panoramaCheck.Name = "panoramaCheck";
+            this.panoramaCheck.Size = new System.Drawing.Size(65, 17);
+            this.panoramaCheck.TabIndex = 26;
+            this.panoramaCheck.Text = "Enabled";
+            this.panoramaCheck.UseVisualStyleBackColor = true;
+            // 
+            // verticalStretchLabel
+            // 
+            this.verticalStretchLabel.AutoSize = true;
+            this.verticalStretchLabel.Location = new System.Drawing.Point(12, 124);
+            this.verticalStretchLabel.Name = "verticalStretchLabel";
+            this.verticalStretchLabel.Size = new System.Drawing.Size(69, 13);
+            this.verticalStretchLabel.TabIndex = 17;
+            this.verticalStretchLabel.Text = "Vert. Stretch:";
+            // 
+            // verticalShiftLabel
+            // 
+            this.verticalShiftLabel.AutoSize = true;
+            this.verticalShiftLabel.Location = new System.Drawing.Point(25, 176);
+            this.verticalShiftLabel.Name = "verticalShiftLabel";
+            this.verticalShiftLabel.Size = new System.Drawing.Size(56, 13);
+            this.verticalShiftLabel.TabIndex = 16;
+            this.verticalShiftLabel.Text = "Vert. Shift:";
+            // 
+            // panoramaLabel
+            // 
+            this.panoramaLabel.AutoSize = true;
+            this.panoramaLabel.Location = new System.Drawing.Point(23, 226);
+            this.panoramaLabel.Name = "panoramaLabel";
+            this.panoramaLabel.Size = new System.Drawing.Size(58, 13);
+            this.panoramaLabel.TabIndex = 15;
+            this.panoramaLabel.Text = "Panorama:";
+            // 
+            // activeARLabel
+            // 
+            this.activeARLabel.AutoSize = true;
+            this.activeARLabel.Location = new System.Drawing.Point(41, 72);
+            this.activeARLabel.Name = "activeARLabel";
+            this.activeARLabel.Size = new System.Drawing.Size(40, 13);
+            this.activeARLabel.TabIndex = 14;
+            this.activeARLabel.Text = "Active:";
+            // 
+            // pictureARLabel
+            // 
+            this.pictureARLabel.AutoSize = true;
+            this.pictureARLabel.Location = new System.Drawing.Point(38, 45);
+            this.pictureARLabel.Name = "pictureARLabel";
+            this.pictureARLabel.Size = new System.Drawing.Size(43, 13);
+            this.pictureARLabel.TabIndex = 13;
+            this.pictureARLabel.Text = "Picture:";
+            // 
+            // autoARLabel
+            // 
+            this.autoARLabel.AutoSize = true;
+            this.autoARLabel.Location = new System.Drawing.Point(49, 20);
+            this.autoARLabel.Name = "autoARLabel";
+            this.autoARLabel.Size = new System.Drawing.Size(32, 13);
+            this.autoARLabel.TabIndex = 12;
+            this.autoARLabel.Text = "Auto:";
             // 
             // inputARPresetsCombo
             // 
@@ -756,15 +779,15 @@
             this.inputARPresetsCombo.DropDownWidth = 90;
             this.inputARPresetsCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.inputARPresetsCombo.FormattingEnabled = true;
-            this.inputARPresetsCombo.Location = new System.Drawing.Point(69, 19);
+            this.inputARPresetsCombo.Location = new System.Drawing.Point(60, 249);
             this.inputARPresetsCombo.Name = "inputARPresetsCombo";
-            this.inputARPresetsCombo.Size = new System.Drawing.Size(113, 21);
+            this.inputARPresetsCombo.Size = new System.Drawing.Size(116, 21);
             this.inputARPresetsCombo.TabIndex = 1;
             // 
             // inputARPresetsLabel
             // 
             this.inputARPresetsLabel.AutoSize = true;
-            this.inputARPresetsLabel.Location = new System.Drawing.Point(18, 22);
+            this.inputARPresetsLabel.Location = new System.Drawing.Point(10, 252);
             this.inputARPresetsLabel.Name = "inputARPresetsLabel";
             this.inputARPresetsLabel.Size = new System.Drawing.Size(45, 13);
             this.inputARPresetsLabel.TabIndex = 0;
@@ -773,47 +796,29 @@
             // horizontalStretchLabel
             // 
             this.horizontalStretchLabel.AutoSize = true;
-            this.horizontalStretchLabel.Location = new System.Drawing.Point(18, 48);
+            this.horizontalStretchLabel.Location = new System.Drawing.Point(7, 98);
             this.horizontalStretchLabel.Name = "horizontalStretchLabel";
-            this.horizontalStretchLabel.Size = new System.Drawing.Size(94, 13);
+            this.horizontalStretchLabel.Size = new System.Drawing.Size(74, 13);
             this.horizontalStretchLabel.TabIndex = 2;
-            this.horizontalStretchLabel.Text = "Horizontal Stretch:";
+            this.horizontalStretchLabel.Text = "Horiz. Stretch:";
             // 
             // zoomLabel
             // 
             this.zoomLabel.AutoSize = true;
-            this.zoomLabel.Location = new System.Drawing.Point(75, 152);
+            this.zoomLabel.Location = new System.Drawing.Point(44, 202);
             this.zoomLabel.Name = "zoomLabel";
             this.zoomLabel.Size = new System.Drawing.Size(37, 13);
             this.zoomLabel.TabIndex = 10;
             this.zoomLabel.Text = "Zoom:";
             // 
-            // verticalStretchLabel
-            // 
-            this.verticalStretchLabel.AutoSize = true;
-            this.verticalStretchLabel.Location = new System.Drawing.Point(30, 74);
-            this.verticalStretchLabel.Name = "verticalStretchLabel";
-            this.verticalStretchLabel.Size = new System.Drawing.Size(82, 13);
-            this.verticalStretchLabel.TabIndex = 4;
-            this.verticalStretchLabel.Text = "Vertical Stretch:";
-            // 
             // horizontalShiftLabel
             // 
             this.horizontalShiftLabel.AutoSize = true;
-            this.horizontalShiftLabel.Location = new System.Drawing.Point(31, 100);
+            this.horizontalShiftLabel.Location = new System.Drawing.Point(20, 150);
             this.horizontalShiftLabel.Name = "horizontalShiftLabel";
-            this.horizontalShiftLabel.Size = new System.Drawing.Size(81, 13);
+            this.horizontalShiftLabel.Size = new System.Drawing.Size(61, 13);
             this.horizontalShiftLabel.TabIndex = 6;
-            this.horizontalShiftLabel.Text = "Horizontal Shift:";
-            // 
-            // verticalShiftLabel
-            // 
-            this.verticalShiftLabel.AutoSize = true;
-            this.verticalShiftLabel.Location = new System.Drawing.Point(43, 126);
-            this.verticalShiftLabel.Name = "verticalShiftLabel";
-            this.verticalShiftLabel.Size = new System.Drawing.Size(69, 13);
-            this.verticalShiftLabel.TabIndex = 8;
-            this.verticalShiftLabel.Text = "Vertical Shift:";
+            this.horizontalShiftLabel.Text = "Horiz. Shift:";
             // 
             // zoomSpinner
             // 
@@ -823,7 +828,7 @@
             0,
             0,
             196608});
-            this.zoomSpinner.Location = new System.Drawing.Point(118, 150);
+            this.zoomSpinner.Location = new System.Drawing.Point(87, 200);
             this.zoomSpinner.Maximum = new decimal(new int[] {
             16,
             0,
@@ -851,7 +856,7 @@
             0,
             0,
             196608});
-            this.horizontalStretchSpinner.Location = new System.Drawing.Point(118, 46);
+            this.horizontalStretchSpinner.Location = new System.Drawing.Point(87, 96);
             this.horizontalStretchSpinner.Maximum = new decimal(new int[] {
             16,
             0,
@@ -879,7 +884,7 @@
             0,
             0,
             196608});
-            this.verticalStretchSpinner.Location = new System.Drawing.Point(118, 72);
+            this.verticalStretchSpinner.Location = new System.Drawing.Point(87, 122);
             this.verticalStretchSpinner.Maximum = new decimal(new int[] {
             16,
             0,
@@ -901,7 +906,7 @@
             // 
             // horizontalShiftSpinner
             // 
-            this.horizontalShiftSpinner.Location = new System.Drawing.Point(118, 98);
+            this.horizontalShiftSpinner.Location = new System.Drawing.Point(87, 148);
             this.horizontalShiftSpinner.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -918,7 +923,7 @@
             // 
             // verticalShiftSpinner
             // 
-            this.verticalShiftSpinner.Location = new System.Drawing.Point(118, 124);
+            this.verticalShiftSpinner.Location = new System.Drawing.Point(87, 174);
             this.verticalShiftSpinner.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -935,6 +940,10 @@
             // 
             // inputAdjustGroup
             // 
+            this.inputAdjustGroup.Controls.Add(this.passThruLabel);
+            this.inputAdjustGroup.Controls.Add(this.inputDeepColorCombo);
+            this.inputAdjustGroup.Controls.Add(this.passThruCombo);
+            this.inputAdjustGroup.Controls.Add(this.inputDeepColorLabel);
             this.inputAdjustGroup.Controls.Add(this.gameModeCheck);
             this.inputAdjustGroup.Controls.Add(this.prep480pLabel);
             this.inputAdjustGroup.Controls.Add(this.prep1080pLabel);
@@ -960,12 +969,51 @@
             this.inputAdjustGroup.Controls.Add(this.audioInputLabel);
             this.inputAdjustGroup.Controls.Add(this.audioDelaySpinner);
             this.inputAdjustGroup.Controls.Add(this.audioDelayLabel);
-            this.inputAdjustGroup.Location = new System.Drawing.Point(6, 61);
+            this.inputAdjustGroup.Location = new System.Drawing.Point(194, 6);
             this.inputAdjustGroup.Name = "inputAdjustGroup";
-            this.inputAdjustGroup.Size = new System.Drawing.Size(201, 388);
+            this.inputAdjustGroup.Size = new System.Drawing.Size(201, 391);
             this.inputAdjustGroup.TabIndex = 1;
             this.inputAdjustGroup.TabStop = false;
             this.inputAdjustGroup.Text = "Input Adjust";
+            // 
+            // passThruLabel
+            // 
+            this.passThruLabel.AutoSize = true;
+            this.passThruLabel.Location = new System.Drawing.Point(7, 311);
+            this.passThruLabel.Name = "passThruLabel";
+            this.passThruLabel.Size = new System.Drawing.Size(93, 13);
+            this.passThruLabel.TabIndex = 24;
+            this.passThruLabel.Text = "3D Pass Through:";
+            // 
+            // inputDeepColorCombo
+            // 
+            this.inputDeepColorCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.inputDeepColorCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.inputDeepColorCombo.FormattingEnabled = true;
+            this.inputDeepColorCombo.Location = new System.Drawing.Point(106, 204);
+            this.inputDeepColorCombo.Name = "inputDeepColorCombo";
+            this.inputDeepColorCombo.Size = new System.Drawing.Size(89, 21);
+            this.inputDeepColorCombo.TabIndex = 26;
+            // 
+            // passThruCombo
+            // 
+            this.passThruCombo.BackColor = System.Drawing.SystemColors.Window;
+            this.passThruCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.passThruCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.passThruCombo.FormattingEnabled = true;
+            this.passThruCombo.Location = new System.Drawing.Point(106, 308);
+            this.passThruCombo.Name = "passThruCombo";
+            this.passThruCombo.Size = new System.Drawing.Size(89, 21);
+            this.passThruCombo.TabIndex = 25;
+            // 
+            // inputDeepColorLabel
+            // 
+            this.inputDeepColorLabel.AutoSize = true;
+            this.inputDeepColorLabel.Location = new System.Drawing.Point(10, 207);
+            this.inputDeepColorLabel.Name = "inputDeepColorLabel";
+            this.inputDeepColorLabel.Size = new System.Drawing.Size(90, 13);
+            this.inputDeepColorLabel.TabIndex = 25;
+            this.inputDeepColorLabel.Text = "Input Deep Color:";
             // 
             // gameModeCheck
             // 
@@ -1000,7 +1048,7 @@
             this.inputChromaticityCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.inputChromaticityCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.inputChromaticityCombo.FormattingEnabled = true;
-            this.inputChromaticityCombo.Location = new System.Drawing.Point(106, 204);
+            this.inputChromaticityCombo.Location = new System.Drawing.Point(106, 231);
             this.inputChromaticityCombo.Name = "inputChromaticityCombo";
             this.inputChromaticityCombo.Size = new System.Drawing.Size(89, 21);
             this.inputChromaticityCombo.TabIndex = 15;
@@ -1008,7 +1056,7 @@
             // inputHDCPModeCheck
             // 
             this.inputHDCPModeCheck.AutoSize = true;
-            this.inputHDCPModeCheck.Location = new System.Drawing.Point(106, 258);
+            this.inputHDCPModeCheck.Location = new System.Drawing.Point(106, 285);
             this.inputHDCPModeCheck.Name = "inputHDCPModeCheck";
             this.inputHDCPModeCheck.Size = new System.Drawing.Size(65, 17);
             this.inputHDCPModeCheck.TabIndex = 19;
@@ -1020,7 +1068,7 @@
             this.hotPlugSourceCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hotPlugSourceCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.hotPlugSourceCombo.FormattingEnabled = true;
-            this.hotPlugSourceCombo.Location = new System.Drawing.Point(106, 231);
+            this.hotPlugSourceCombo.Location = new System.Drawing.Point(106, 258);
             this.hotPlugSourceCombo.Name = "hotPlugSourceCombo";
             this.hotPlugSourceCombo.Size = new System.Drawing.Size(89, 21);
             this.hotPlugSourceCombo.TabIndex = 17;
@@ -1124,7 +1172,7 @@
             // audioDelayUnitsLabel
             // 
             this.audioDelayUnitsLabel.AutoSize = true;
-            this.audioDelayUnitsLabel.Location = new System.Drawing.Point(162, 310);
+            this.audioDelayUnitsLabel.Location = new System.Drawing.Point(166, 364);
             this.audioDelayUnitsLabel.Name = "audioDelayUnitsLabel";
             this.audioDelayUnitsLabel.Size = new System.Drawing.Size(20, 13);
             this.audioDelayUnitsLabel.TabIndex = 24;
@@ -1142,7 +1190,7 @@
             // inputChromaticityLabel
             // 
             this.inputChromaticityLabel.AutoSize = true;
-            this.inputChromaticityLabel.Location = new System.Drawing.Point(6, 207);
+            this.inputChromaticityLabel.Location = new System.Drawing.Point(6, 234);
             this.inputChromaticityLabel.Name = "inputChromaticityLabel";
             this.inputChromaticityLabel.Size = new System.Drawing.Size(94, 13);
             this.inputChromaticityLabel.TabIndex = 14;
@@ -1151,7 +1199,7 @@
             // hotPlugSourceLabel
             // 
             this.hotPlugSourceLabel.AutoSize = true;
-            this.hotPlugSourceLabel.Location = new System.Drawing.Point(11, 234);
+            this.hotPlugSourceLabel.Location = new System.Drawing.Point(11, 261);
             this.hotPlugSourceLabel.Name = "hotPlugSourceLabel";
             this.hotPlugSourceLabel.Size = new System.Drawing.Size(88, 13);
             this.hotPlugSourceLabel.TabIndex = 16;
@@ -1160,7 +1208,7 @@
             // inputHDCPModeLabel
             // 
             this.inputHDCPModeLabel.AutoSize = true;
-            this.inputHDCPModeLabel.Location = new System.Drawing.Point(3, 259);
+            this.inputHDCPModeLabel.Location = new System.Drawing.Point(3, 286);
             this.inputHDCPModeLabel.Name = "inputHDCPModeLabel";
             this.inputHDCPModeLabel.Size = new System.Drawing.Size(97, 13);
             this.inputHDCPModeLabel.TabIndex = 18;
@@ -1171,7 +1219,7 @@
             this.audioInputCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.audioInputCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.audioInputCombo.FormattingEnabled = true;
-            this.audioInputCombo.Location = new System.Drawing.Point(106, 281);
+            this.audioInputCombo.Location = new System.Drawing.Point(106, 335);
             this.audioInputCombo.Name = "audioInputCombo";
             this.audioInputCombo.Size = new System.Drawing.Size(89, 21);
             this.audioInputCombo.TabIndex = 21;
@@ -1179,7 +1227,7 @@
             // audioInputLabel
             // 
             this.audioInputLabel.AutoSize = true;
-            this.audioInputLabel.Location = new System.Drawing.Point(36, 284);
+            this.audioInputLabel.Location = new System.Drawing.Point(36, 338);
             this.audioInputLabel.Name = "audioInputLabel";
             this.audioInputLabel.Size = new System.Drawing.Size(64, 13);
             this.audioInputLabel.TabIndex = 20;
@@ -1187,7 +1235,7 @@
             // 
             // audioDelaySpinner
             // 
-            this.audioDelaySpinner.Location = new System.Drawing.Point(106, 308);
+            this.audioDelaySpinner.Location = new System.Drawing.Point(106, 362);
             this.audioDelaySpinner.Maximum = new decimal(new int[] {
             200,
             0,
@@ -1205,237 +1253,16 @@
             // audioDelayLabel
             // 
             this.audioDelayLabel.AutoSize = true;
-            this.audioDelayLabel.Location = new System.Drawing.Point(33, 310);
+            this.audioDelayLabel.Location = new System.Drawing.Point(33, 364);
             this.audioDelayLabel.Name = "audioDelayLabel";
             this.audioDelayLabel.Size = new System.Drawing.Size(67, 13);
             this.audioDelayLabel.TabIndex = 22;
             this.audioDelayLabel.Text = "Audio Delay:";
             // 
-            // remoteGroup
-            // 
-            this.remoteGroup.Controls.Add(this.testPatternCombo);
-            this.remoteGroup.Controls.Add(this.exitButton);
-            this.remoteGroup.Controls.Add(this.testPatternLabel);
-            this.remoteGroup.Controls.Add(this.leftButton);
-            this.remoteGroup.Controls.Add(this.rightButton);
-            this.remoteGroup.Controls.Add(this.upButton);
-            this.remoteGroup.Controls.Add(this.downButton);
-            this.remoteGroup.Controls.Add(this.infoScreenCombo);
-            this.remoteGroup.Controls.Add(this.menuButton);
-            this.remoteGroup.Controls.Add(this.enterButton);
-            this.remoteGroup.Controls.Add(this.infoScreenLabel);
-            this.remoteGroup.Location = new System.Drawing.Point(628, 117);
-            this.remoteGroup.Name = "remoteGroup";
-            this.remoteGroup.Size = new System.Drawing.Size(201, 165);
-            this.remoteGroup.TabIndex = 7;
-            this.remoteGroup.TabStop = false;
-            this.remoteGroup.Text = "Remote";
-            // 
-            // testPatternCombo
-            // 
-            this.testPatternCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.testPatternCombo.DropDownWidth = 190;
-            this.testPatternCombo.FormattingEnabled = true;
-            this.testPatternCombo.Location = new System.Drawing.Point(78, 134);
-            this.testPatternCombo.Name = "testPatternCombo";
-            this.testPatternCombo.Size = new System.Drawing.Size(117, 21);
-            this.testPatternCombo.TabIndex = 10;
-            this.testPatternCombo.SelectedIndexChanged += new System.EventHandler(this.testPatternCombo_SelectedIndexChanged);
-            // 
-            // exitButton
-            // 
-            this.exitButton.Location = new System.Drawing.Point(128, 19);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(43, 23);
-            this.exitButton.TabIndex = 2;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            // 
-            // testPatternLabel
-            // 
-            this.testPatternLabel.AutoSize = true;
-            this.testPatternLabel.Location = new System.Drawing.Point(4, 137);
-            this.testPatternLabel.Name = "testPatternLabel";
-            this.testPatternLabel.Size = new System.Drawing.Size(68, 13);
-            this.testPatternLabel.TabIndex = 9;
-            this.testPatternLabel.Text = "Test Pattern:";
-            // 
-            // leftButton
-            // 
-            this.leftButton.Location = new System.Drawing.Point(30, 48);
-            this.leftButton.Name = "leftButton";
-            this.leftButton.Size = new System.Drawing.Size(43, 23);
-            this.leftButton.TabIndex = 3;
-            this.leftButton.Text = "←";
-            this.leftButton.UseVisualStyleBackColor = true;
-            // 
-            // rightButton
-            // 
-            this.rightButton.Location = new System.Drawing.Point(128, 48);
-            this.rightButton.Name = "rightButton";
-            this.rightButton.Size = new System.Drawing.Size(43, 23);
-            this.rightButton.TabIndex = 5;
-            this.rightButton.Text = "→";
-            this.rightButton.UseVisualStyleBackColor = true;
-            // 
-            // upButton
-            // 
-            this.upButton.Location = new System.Drawing.Point(79, 19);
-            this.upButton.Name = "upButton";
-            this.upButton.Size = new System.Drawing.Size(43, 23);
-            this.upButton.TabIndex = 1;
-            this.upButton.Text = "↑";
-            this.upButton.UseVisualStyleBackColor = true;
-            // 
-            // downButton
-            // 
-            this.downButton.Location = new System.Drawing.Point(79, 77);
-            this.downButton.Name = "downButton";
-            this.downButton.Size = new System.Drawing.Size(43, 23);
-            this.downButton.TabIndex = 6;
-            this.downButton.Text = "↓";
-            this.downButton.UseVisualStyleBackColor = true;
-            // 
-            // infoScreenCombo
-            // 
-            this.infoScreenCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.infoScreenCombo.FormattingEnabled = true;
-            this.infoScreenCombo.Location = new System.Drawing.Point(78, 107);
-            this.infoScreenCombo.Name = "infoScreenCombo";
-            this.infoScreenCombo.Size = new System.Drawing.Size(117, 21);
-            this.infoScreenCombo.TabIndex = 8;
-            // 
-            // menuButton
-            // 
-            this.menuButton.Location = new System.Drawing.Point(30, 19);
-            this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(43, 23);
-            this.menuButton.TabIndex = 0;
-            this.menuButton.Text = "Menu";
-            this.menuButton.UseVisualStyleBackColor = true;
-            // 
-            // enterButton
-            // 
-            this.enterButton.Location = new System.Drawing.Point(79, 48);
-            this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(43, 23);
-            this.enterButton.TabIndex = 4;
-            this.enterButton.Text = "Enter";
-            this.enterButton.UseVisualStyleBackColor = true;
-            // 
-            // infoScreenLabel
-            // 
-            this.infoScreenLabel.AutoSize = true;
-            this.infoScreenLabel.Location = new System.Drawing.Point(7, 110);
-            this.infoScreenLabel.Name = "infoScreenLabel";
-            this.infoScreenLabel.Size = new System.Drawing.Size(65, 13);
-            this.infoScreenLabel.TabIndex = 7;
-            this.infoScreenLabel.Text = "Info Screen:";
-            // 
-            // configurationGroup
-            // 
-            this.configurationGroup.Controls.Add(this.autoStandbyLabel);
-            this.configurationGroup.Controls.Add(this.menuTimeoutLabel);
-            this.configurationGroup.Controls.Add(this.menuTimeoutCombo);
-            this.configurationGroup.Controls.Add(this.autoStandbyCheck);
-            this.configurationGroup.Controls.Add(this.autoWakeupLabel);
-            this.configurationGroup.Controls.Add(this.autoWakeupCombo);
-            this.configurationGroup.Location = new System.Drawing.Point(628, 6);
-            this.configurationGroup.Name = "configurationGroup";
-            this.configurationGroup.Size = new System.Drawing.Size(201, 105);
-            this.configurationGroup.TabIndex = 6;
-            this.configurationGroup.TabStop = false;
-            this.configurationGroup.Text = "Configuration";
-            // 
-            // autoStandbyLabel
-            // 
-            this.autoStandbyLabel.AutoSize = true;
-            this.autoStandbyLabel.Location = new System.Drawing.Point(16, 20);
-            this.autoStandbyLabel.Name = "autoStandbyLabel";
-            this.autoStandbyLabel.Size = new System.Drawing.Size(74, 13);
-            this.autoStandbyLabel.TabIndex = 0;
-            this.autoStandbyLabel.Text = "Auto Standby:";
-            // 
-            // menuTimeoutLabel
-            // 
-            this.menuTimeoutLabel.AutoSize = true;
-            this.menuTimeoutLabel.Location = new System.Drawing.Point(7, 72);
-            this.menuTimeoutLabel.Name = "menuTimeoutLabel";
-            this.menuTimeoutLabel.Size = new System.Drawing.Size(83, 13);
-            this.menuTimeoutLabel.TabIndex = 4;
-            this.menuTimeoutLabel.Text = "Menu Time-Out:";
-            // 
-            // menuTimeoutCombo
-            // 
-            this.menuTimeoutCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.menuTimeoutCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.menuTimeoutCombo.FormattingEnabled = true;
-            this.menuTimeoutCombo.Location = new System.Drawing.Point(96, 69);
-            this.menuTimeoutCombo.Name = "menuTimeoutCombo";
-            this.menuTimeoutCombo.Size = new System.Drawing.Size(99, 21);
-            this.menuTimeoutCombo.TabIndex = 5;
-            // 
-            // autoStandbyCheck
-            // 
-            this.autoStandbyCheck.AutoSize = true;
-            this.autoStandbyCheck.Location = new System.Drawing.Point(96, 19);
-            this.autoStandbyCheck.Name = "autoStandbyCheck";
-            this.autoStandbyCheck.Size = new System.Drawing.Size(65, 17);
-            this.autoStandbyCheck.TabIndex = 1;
-            this.autoStandbyCheck.Text = "Enabled";
-            this.autoStandbyCheck.UseVisualStyleBackColor = true;
-            // 
-            // autoWakeupLabel
-            // 
-            this.autoWakeupLabel.AutoSize = true;
-            this.autoWakeupLabel.Location = new System.Drawing.Point(14, 46);
-            this.autoWakeupLabel.Name = "autoWakeupLabel";
-            this.autoWakeupLabel.Size = new System.Drawing.Size(76, 13);
-            this.autoWakeupLabel.TabIndex = 2;
-            this.autoWakeupLabel.Text = "Auto Wakeup:";
-            // 
-            // autoWakeupCombo
-            // 
-            this.autoWakeupCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.autoWakeupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.autoWakeupCombo.FormattingEnabled = true;
-            this.autoWakeupCombo.Location = new System.Drawing.Point(96, 42);
-            this.autoWakeupCombo.Name = "autoWakeupCombo";
-            this.autoWakeupCombo.Size = new System.Drawing.Size(99, 21);
-            this.autoWakeupCombo.TabIndex = 3;
-            // 
-            // outputGroup
-            // 
-            this.outputGroup.Controls.Add(this.outputSelectCombo);
-            this.outputGroup.Controls.Add(this.outputSelectLabel);
-            this.outputGroup.Location = new System.Drawing.Point(407, 6);
-            this.outputGroup.Name = "outputGroup";
-            this.outputGroup.Size = new System.Drawing.Size(215, 49);
-            this.outputGroup.TabIndex = 4;
-            this.outputGroup.TabStop = false;
-            this.outputGroup.Text = "Output";
-            // 
-            // outputSelectCombo
-            // 
-            this.outputSelectCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.outputSelectCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.outputSelectCombo.FormattingEnabled = true;
-            this.outputSelectCombo.Location = new System.Drawing.Point(119, 17);
-            this.outputSelectCombo.Name = "outputSelectCombo";
-            this.outputSelectCombo.Size = new System.Drawing.Size(90, 21);
-            this.outputSelectCombo.TabIndex = 1;
-            // 
-            // outputSelectLabel
-            // 
-            this.outputSelectLabel.AutoSize = true;
-            this.outputSelectLabel.Location = new System.Drawing.Point(38, 20);
-            this.outputSelectLabel.Name = "outputSelectLabel";
-            this.outputSelectLabel.Size = new System.Drawing.Size(75, 13);
-            this.outputSelectLabel.TabIndex = 0;
-            this.outputSelectLabel.Text = "Output Select:";
-            // 
             // outputSetupGroup
             // 
+            this.outputSetupGroup.Controls.Add(this.outputDeepColorCombo);
+            this.outputSetupGroup.Controls.Add(this.outputDeepColorLabel);
             this.outputSetupGroup.Controls.Add(this.outputColorimetryCombo);
             this.outputSetupGroup.Controls.Add(this.audioOutputCombo);
             this.outputSetupGroup.Controls.Add(this.outputChromaticityCombo);
@@ -1467,19 +1294,38 @@
             this.outputSetupGroup.Controls.Add(this.frameLockModeLabel);
             this.outputSetupGroup.Controls.Add(this.outputColorSpaceLabel);
             this.outputSetupGroup.Controls.Add(this.outputVideoLevelLabel);
-            this.outputSetupGroup.Location = new System.Drawing.Point(407, 61);
+            this.outputSetupGroup.Location = new System.Drawing.Point(595, 6);
             this.outputSetupGroup.Name = "outputSetupGroup";
-            this.outputSetupGroup.Size = new System.Drawing.Size(215, 388);
+            this.outputSetupGroup.Size = new System.Drawing.Size(215, 414);
             this.outputSetupGroup.TabIndex = 5;
             this.outputSetupGroup.TabStop = false;
             this.outputSetupGroup.Text = "Output Setup";
+            // 
+            // outputDeepColorCombo
+            // 
+            this.outputDeepColorCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.outputDeepColorCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.outputDeepColorCombo.FormattingEnabled = true;
+            this.outputDeepColorCombo.Location = new System.Drawing.Point(119, 281);
+            this.outputDeepColorCombo.Name = "outputDeepColorCombo";
+            this.outputDeepColorCombo.Size = new System.Drawing.Size(89, 21);
+            this.outputDeepColorCombo.TabIndex = 31;
+            // 
+            // outputDeepColorLabel
+            // 
+            this.outputDeepColorLabel.AutoSize = true;
+            this.outputDeepColorLabel.Location = new System.Drawing.Point(15, 284);
+            this.outputDeepColorLabel.Name = "outputDeepColorLabel";
+            this.outputDeepColorLabel.Size = new System.Drawing.Size(98, 13);
+            this.outputDeepColorLabel.TabIndex = 26;
+            this.outputDeepColorLabel.Text = "Output Deep Color:";
             // 
             // outputColorimetryCombo
             // 
             this.outputColorimetryCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outputColorimetryCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.outputColorimetryCombo.FormattingEnabled = true;
-            this.outputColorimetryCombo.Location = new System.Drawing.Point(120, 176);
+            this.outputColorimetryCombo.Location = new System.Drawing.Point(119, 199);
             this.outputColorimetryCombo.Name = "outputColorimetryCombo";
             this.outputColorimetryCombo.Size = new System.Drawing.Size(89, 21);
             this.outputColorimetryCombo.TabIndex = 14;
@@ -1489,7 +1335,7 @@
             this.audioOutputCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.audioOutputCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.audioOutputCombo.FormattingEnabled = true;
-            this.audioOutputCombo.Location = new System.Drawing.Point(119, 336);
+            this.audioOutputCombo.Location = new System.Drawing.Point(119, 387);
             this.audioOutputCombo.Name = "audioOutputCombo";
             this.audioOutputCombo.Size = new System.Drawing.Size(90, 21);
             this.audioOutputCombo.TabIndex = 28;
@@ -1499,7 +1345,7 @@
             this.outputChromaticityCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outputChromaticityCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.outputChromaticityCombo.FormattingEnabled = true;
-            this.outputChromaticityCombo.Location = new System.Drawing.Point(120, 230);
+            this.outputChromaticityCombo.Location = new System.Drawing.Point(119, 253);
             this.outputChromaticityCombo.Name = "outputChromaticityCombo";
             this.outputChromaticityCombo.Size = new System.Drawing.Size(89, 21);
             this.outputChromaticityCombo.TabIndex = 18;
@@ -1507,7 +1353,7 @@
             // outputColorimetryLabel
             // 
             this.outputColorimetryLabel.AutoSize = true;
-            this.outputColorimetryLabel.Location = new System.Drawing.Point(18, 179);
+            this.outputColorimetryLabel.Location = new System.Drawing.Point(17, 202);
             this.outputColorimetryLabel.Name = "outputColorimetryLabel";
             this.outputColorimetryLabel.Size = new System.Drawing.Size(96, 13);
             this.outputColorimetryLabel.TabIndex = 13;
@@ -1518,7 +1364,7 @@
             this.displayAspectRatioCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.displayAspectRatioCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.displayAspectRatioCombo.FormattingEnabled = true;
-            this.displayAspectRatioCombo.Location = new System.Drawing.Point(120, 122);
+            this.displayAspectRatioCombo.Location = new System.Drawing.Point(119, 145);
             this.displayAspectRatioCombo.Name = "displayAspectRatioCombo";
             this.displayAspectRatioCombo.Size = new System.Drawing.Size(89, 21);
             this.displayAspectRatioCombo.TabIndex = 10;
@@ -1526,7 +1372,7 @@
             // displayAspectRatioLabel
             // 
             this.displayAspectRatioLabel.AutoSize = true;
-            this.displayAspectRatioLabel.Location = new System.Drawing.Point(6, 125);
+            this.displayAspectRatioLabel.Location = new System.Drawing.Point(5, 148);
             this.displayAspectRatioLabel.Name = "displayAspectRatioLabel";
             this.displayAspectRatioLabel.Size = new System.Drawing.Size(108, 13);
             this.displayAspectRatioLabel.TabIndex = 9;
@@ -1535,7 +1381,7 @@
             // secondOutputCheck
             // 
             this.secondOutputCheck.AutoSize = true;
-            this.secondOutputCheck.Location = new System.Drawing.Point(119, 363);
+            this.secondOutputCheck.Location = new System.Drawing.Point(119, 19);
             this.secondOutputCheck.Name = "secondOutputCheck";
             this.secondOutputCheck.Size = new System.Drawing.Size(65, 17);
             this.secondOutputCheck.TabIndex = 30;
@@ -1548,7 +1394,7 @@
             this.outputHDCPModeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outputHDCPModeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.outputHDCPModeCombo.FormattingEnabled = true;
-            this.outputHDCPModeCombo.Location = new System.Drawing.Point(120, 257);
+            this.outputHDCPModeCombo.Location = new System.Drawing.Point(119, 308);
             this.outputHDCPModeCombo.Name = "outputHDCPModeCombo";
             this.outputHDCPModeCombo.Size = new System.Drawing.Size(89, 21);
             this.outputHDCPModeCombo.TabIndex = 20;
@@ -1556,7 +1402,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(181, 312);
+            this.label80.Location = new System.Drawing.Point(183, 360);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(25, 13);
             this.label80.TabIndex = 26;
@@ -1565,7 +1411,7 @@
             // audioOutputLabel
             // 
             this.audioOutputLabel.AutoSize = true;
-            this.audioOutputLabel.Location = new System.Drawing.Point(41, 339);
+            this.audioOutputLabel.Location = new System.Drawing.Point(41, 390);
             this.audioOutputLabel.Name = "audioOutputLabel";
             this.audioOutputLabel.Size = new System.Drawing.Size(72, 13);
             this.audioOutputLabel.TabIndex = 27;
@@ -1574,7 +1420,7 @@
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(181, 286);
+            this.label81.Location = new System.Drawing.Point(183, 334);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(25, 13);
             this.label81.TabIndex = 23;
@@ -1585,14 +1431,14 @@
             this.frameLockModeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.frameLockModeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.frameLockModeCombo.FormattingEnabled = true;
-            this.frameLockModeCombo.Location = new System.Drawing.Point(120, 95);
+            this.frameLockModeCombo.Location = new System.Drawing.Point(119, 118);
             this.frameLockModeCombo.Name = "frameLockModeCombo";
             this.frameLockModeCombo.Size = new System.Drawing.Size(89, 21);
             this.frameLockModeCombo.TabIndex = 8;
             // 
             // maskLevelSpinner
             // 
-            this.maskLevelSpinner.Location = new System.Drawing.Point(120, 310);
+            this.maskLevelSpinner.Location = new System.Drawing.Point(120, 361);
             this.maskLevelSpinner.Name = "maskLevelSpinner";
             this.maskLevelSpinner.Size = new System.Drawing.Size(59, 20);
             this.maskLevelSpinner.TabIndex = 25;
@@ -1600,7 +1446,7 @@
             // secondOutputLabel
             // 
             this.secondOutputLabel.AutoSize = true;
-            this.secondOutputLabel.Location = new System.Drawing.Point(31, 364);
+            this.secondOutputLabel.Location = new System.Drawing.Point(31, 20);
             this.secondOutputLabel.Name = "secondOutputLabel";
             this.secondOutputLabel.Size = new System.Drawing.Size(82, 13);
             this.secondOutputLabel.TabIndex = 29;
@@ -1609,7 +1455,7 @@
             // oneOneFrameRateCheck
             // 
             this.oneOneFrameRateCheck.AutoSize = true;
-            this.oneOneFrameRateCheck.Location = new System.Drawing.Point(120, 72);
+            this.oneOneFrameRateCheck.Location = new System.Drawing.Point(119, 95);
             this.oneOneFrameRateCheck.Name = "oneOneFrameRateCheck";
             this.oneOneFrameRateCheck.Size = new System.Drawing.Size(65, 17);
             this.oneOneFrameRateCheck.TabIndex = 6;
@@ -1618,7 +1464,7 @@
             // 
             // borderLevelSpinner
             // 
-            this.borderLevelSpinner.Location = new System.Drawing.Point(120, 284);
+            this.borderLevelSpinner.Location = new System.Drawing.Point(120, 335);
             this.borderLevelSpinner.Name = "borderLevelSpinner";
             this.borderLevelSpinner.Size = new System.Drawing.Size(59, 20);
             this.borderLevelSpinner.TabIndex = 22;
@@ -1628,7 +1474,7 @@
             this.outputVideoLevelCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outputVideoLevelCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.outputVideoLevelCombo.FormattingEnabled = true;
-            this.outputVideoLevelCombo.Location = new System.Drawing.Point(120, 203);
+            this.outputVideoLevelCombo.Location = new System.Drawing.Point(119, 226);
             this.outputVideoLevelCombo.Name = "outputVideoLevelCombo";
             this.outputVideoLevelCombo.Size = new System.Drawing.Size(89, 21);
             this.outputVideoLevelCombo.TabIndex = 16;
@@ -1638,7 +1484,7 @@
             this.outputColorSpaceCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outputColorSpaceCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.outputColorSpaceCombo.FormattingEnabled = true;
-            this.outputColorSpaceCombo.Location = new System.Drawing.Point(120, 149);
+            this.outputColorSpaceCombo.Location = new System.Drawing.Point(119, 172);
             this.outputColorSpaceCombo.Name = "outputColorSpaceCombo";
             this.outputColorSpaceCombo.Size = new System.Drawing.Size(89, 21);
             this.outputColorSpaceCombo.TabIndex = 12;
@@ -1646,7 +1492,7 @@
             // maskLevelLabel
             // 
             this.maskLevelLabel.AutoSize = true;
-            this.maskLevelLabel.Location = new System.Drawing.Point(49, 312);
+            this.maskLevelLabel.Location = new System.Drawing.Point(49, 363);
             this.maskLevelLabel.Name = "maskLevelLabel";
             this.maskLevelLabel.Size = new System.Drawing.Size(65, 13);
             this.maskLevelLabel.TabIndex = 24;
@@ -1657,7 +1503,7 @@
             this.outputVideoFormatCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outputVideoFormatCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.outputVideoFormatCombo.FormattingEnabled = true;
-            this.outputVideoFormatCombo.Location = new System.Drawing.Point(120, 19);
+            this.outputVideoFormatCombo.Location = new System.Drawing.Point(119, 42);
             this.outputVideoFormatCombo.Name = "outputVideoFormatCombo";
             this.outputVideoFormatCombo.Size = new System.Drawing.Size(89, 21);
             this.outputVideoFormatCombo.TabIndex = 1;
@@ -1665,7 +1511,7 @@
             // outputVideoFormatLabel
             // 
             this.outputVideoFormatLabel.AutoSize = true;
-            this.outputVideoFormatLabel.Location = new System.Drawing.Point(7, 22);
+            this.outputVideoFormatLabel.Location = new System.Drawing.Point(6, 45);
             this.outputVideoFormatLabel.Name = "outputVideoFormatLabel";
             this.outputVideoFormatLabel.Size = new System.Drawing.Size(107, 13);
             this.outputVideoFormatLabel.TabIndex = 0;
@@ -1674,7 +1520,7 @@
             // outputChromaticityLabel
             // 
             this.outputChromaticityLabel.AutoSize = true;
-            this.outputChromaticityLabel.Location = new System.Drawing.Point(12, 233);
+            this.outputChromaticityLabel.Location = new System.Drawing.Point(11, 256);
             this.outputChromaticityLabel.Name = "outputChromaticityLabel";
             this.outputChromaticityLabel.Size = new System.Drawing.Size(102, 13);
             this.outputChromaticityLabel.TabIndex = 17;
@@ -1682,7 +1528,7 @@
             // 
             // underscanSpinner
             // 
-            this.underscanSpinner.Location = new System.Drawing.Point(120, 46);
+            this.underscanSpinner.Location = new System.Drawing.Point(119, 69);
             this.underscanSpinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1695,7 +1541,7 @@
             // borderLevelLabel
             // 
             this.borderLevelLabel.AutoSize = true;
-            this.borderLevelLabel.Location = new System.Drawing.Point(44, 286);
+            this.borderLevelLabel.Location = new System.Drawing.Point(44, 337);
             this.borderLevelLabel.Name = "borderLevelLabel";
             this.borderLevelLabel.Size = new System.Drawing.Size(70, 13);
             this.borderLevelLabel.TabIndex = 21;
@@ -1704,7 +1550,7 @@
             // outputHDCPModeLabel
             // 
             this.outputHDCPModeLabel.AutoSize = true;
-            this.outputHDCPModeLabel.Location = new System.Drawing.Point(9, 260);
+            this.outputHDCPModeLabel.Location = new System.Drawing.Point(9, 311);
             this.outputHDCPModeLabel.Name = "outputHDCPModeLabel";
             this.outputHDCPModeLabel.Size = new System.Drawing.Size(105, 13);
             this.outputHDCPModeLabel.TabIndex = 19;
@@ -1713,7 +1559,7 @@
             // underscanLabel
             // 
             this.underscanLabel.AutoSize = true;
-            this.underscanLabel.Location = new System.Drawing.Point(52, 48);
+            this.underscanLabel.Location = new System.Drawing.Point(51, 71);
             this.underscanLabel.Name = "underscanLabel";
             this.underscanLabel.Size = new System.Drawing.Size(62, 13);
             this.underscanLabel.TabIndex = 2;
@@ -1722,7 +1568,7 @@
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(181, 48);
+            this.label82.Location = new System.Drawing.Point(184, 71);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(15, 13);
             this.label82.TabIndex = 4;
@@ -1731,7 +1577,7 @@
             // oneOneFrameRateLabel
             // 
             this.oneOneFrameRateLabel.AutoSize = true;
-            this.oneOneFrameRateLabel.Location = new System.Drawing.Point(31, 73);
+            this.oneOneFrameRateLabel.Location = new System.Drawing.Point(30, 96);
             this.oneOneFrameRateLabel.Name = "oneOneFrameRateLabel";
             this.oneOneFrameRateLabel.Size = new System.Drawing.Size(83, 13);
             this.oneOneFrameRateLabel.TabIndex = 5;
@@ -1740,7 +1586,7 @@
             // frameLockModeLabel
             // 
             this.frameLockModeLabel.AutoSize = true;
-            this.frameLockModeLabel.Location = new System.Drawing.Point(18, 98);
+            this.frameLockModeLabel.Location = new System.Drawing.Point(17, 121);
             this.frameLockModeLabel.Name = "frameLockModeLabel";
             this.frameLockModeLabel.Size = new System.Drawing.Size(96, 13);
             this.frameLockModeLabel.TabIndex = 7;
@@ -1749,7 +1595,7 @@
             // outputColorSpaceLabel
             // 
             this.outputColorSpaceLabel.AutoSize = true;
-            this.outputColorSpaceLabel.Location = new System.Drawing.Point(11, 152);
+            this.outputColorSpaceLabel.Location = new System.Drawing.Point(10, 175);
             this.outputColorSpaceLabel.Name = "outputColorSpaceLabel";
             this.outputColorSpaceLabel.Size = new System.Drawing.Size(103, 13);
             this.outputColorSpaceLabel.TabIndex = 11;
@@ -1758,11 +1604,41 @@
             // outputVideoLevelLabel
             // 
             this.outputVideoLevelLabel.AutoSize = true;
-            this.outputVideoLevelLabel.Location = new System.Drawing.Point(13, 206);
+            this.outputVideoLevelLabel.Location = new System.Drawing.Point(12, 229);
             this.outputVideoLevelLabel.Name = "outputVideoLevelLabel";
             this.outputVideoLevelLabel.Size = new System.Drawing.Size(101, 13);
             this.outputVideoLevelLabel.TabIndex = 15;
             this.outputVideoLevelLabel.Text = "Output Video Level:";
+            // 
+            // outputGroup
+            // 
+            this.outputGroup.Controls.Add(this.outputSelectCombo);
+            this.outputGroup.Controls.Add(this.outputSelectLabel);
+            this.outputGroup.Location = new System.Drawing.Point(6, 63);
+            this.outputGroup.Name = "outputGroup";
+            this.outputGroup.Size = new System.Drawing.Size(182, 49);
+            this.outputGroup.TabIndex = 4;
+            this.outputGroup.TabStop = false;
+            this.outputGroup.Text = "Output";
+            // 
+            // outputSelectCombo
+            // 
+            this.outputSelectCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.outputSelectCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.outputSelectCombo.FormattingEnabled = true;
+            this.outputSelectCombo.Location = new System.Drawing.Point(87, 19);
+            this.outputSelectCombo.Name = "outputSelectCombo";
+            this.outputSelectCombo.Size = new System.Drawing.Size(89, 21);
+            this.outputSelectCombo.TabIndex = 1;
+            // 
+            // outputSelectLabel
+            // 
+            this.outputSelectLabel.AutoSize = true;
+            this.outputSelectLabel.Location = new System.Drawing.Point(6, 22);
+            this.outputSelectLabel.Name = "outputSelectLabel";
+            this.outputSelectLabel.Size = new System.Drawing.Size(75, 13);
+            this.outputSelectLabel.TabIndex = 0;
+            this.outputSelectLabel.Text = "Output Select:";
             // 
             // inputGroup
             // 
@@ -1770,7 +1646,7 @@
             this.inputGroup.Controls.Add(this.inputSelectLabel);
             this.inputGroup.Location = new System.Drawing.Point(6, 6);
             this.inputGroup.Name = "inputGroup";
-            this.inputGroup.Size = new System.Drawing.Size(201, 49);
+            this.inputGroup.Size = new System.Drawing.Size(182, 49);
             this.inputGroup.TabIndex = 0;
             this.inputGroup.TabStop = false;
             this.inputGroup.Text = "Input";
@@ -1781,7 +1657,7 @@
             this.inputSelectCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.inputSelectCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.inputSelectCombo.FormattingEnabled = true;
-            this.inputSelectCombo.Location = new System.Drawing.Point(106, 19);
+            this.inputSelectCombo.Location = new System.Drawing.Point(87, 19);
             this.inputSelectCombo.Name = "inputSelectCombo";
             this.inputSelectCombo.Size = new System.Drawing.Size(89, 21);
             this.inputSelectCombo.TabIndex = 1;
@@ -1789,7 +1665,7 @@
             // inputSelectLabel
             // 
             this.inputSelectLabel.AutoSize = true;
-            this.inputSelectLabel.Location = new System.Drawing.Point(33, 22);
+            this.inputSelectLabel.Location = new System.Drawing.Point(14, 22);
             this.inputSelectLabel.Name = "inputSelectLabel";
             this.inputSelectLabel.Size = new System.Drawing.Size(67, 13);
             this.inputSelectLabel.TabIndex = 0;
@@ -1815,12 +1691,12 @@
             this.pictureGroup.Controls.Add(this.mosquitoNRLabel);
             this.pictureGroup.Controls.Add(this.cueCorrectionCombo);
             this.pictureGroup.Controls.Add(this.cueCorrectionLabel);
-            this.pictureGroup.Location = new System.Drawing.Point(213, 189);
+            this.pictureGroup.Location = new System.Drawing.Point(401, 6);
             this.pictureGroup.Name = "pictureGroup";
-            this.pictureGroup.Size = new System.Drawing.Size(188, 260);
+            this.pictureGroup.Size = new System.Drawing.Size(188, 256);
             this.pictureGroup.TabIndex = 3;
             this.pictureGroup.TabStop = false;
-            this.pictureGroup.Text = "Picture";
+            this.pictureGroup.Text = "Picture Controls";
             // 
             // brightnessLabel
             // 
@@ -1843,20 +1719,20 @@
             // saturationLabel
             // 
             this.saturationLabel.AutoSize = true;
-            this.saturationLabel.Location = new System.Drawing.Point(54, 73);
+            this.saturationLabel.Location = new System.Drawing.Point(27, 73);
             this.saturationLabel.Name = "saturationLabel";
-            this.saturationLabel.Size = new System.Drawing.Size(58, 13);
+            this.saturationLabel.Size = new System.Drawing.Size(85, 13);
             this.saturationLabel.TabIndex = 4;
-            this.saturationLabel.Text = "Saturation:";
+            this.saturationLabel.Text = "Color Saturation:";
             // 
             // hueLabel
             // 
             this.hueLabel.AutoSize = true;
-            this.hueLabel.Location = new System.Drawing.Point(85, 99);
+            this.hueLabel.Location = new System.Drawing.Point(55, 99);
             this.hueLabel.Name = "hueLabel";
-            this.hueLabel.Size = new System.Drawing.Size(30, 13);
+            this.hueLabel.Size = new System.Drawing.Size(57, 13);
             this.hueLabel.TabIndex = 6;
-            this.hueLabel.Text = "Hue:";
+            this.hueLabel.Text = "Hue (Tint):";
             // 
             // ycDelayLabel
             // 
@@ -2007,6 +1883,448 @@
             this.cueCorrectionLabel.TabIndex = 16;
             this.cueCorrectionLabel.Text = "CUE Correction:";
             // 
+            // configurationTab
+            // 
+            this.configurationTab.Controls.Add(this.otherGroup);
+            this.configurationTab.Controls.Add(this.remoteGroup);
+            this.configurationTab.Controls.Add(this.configurationGroup);
+            this.configurationTab.Location = new System.Drawing.Point(4, 22);
+            this.configurationTab.Name = "configurationTab";
+            this.configurationTab.Padding = new System.Windows.Forms.Padding(3);
+            this.configurationTab.Size = new System.Drawing.Size(817, 427);
+            this.configurationTab.TabIndex = 4;
+            this.configurationTab.Text = "Configuration";
+            this.configurationTab.UseVisualStyleBackColor = true;
+            // 
+            // otherGroup
+            // 
+            this.otherGroup.Controls.Add(this.onButton);
+            this.otherGroup.Controls.Add(this.firmwareUpdateButton);
+            this.otherGroup.Controls.Add(this.offButton);
+            this.otherGroup.Controls.Add(this.factoryDefaultCombo);
+            this.otherGroup.Controls.Add(this.factoryDefaultLabel);
+            this.otherGroup.Controls.Add(this.versionNumberText);
+            this.otherGroup.Controls.Add(this.resetButton);
+            this.otherGroup.Controls.Add(this.productNameText);
+            this.otherGroup.Controls.Add(this.productNameLabel);
+            this.otherGroup.Controls.Add(this.versionNumberLabel);
+            this.otherGroup.Location = new System.Drawing.Point(453, 6);
+            this.otherGroup.Name = "otherGroup";
+            this.otherGroup.Size = new System.Drawing.Size(201, 165);
+            this.otherGroup.TabIndex = 11;
+            this.otherGroup.TabStop = false;
+            this.otherGroup.Text = "Other";
+            // 
+            // onButton
+            // 
+            this.onButton.Location = new System.Drawing.Point(30, 19);
+            this.onButton.Name = "onButton";
+            this.onButton.Size = new System.Drawing.Size(43, 23);
+            this.onButton.TabIndex = 0;
+            this.onButton.Text = "On";
+            this.onButton.UseVisualStyleBackColor = true;
+            // 
+            // firmwareUpdateButton
+            // 
+            this.firmwareUpdateButton.Location = new System.Drawing.Point(30, 127);
+            this.firmwareUpdateButton.Name = "firmwareUpdateButton";
+            this.firmwareUpdateButton.Size = new System.Drawing.Size(141, 23);
+            this.firmwareUpdateButton.TabIndex = 9;
+            this.firmwareUpdateButton.Text = "Firmware Update";
+            this.firmwareUpdateButton.UseVisualStyleBackColor = true;
+            // 
+            // offButton
+            // 
+            this.offButton.Location = new System.Drawing.Point(79, 19);
+            this.offButton.Name = "offButton";
+            this.offButton.Size = new System.Drawing.Size(43, 23);
+            this.offButton.TabIndex = 1;
+            this.offButton.Text = "Off";
+            this.offButton.UseVisualStyleBackColor = true;
+            // 
+            // factoryDefaultCombo
+            // 
+            this.factoryDefaultCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.factoryDefaultCombo.FormattingEnabled = true;
+            this.factoryDefaultCombo.Location = new System.Drawing.Point(95, 100);
+            this.factoryDefaultCombo.Name = "factoryDefaultCombo";
+            this.factoryDefaultCombo.Size = new System.Drawing.Size(100, 21);
+            this.factoryDefaultCombo.TabIndex = 8;
+            // 
+            // factoryDefaultLabel
+            // 
+            this.factoryDefaultLabel.AutoSize = true;
+            this.factoryDefaultLabel.Location = new System.Drawing.Point(7, 103);
+            this.factoryDefaultLabel.Name = "factoryDefaultLabel";
+            this.factoryDefaultLabel.Size = new System.Drawing.Size(82, 13);
+            this.factoryDefaultLabel.TabIndex = 7;
+            this.factoryDefaultLabel.Text = "Factory Default:";
+            // 
+            // versionNumberText
+            // 
+            this.versionNumberText.Location = new System.Drawing.Point(95, 74);
+            this.versionNumberText.Name = "versionNumberText";
+            this.versionNumberText.ReadOnly = true;
+            this.versionNumberText.Size = new System.Drawing.Size(100, 20);
+            this.versionNumberText.TabIndex = 6;
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(128, 19);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(43, 23);
+            this.resetButton.TabIndex = 2;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            // 
+            // productNameText
+            // 
+            this.productNameText.Location = new System.Drawing.Point(95, 48);
+            this.productNameText.Name = "productNameText";
+            this.productNameText.ReadOnly = true;
+            this.productNameText.Size = new System.Drawing.Size(100, 20);
+            this.productNameText.TabIndex = 4;
+            // 
+            // productNameLabel
+            // 
+            this.productNameLabel.AutoSize = true;
+            this.productNameLabel.Location = new System.Drawing.Point(11, 51);
+            this.productNameLabel.Name = "productNameLabel";
+            this.productNameLabel.Size = new System.Drawing.Size(78, 13);
+            this.productNameLabel.TabIndex = 3;
+            this.productNameLabel.Text = "Product Name:";
+            // 
+            // versionNumberLabel
+            // 
+            this.versionNumberLabel.AutoSize = true;
+            this.versionNumberLabel.Location = new System.Drawing.Point(4, 77);
+            this.versionNumberLabel.Name = "versionNumberLabel";
+            this.versionNumberLabel.Size = new System.Drawing.Size(85, 13);
+            this.versionNumberLabel.TabIndex = 5;
+            this.versionNumberLabel.Text = "Version Number:";
+            // 
+            // remoteGroup
+            // 
+            this.remoteGroup.Controls.Add(this.testPatternCombo);
+            this.remoteGroup.Controls.Add(this.exitButton);
+            this.remoteGroup.Controls.Add(this.testPatternLabel);
+            this.remoteGroup.Controls.Add(this.leftButton);
+            this.remoteGroup.Controls.Add(this.rightButton);
+            this.remoteGroup.Controls.Add(this.upButton);
+            this.remoteGroup.Controls.Add(this.downButton);
+            this.remoteGroup.Controls.Add(this.infoScreenCombo);
+            this.remoteGroup.Controls.Add(this.menuButton);
+            this.remoteGroup.Controls.Add(this.enterButton);
+            this.remoteGroup.Controls.Add(this.infoScreenLabel);
+            this.remoteGroup.Location = new System.Drawing.Point(246, 6);
+            this.remoteGroup.Name = "remoteGroup";
+            this.remoteGroup.Size = new System.Drawing.Size(201, 165);
+            this.remoteGroup.TabIndex = 10;
+            this.remoteGroup.TabStop = false;
+            this.remoteGroup.Text = "Remote";
+            // 
+            // testPatternCombo
+            // 
+            this.testPatternCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.testPatternCombo.DropDownWidth = 190;
+            this.testPatternCombo.FormattingEnabled = true;
+            this.testPatternCombo.Location = new System.Drawing.Point(78, 134);
+            this.testPatternCombo.Name = "testPatternCombo";
+            this.testPatternCombo.Size = new System.Drawing.Size(117, 21);
+            this.testPatternCombo.TabIndex = 10;
+            this.testPatternCombo.SelectedIndexChanged += new System.EventHandler(this.testPatternCombo_SelectedIndexChanged);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(128, 19);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(43, 23);
+            this.exitButton.TabIndex = 2;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            // 
+            // testPatternLabel
+            // 
+            this.testPatternLabel.AutoSize = true;
+            this.testPatternLabel.Location = new System.Drawing.Point(4, 137);
+            this.testPatternLabel.Name = "testPatternLabel";
+            this.testPatternLabel.Size = new System.Drawing.Size(68, 13);
+            this.testPatternLabel.TabIndex = 9;
+            this.testPatternLabel.Text = "Test Pattern:";
+            // 
+            // leftButton
+            // 
+            this.leftButton.Location = new System.Drawing.Point(30, 48);
+            this.leftButton.Name = "leftButton";
+            this.leftButton.Size = new System.Drawing.Size(43, 23);
+            this.leftButton.TabIndex = 3;
+            this.leftButton.Text = "←";
+            this.leftButton.UseVisualStyleBackColor = true;
+            // 
+            // rightButton
+            // 
+            this.rightButton.Location = new System.Drawing.Point(128, 48);
+            this.rightButton.Name = "rightButton";
+            this.rightButton.Size = new System.Drawing.Size(43, 23);
+            this.rightButton.TabIndex = 5;
+            this.rightButton.Text = "→";
+            this.rightButton.UseVisualStyleBackColor = true;
+            // 
+            // upButton
+            // 
+            this.upButton.Location = new System.Drawing.Point(79, 19);
+            this.upButton.Name = "upButton";
+            this.upButton.Size = new System.Drawing.Size(43, 23);
+            this.upButton.TabIndex = 1;
+            this.upButton.Text = "↑";
+            this.upButton.UseVisualStyleBackColor = true;
+            // 
+            // downButton
+            // 
+            this.downButton.Location = new System.Drawing.Point(79, 77);
+            this.downButton.Name = "downButton";
+            this.downButton.Size = new System.Drawing.Size(43, 23);
+            this.downButton.TabIndex = 6;
+            this.downButton.Text = "↓";
+            this.downButton.UseVisualStyleBackColor = true;
+            // 
+            // infoScreenCombo
+            // 
+            this.infoScreenCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.infoScreenCombo.FormattingEnabled = true;
+            this.infoScreenCombo.Location = new System.Drawing.Point(78, 107);
+            this.infoScreenCombo.Name = "infoScreenCombo";
+            this.infoScreenCombo.Size = new System.Drawing.Size(117, 21);
+            this.infoScreenCombo.TabIndex = 8;
+            // 
+            // menuButton
+            // 
+            this.menuButton.Location = new System.Drawing.Point(30, 19);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(43, 23);
+            this.menuButton.TabIndex = 0;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            // 
+            // enterButton
+            // 
+            this.enterButton.Location = new System.Drawing.Point(79, 48);
+            this.enterButton.Name = "enterButton";
+            this.enterButton.Size = new System.Drawing.Size(43, 23);
+            this.enterButton.TabIndex = 4;
+            this.enterButton.Text = "Enter";
+            this.enterButton.UseVisualStyleBackColor = true;
+            // 
+            // infoScreenLabel
+            // 
+            this.infoScreenLabel.AutoSize = true;
+            this.infoScreenLabel.Location = new System.Drawing.Point(7, 110);
+            this.infoScreenLabel.Name = "infoScreenLabel";
+            this.infoScreenLabel.Size = new System.Drawing.Size(65, 13);
+            this.infoScreenLabel.TabIndex = 7;
+            this.infoScreenLabel.Text = "Info Screen:";
+            // 
+            // configurationGroup
+            // 
+            this.configurationGroup.Controls.Add(this.rgbsComponent1Label);
+            this.configurationGroup.Controls.Add(this.rgbsComponent2Label);
+            this.configurationGroup.Controls.Add(this.frontPanelBrightnessLabel);
+            this.configurationGroup.Controls.Add(this.menuTimeoutLabel);
+            this.configurationGroup.Controls.Add(this.menuTimeoutCombo);
+            this.configurationGroup.Controls.Add(this.osdInputIndicatorLabel);
+            this.configurationGroup.Controls.Add(this.osdInputIndicatorCheck);
+            this.configurationGroup.Controls.Add(this.frontPanelBrightnessCombo);
+            this.configurationGroup.Controls.Add(this.rgbsComponent2Check);
+            this.configurationGroup.Controls.Add(this.rgbsComponent1Check);
+            this.configurationGroup.Controls.Add(this.componentInputsCombo);
+            this.configurationGroup.Controls.Add(this.bitRateCombo);
+            this.configurationGroup.Controls.Add(this.autoStandbyLabel);
+            this.configurationGroup.Controls.Add(this.autoStandbyCheck);
+            this.configurationGroup.Controls.Add(this.componentInputsLabel);
+            this.configurationGroup.Controls.Add(this.autoWakeupLabel);
+            this.configurationGroup.Controls.Add(this.bitRateLabel);
+            this.configurationGroup.Controls.Add(this.autoWakeupCombo);
+            this.configurationGroup.Location = new System.Drawing.Point(3, 6);
+            this.configurationGroup.Name = "configurationGroup";
+            this.configurationGroup.Size = new System.Drawing.Size(237, 246);
+            this.configurationGroup.TabIndex = 9;
+            this.configurationGroup.TabStop = false;
+            this.configurationGroup.Text = "Configuration";
+            // 
+            // rgbsComponent1Label
+            // 
+            this.rgbsComponent1Label.AutoSize = true;
+            this.rgbsComponent1Label.Location = new System.Drawing.Point(20, 124);
+            this.rgbsComponent1Label.Name = "rgbsComponent1Label";
+            this.rgbsComponent1Label.Size = new System.Drawing.Size(104, 13);
+            this.rgbsComponent1Label.TabIndex = 13;
+            this.rgbsComponent1Label.Text = "RGBs Component 1:";
+            // 
+            // rgbsComponent2Label
+            // 
+            this.rgbsComponent2Label.AutoSize = true;
+            this.rgbsComponent2Label.Location = new System.Drawing.Point(20, 147);
+            this.rgbsComponent2Label.Name = "rgbsComponent2Label";
+            this.rgbsComponent2Label.Size = new System.Drawing.Size(104, 13);
+            this.rgbsComponent2Label.TabIndex = 14;
+            this.rgbsComponent2Label.Text = "RGBs Component 2:";
+            // 
+            // frontPanelBrightnessLabel
+            // 
+            this.frontPanelBrightnessLabel.AutoSize = true;
+            this.frontPanelBrightnessLabel.Location = new System.Drawing.Point(8, 199);
+            this.frontPanelBrightnessLabel.Name = "frontPanelBrightnessLabel";
+            this.frontPanelBrightnessLabel.Size = new System.Drawing.Size(116, 13);
+            this.frontPanelBrightnessLabel.TabIndex = 15;
+            this.frontPanelBrightnessLabel.Text = "Front Panel Brightness:";
+            // 
+            // menuTimeoutLabel
+            // 
+            this.menuTimeoutLabel.AutoSize = true;
+            this.menuTimeoutLabel.Location = new System.Drawing.Point(41, 172);
+            this.menuTimeoutLabel.Name = "menuTimeoutLabel";
+            this.menuTimeoutLabel.Size = new System.Drawing.Size(83, 13);
+            this.menuTimeoutLabel.TabIndex = 4;
+            this.menuTimeoutLabel.Text = "Menu Time-Out:";
+            // 
+            // menuTimeoutCombo
+            // 
+            this.menuTimeoutCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.menuTimeoutCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.menuTimeoutCombo.FormattingEnabled = true;
+            this.menuTimeoutCombo.Location = new System.Drawing.Point(130, 169);
+            this.menuTimeoutCombo.Name = "menuTimeoutCombo";
+            this.menuTimeoutCombo.Size = new System.Drawing.Size(99, 21);
+            this.menuTimeoutCombo.TabIndex = 5;
+            // 
+            // osdInputIndicatorLabel
+            // 
+            this.osdInputIndicatorLabel.AutoSize = true;
+            this.osdInputIndicatorLabel.Location = new System.Drawing.Point(20, 224);
+            this.osdInputIndicatorLabel.Name = "osdInputIndicatorLabel";
+            this.osdInputIndicatorLabel.Size = new System.Drawing.Size(104, 13);
+            this.osdInputIndicatorLabel.TabIndex = 17;
+            this.osdInputIndicatorLabel.Text = "OSD Input Indicator:";
+            // 
+            // osdInputIndicatorCheck
+            // 
+            this.osdInputIndicatorCheck.AutoSize = true;
+            this.osdInputIndicatorCheck.Location = new System.Drawing.Point(130, 223);
+            this.osdInputIndicatorCheck.Name = "osdInputIndicatorCheck";
+            this.osdInputIndicatorCheck.Size = new System.Drawing.Size(65, 17);
+            this.osdInputIndicatorCheck.TabIndex = 24;
+            this.osdInputIndicatorCheck.Text = "Enabled";
+            this.osdInputIndicatorCheck.UseVisualStyleBackColor = true;
+            // 
+            // frontPanelBrightnessCombo
+            // 
+            this.frontPanelBrightnessCombo.BackColor = System.Drawing.SystemColors.Window;
+            this.frontPanelBrightnessCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.frontPanelBrightnessCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.frontPanelBrightnessCombo.FormattingEnabled = true;
+            this.frontPanelBrightnessCombo.Location = new System.Drawing.Point(130, 196);
+            this.frontPanelBrightnessCombo.Name = "frontPanelBrightnessCombo";
+            this.frontPanelBrightnessCombo.Size = new System.Drawing.Size(99, 21);
+            this.frontPanelBrightnessCombo.TabIndex = 22;
+            // 
+            // rgbsComponent2Check
+            // 
+            this.rgbsComponent2Check.AutoSize = true;
+            this.rgbsComponent2Check.Location = new System.Drawing.Point(130, 146);
+            this.rgbsComponent2Check.Name = "rgbsComponent2Check";
+            this.rgbsComponent2Check.Size = new System.Drawing.Size(65, 17);
+            this.rgbsComponent2Check.TabIndex = 21;
+            this.rgbsComponent2Check.Text = "Enabled";
+            this.rgbsComponent2Check.UseVisualStyleBackColor = true;
+            // 
+            // rgbsComponent1Check
+            // 
+            this.rgbsComponent1Check.AutoSize = true;
+            this.rgbsComponent1Check.Location = new System.Drawing.Point(130, 123);
+            this.rgbsComponent1Check.Name = "rgbsComponent1Check";
+            this.rgbsComponent1Check.Size = new System.Drawing.Size(65, 17);
+            this.rgbsComponent1Check.TabIndex = 20;
+            this.rgbsComponent1Check.Text = "Enabled";
+            this.rgbsComponent1Check.UseVisualStyleBackColor = true;
+            // 
+            // componentInputsCombo
+            // 
+            this.componentInputsCombo.BackColor = System.Drawing.SystemColors.Window;
+            this.componentInputsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.componentInputsCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.componentInputsCombo.FormattingEnabled = true;
+            this.componentInputsCombo.Location = new System.Drawing.Point(130, 96);
+            this.componentInputsCombo.Name = "componentInputsCombo";
+            this.componentInputsCombo.Size = new System.Drawing.Size(99, 21);
+            this.componentInputsCombo.TabIndex = 19;
+            // 
+            // bitRateCombo
+            // 
+            this.bitRateCombo.BackColor = System.Drawing.SystemColors.Window;
+            this.bitRateCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bitRateCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bitRateCombo.FormattingEnabled = true;
+            this.bitRateCombo.Location = new System.Drawing.Point(130, 69);
+            this.bitRateCombo.Name = "bitRateCombo";
+            this.bitRateCombo.Size = new System.Drawing.Size(99, 21);
+            this.bitRateCombo.TabIndex = 18;
+            // 
+            // autoStandbyLabel
+            // 
+            this.autoStandbyLabel.AutoSize = true;
+            this.autoStandbyLabel.Location = new System.Drawing.Point(50, 20);
+            this.autoStandbyLabel.Name = "autoStandbyLabel";
+            this.autoStandbyLabel.Size = new System.Drawing.Size(74, 13);
+            this.autoStandbyLabel.TabIndex = 0;
+            this.autoStandbyLabel.Text = "Auto Standby:";
+            // 
+            // autoStandbyCheck
+            // 
+            this.autoStandbyCheck.AutoSize = true;
+            this.autoStandbyCheck.Location = new System.Drawing.Point(130, 19);
+            this.autoStandbyCheck.Name = "autoStandbyCheck";
+            this.autoStandbyCheck.Size = new System.Drawing.Size(65, 17);
+            this.autoStandbyCheck.TabIndex = 1;
+            this.autoStandbyCheck.Text = "Enabled";
+            this.autoStandbyCheck.UseVisualStyleBackColor = true;
+            // 
+            // componentInputsLabel
+            // 
+            this.componentInputsLabel.AutoSize = true;
+            this.componentInputsLabel.Location = new System.Drawing.Point(28, 99);
+            this.componentInputsLabel.Name = "componentInputsLabel";
+            this.componentInputsLabel.Size = new System.Drawing.Size(96, 13);
+            this.componentInputsLabel.TabIndex = 12;
+            this.componentInputsLabel.Text = "Component Inputs:";
+            // 
+            // autoWakeupLabel
+            // 
+            this.autoWakeupLabel.AutoSize = true;
+            this.autoWakeupLabel.Location = new System.Drawing.Point(48, 46);
+            this.autoWakeupLabel.Name = "autoWakeupLabel";
+            this.autoWakeupLabel.Size = new System.Drawing.Size(76, 13);
+            this.autoWakeupLabel.TabIndex = 2;
+            this.autoWakeupLabel.Text = "Auto Wakeup:";
+            // 
+            // bitRateLabel
+            // 
+            this.bitRateLabel.AutoSize = true;
+            this.bitRateLabel.Location = new System.Drawing.Point(27, 72);
+            this.bitRateLabel.Name = "bitRateLabel";
+            this.bitRateLabel.Size = new System.Drawing.Size(97, 13);
+            this.bitRateLabel.TabIndex = 10;
+            this.bitRateLabel.Text = "RS232 Baud Rate:";
+            // 
+            // autoWakeupCombo
+            // 
+            this.autoWakeupCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.autoWakeupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.autoWakeupCombo.FormattingEnabled = true;
+            this.autoWakeupCombo.Location = new System.Drawing.Point(130, 42);
+            this.autoWakeupCombo.Name = "autoWakeupCombo";
+            this.autoWakeupCombo.Size = new System.Drawing.Size(99, 21);
+            this.autoWakeupCombo.TabIndex = 3;
+            // 
             // cmsTab
             // 
             this.cmsTab.Controls.Add(this.incrementGroup);
@@ -2018,7 +2336,7 @@
             this.cmsTab.Location = new System.Drawing.Point(4, 22);
             this.cmsTab.Name = "cmsTab";
             this.cmsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.cmsTab.Size = new System.Drawing.Size(835, 456);
+            this.cmsTab.Size = new System.Drawing.Size(817, 427);
             this.cmsTab.TabIndex = 2;
             this.cmsTab.Text = "CMS";
             this.cmsTab.UseVisualStyleBackColor = true;
@@ -2031,7 +2349,7 @@
             this.incrementGroup.Controls.Add(this.hundrethIncrementRadio);
             this.incrementGroup.Controls.Add(this.thousandthIncrementRadio);
             this.incrementGroup.Controls.Add(this.tenThousandthIncrementRadio);
-            this.incrementGroup.Location = new System.Drawing.Point(705, 63);
+            this.incrementGroup.Location = new System.Drawing.Point(729, 63);
             this.incrementGroup.Name = "incrementGroup";
             this.incrementGroup.Size = new System.Drawing.Size(75, 141);
             this.incrementGroup.TabIndex = 4;
@@ -2102,7 +2420,7 @@
             this.testPatternGroup.Controls.Add(this.previousTestPatternButton);
             this.testPatternGroup.Controls.Add(this.testPatternCombo2);
             this.testPatternGroup.Controls.Add(this.testPatternLabel2);
-            this.testPatternGroup.Location = new System.Drawing.Point(371, 7);
+            this.testPatternGroup.Location = new System.Drawing.Point(395, 7);
             this.testPatternGroup.Name = "testPatternGroup";
             this.testPatternGroup.Size = new System.Drawing.Size(409, 50);
             this.testPatternGroup.TabIndex = 1;
@@ -2425,44 +2743,55 @@
             // 
             // profileGroup
             // 
+            this.profileGroup.Controls.Add(this.bypassCMSCheck);
             this.profileGroup.Controls.Add(this.copyProfileButton);
-            this.profileGroup.Controls.Add(this.dayNightProfileCombo);
+            this.profileGroup.Controls.Add(this.profileCombo);
             this.profileGroup.Controls.Add(this.dayNightProfileLabel);
             this.profileGroup.Location = new System.Drawing.Point(6, 6);
             this.profileGroup.Name = "profileGroup";
-            this.profileGroup.Size = new System.Drawing.Size(356, 51);
+            this.profileGroup.Size = new System.Drawing.Size(383, 51);
             this.profileGroup.TabIndex = 0;
             this.profileGroup.TabStop = false;
-            this.profileGroup.Text = "Profile";
+            this.profileGroup.Text = "General";
+            // 
+            // bypassCMSCheck
+            // 
+            this.bypassCMSCheck.AutoSize = true;
+            this.bypassCMSCheck.Location = new System.Drawing.Point(290, 23);
+            this.bypassCMSCheck.Name = "bypassCMSCheck";
+            this.bypassCMSCheck.Size = new System.Drawing.Size(86, 17);
+            this.bypassCMSCheck.TabIndex = 29;
+            this.bypassCMSCheck.Text = "Bypass CMS";
+            this.bypassCMSCheck.UseVisualStyleBackColor = true;
             // 
             // copyProfileButton
             // 
-            this.copyProfileButton.Location = new System.Drawing.Point(184, 18);
+            this.copyProfileButton.Location = new System.Drawing.Point(133, 19);
             this.copyProfileButton.Name = "copyProfileButton";
-            this.copyProfileButton.Size = new System.Drawing.Size(166, 23);
+            this.copyProfileButton.Size = new System.Drawing.Size(97, 23);
             this.copyProfileButton.TabIndex = 2;
+            this.copyProfileButton.Text = "Copy Profile to...";
             this.copyProfileButton.UseVisualStyleBackColor = true;
             this.copyProfileButton.Click += new System.EventHandler(this.copyProfileButton_Click);
             // 
-            // dayNightProfileCombo
+            // profileCombo
             // 
-            this.dayNightProfileCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dayNightProfileCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.dayNightProfileCombo.FormattingEnabled = true;
-            this.dayNightProfileCombo.Location = new System.Drawing.Point(103, 19);
-            this.dayNightProfileCombo.Name = "dayNightProfileCombo";
-            this.dayNightProfileCombo.Size = new System.Drawing.Size(74, 21);
-            this.dayNightProfileCombo.TabIndex = 1;
-            this.dayNightProfileCombo.SelectedIndexChanged += new System.EventHandler(this.dayNightProfileCombo_SelectedIndexChanged);
+            this.profileCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.profileCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.profileCombo.FormattingEnabled = true;
+            this.profileCombo.Location = new System.Drawing.Point(53, 20);
+            this.profileCombo.Name = "profileCombo";
+            this.profileCombo.Size = new System.Drawing.Size(74, 21);
+            this.profileCombo.TabIndex = 1;
             // 
             // dayNightProfileLabel
             // 
             this.dayNightProfileLabel.AutoSize = true;
-            this.dayNightProfileLabel.Location = new System.Drawing.Point(6, 22);
+            this.dayNightProfileLabel.Location = new System.Drawing.Point(8, 23);
             this.dayNightProfileLabel.Name = "dayNightProfileLabel";
-            this.dayNightProfileLabel.Size = new System.Drawing.Size(91, 13);
+            this.dayNightProfileLabel.Size = new System.Drawing.Size(39, 13);
             this.dayNightProfileLabel.TabIndex = 0;
-            this.dayNightProfileLabel.Text = "Day/Night Profile:";
+            this.dayNightProfileLabel.Text = "Profile:";
             // 
             // colorGamutGroup
             // 
@@ -2503,7 +2832,7 @@
             this.colorGamutGroup.Controls.Add(this.cgRedLabel);
             this.colorGamutGroup.Location = new System.Drawing.Point(195, 63);
             this.colorGamutGroup.Name = "colorGamutGroup";
-            this.colorGamutGroup.Size = new System.Drawing.Size(503, 141);
+            this.colorGamutGroup.Size = new System.Drawing.Size(528, 141);
             this.colorGamutGroup.TabIndex = 3;
             this.colorGamutGroup.TabStop = false;
             this.colorGamutGroup.Text = "Color Gamut";
@@ -2516,7 +2845,7 @@
             0,
             0,
             262144});
-            this.cgCyancYSpinner.Location = new System.Drawing.Point(434, 34);
+            this.cgCyancYSpinner.Location = new System.Drawing.Point(459, 34);
             this.cgCyancYSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2539,7 +2868,7 @@
             0,
             0,
             262144});
-            this.cgCyanySpinner.Location = new System.Drawing.Point(371, 34);
+            this.cgCyanySpinner.Location = new System.Drawing.Point(396, 34);
             this.cgCyanySpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2562,7 +2891,7 @@
             0,
             0,
             262144});
-            this.cgCyanxSpinner.Location = new System.Drawing.Point(308, 34);
+            this.cgCyanxSpinner.Location = new System.Drawing.Point(333, 34);
             this.cgCyanxSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2580,7 +2909,7 @@
             // cgcY2Label
             // 
             this.cgcY2Label.AutoSize = true;
-            this.cgcY2Label.Location = new System.Drawing.Point(455, 16);
+            this.cgcY2Label.Location = new System.Drawing.Point(480, 16);
             this.cgcY2Label.Name = "cgcY2Label";
             this.cgcY2Label.Size = new System.Drawing.Size(14, 13);
             this.cgcY2Label.TabIndex = 17;
@@ -2589,7 +2918,7 @@
             // cgy2Label
             // 
             this.cgy2Label.AutoSize = true;
-            this.cgy2Label.Location = new System.Drawing.Point(393, 16);
+            this.cgy2Label.Location = new System.Drawing.Point(418, 16);
             this.cgy2Label.Name = "cgy2Label";
             this.cgy2Label.Size = new System.Drawing.Size(12, 13);
             this.cgy2Label.TabIndex = 16;
@@ -2598,7 +2927,7 @@
             // cgx2Label
             // 
             this.cgx2Label.AutoSize = true;
-            this.cgx2Label.Location = new System.Drawing.Point(330, 16);
+            this.cgx2Label.Location = new System.Drawing.Point(355, 16);
             this.cgx2Label.Name = "cgx2Label";
             this.cgx2Label.Size = new System.Drawing.Size(12, 13);
             this.cgx2Label.TabIndex = 15;
@@ -2612,7 +2941,7 @@
             0,
             0,
             262144});
-            this.cgWhitecYSpinner.Location = new System.Drawing.Point(434, 112);
+            this.cgWhitecYSpinner.Location = new System.Drawing.Point(459, 112);
             this.cgWhitecYSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2635,7 +2964,7 @@
             0,
             0,
             262144});
-            this.cgWhiteySpinner.Location = new System.Drawing.Point(371, 112);
+            this.cgWhiteySpinner.Location = new System.Drawing.Point(396, 112);
             this.cgWhiteySpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2658,7 +2987,7 @@
             0,
             0,
             262144});
-            this.cgWhitexSpinner.Location = new System.Drawing.Point(308, 112);
+            this.cgWhitexSpinner.Location = new System.Drawing.Point(333, 112);
             this.cgWhitexSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2681,7 +3010,7 @@
             0,
             0,
             262144});
-            this.cgYellowcYSpinner.Location = new System.Drawing.Point(434, 86);
+            this.cgYellowcYSpinner.Location = new System.Drawing.Point(459, 86);
             this.cgYellowcYSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2704,7 +3033,7 @@
             0,
             0,
             262144});
-            this.cgYellowySpinner.Location = new System.Drawing.Point(371, 86);
+            this.cgYellowySpinner.Location = new System.Drawing.Point(396, 86);
             this.cgYellowySpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2727,7 +3056,7 @@
             0,
             0,
             262144});
-            this.cgYellowxSpinner.Location = new System.Drawing.Point(308, 86);
+            this.cgYellowxSpinner.Location = new System.Drawing.Point(333, 86);
             this.cgYellowxSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2750,7 +3079,7 @@
             0,
             0,
             262144});
-            this.cgMagentacYSpinner.Location = new System.Drawing.Point(434, 60);
+            this.cgMagentacYSpinner.Location = new System.Drawing.Point(459, 60);
             this.cgMagentacYSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2773,7 +3102,7 @@
             0,
             0,
             262144});
-            this.cgMagentaySpinner.Location = new System.Drawing.Point(371, 60);
+            this.cgMagentaySpinner.Location = new System.Drawing.Point(396, 60);
             this.cgMagentaySpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2796,7 +3125,7 @@
             0,
             0,
             262144});
-            this.cgMagentaxSpinner.Location = new System.Drawing.Point(308, 60);
+            this.cgMagentaxSpinner.Location = new System.Drawing.Point(333, 60);
             this.cgMagentaxSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2819,7 +3148,7 @@
             0,
             0,
             262144});
-            this.cgRedcYSpinner.Location = new System.Drawing.Point(173, 34);
+            this.cgRedcYSpinner.Location = new System.Drawing.Point(177, 34);
             this.cgRedcYSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2842,7 +3171,7 @@
             0,
             0,
             262144});
-            this.cgRedySpinner.Location = new System.Drawing.Point(110, 34);
+            this.cgRedySpinner.Location = new System.Drawing.Point(114, 34);
             this.cgRedySpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2865,7 +3194,7 @@
             0,
             0,
             262144});
-            this.cgRedxSpinner.Location = new System.Drawing.Point(47, 34);
+            this.cgRedxSpinner.Location = new System.Drawing.Point(51, 34);
             this.cgRedxSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2888,7 +3217,7 @@
             0,
             0,
             262144});
-            this.cgBluecYSpinner.Location = new System.Drawing.Point(173, 86);
+            this.cgBluecYSpinner.Location = new System.Drawing.Point(177, 86);
             this.cgBluecYSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2911,7 +3240,7 @@
             0,
             0,
             262144});
-            this.cgBlueySpinner.Location = new System.Drawing.Point(110, 86);
+            this.cgBlueySpinner.Location = new System.Drawing.Point(114, 86);
             this.cgBlueySpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2934,7 +3263,7 @@
             0,
             0,
             262144});
-            this.cgBluexSpinner.Location = new System.Drawing.Point(47, 86);
+            this.cgBluexSpinner.Location = new System.Drawing.Point(51, 86);
             this.cgBluexSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2957,7 +3286,7 @@
             0,
             0,
             262144});
-            this.cgGreencYSpinner.Location = new System.Drawing.Point(173, 60);
+            this.cgGreencYSpinner.Location = new System.Drawing.Point(177, 60);
             this.cgGreencYSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -2980,7 +3309,7 @@
             0,
             0,
             262144});
-            this.cgGreenySpinner.Location = new System.Drawing.Point(110, 60);
+            this.cgGreenySpinner.Location = new System.Drawing.Point(114, 60);
             this.cgGreenySpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -3003,7 +3332,7 @@
             0,
             0,
             262144});
-            this.cgGreenxSpinner.Location = new System.Drawing.Point(47, 60);
+            this.cgGreenxSpinner.Location = new System.Drawing.Point(51, 60);
             this.cgGreenxSpinner.Maximum = new decimal(new int[] {
             1,
             0,
@@ -3021,7 +3350,7 @@
             // cgYellowLabel
             // 
             this.cgYellowLabel.AutoSize = true;
-            this.cgYellowLabel.Location = new System.Drawing.Point(264, 88);
+            this.cgYellowLabel.Location = new System.Drawing.Point(289, 88);
             this.cgYellowLabel.Name = "cgYellowLabel";
             this.cgYellowLabel.Size = new System.Drawing.Size(38, 13);
             this.cgYellowLabel.TabIndex = 26;
@@ -3030,7 +3359,7 @@
             // cgMagentaLabel
             // 
             this.cgMagentaLabel.AutoSize = true;
-            this.cgMagentaLabel.Location = new System.Drawing.Point(253, 62);
+            this.cgMagentaLabel.Location = new System.Drawing.Point(278, 62);
             this.cgMagentaLabel.Name = "cgMagentaLabel";
             this.cgMagentaLabel.Size = new System.Drawing.Size(49, 13);
             this.cgMagentaLabel.TabIndex = 22;
@@ -3039,7 +3368,7 @@
             // cgCyanLabel
             // 
             this.cgCyanLabel.AutoSize = true;
-            this.cgCyanLabel.Location = new System.Drawing.Point(271, 36);
+            this.cgCyanLabel.Location = new System.Drawing.Point(296, 36);
             this.cgCyanLabel.Name = "cgCyanLabel";
             this.cgCyanLabel.Size = new System.Drawing.Size(31, 13);
             this.cgCyanLabel.TabIndex = 18;
@@ -3048,7 +3377,7 @@
             // cgcY1Label
             // 
             this.cgcY1Label.AutoSize = true;
-            this.cgcY1Label.Location = new System.Drawing.Point(194, 16);
+            this.cgcY1Label.Location = new System.Drawing.Point(198, 16);
             this.cgcY1Label.Name = "cgcY1Label";
             this.cgcY1Label.Size = new System.Drawing.Size(14, 13);
             this.cgcY1Label.TabIndex = 2;
@@ -3057,7 +3386,7 @@
             // cgy1Label
             // 
             this.cgy1Label.AutoSize = true;
-            this.cgy1Label.Location = new System.Drawing.Point(132, 16);
+            this.cgy1Label.Location = new System.Drawing.Point(136, 16);
             this.cgy1Label.Name = "cgy1Label";
             this.cgy1Label.Size = new System.Drawing.Size(12, 13);
             this.cgy1Label.TabIndex = 1;
@@ -3066,7 +3395,7 @@
             // cgx1Label
             // 
             this.cgx1Label.AutoSize = true;
-            this.cgx1Label.Location = new System.Drawing.Point(69, 16);
+            this.cgx1Label.Location = new System.Drawing.Point(73, 16);
             this.cgx1Label.Name = "cgx1Label";
             this.cgx1Label.Size = new System.Drawing.Size(12, 13);
             this.cgx1Label.TabIndex = 0;
@@ -3075,7 +3404,7 @@
             // cgWhiteLabel
             // 
             this.cgWhiteLabel.AutoSize = true;
-            this.cgWhiteLabel.Location = new System.Drawing.Point(267, 114);
+            this.cgWhiteLabel.Location = new System.Drawing.Point(292, 114);
             this.cgWhiteLabel.Name = "cgWhiteLabel";
             this.cgWhiteLabel.Size = new System.Drawing.Size(35, 13);
             this.cgWhiteLabel.TabIndex = 30;
@@ -3084,7 +3413,7 @@
             // cgBlueLabel
             // 
             this.cgBlueLabel.AutoSize = true;
-            this.cgBlueLabel.Location = new System.Drawing.Point(13, 88);
+            this.cgBlueLabel.Location = new System.Drawing.Point(17, 88);
             this.cgBlueLabel.Name = "cgBlueLabel";
             this.cgBlueLabel.Size = new System.Drawing.Size(28, 13);
             this.cgBlueLabel.TabIndex = 11;
@@ -3093,7 +3422,7 @@
             // cgGreenLabel
             // 
             this.cgGreenLabel.AutoSize = true;
-            this.cgGreenLabel.Location = new System.Drawing.Point(5, 62);
+            this.cgGreenLabel.Location = new System.Drawing.Point(9, 62);
             this.cgGreenLabel.Name = "cgGreenLabel";
             this.cgGreenLabel.Size = new System.Drawing.Size(36, 13);
             this.cgGreenLabel.TabIndex = 7;
@@ -3102,7 +3431,7 @@
             // cgRedLabel
             // 
             this.cgRedLabel.AutoSize = true;
-            this.cgRedLabel.Location = new System.Drawing.Point(14, 36);
+            this.cgRedLabel.Location = new System.Drawing.Point(18, 36);
             this.cgRedLabel.Name = "cgRedLabel";
             this.cgRedLabel.Size = new System.Drawing.Size(27, 13);
             this.cgRedLabel.TabIndex = 3;
@@ -3195,7 +3524,7 @@
             this.grayscaleGroup.Controls.Add(this.gRedLabel);
             this.grayscaleGroup.Location = new System.Drawing.Point(6, 210);
             this.grayscaleGroup.Name = "grayscaleGroup";
-            this.grayscaleGroup.Size = new System.Drawing.Size(822, 204);
+            this.grayscaleGroup.Size = new System.Drawing.Size(798, 204);
             this.grayscaleGroup.TabIndex = 5;
             this.grayscaleGroup.TabStop = false;
             this.grayscaleGroup.Text = "Grayscale";
@@ -3208,7 +3537,7 @@
             0,
             0,
             262144});
-            this.gWhitecY100Spinner.Location = new System.Drawing.Point(747, 174);
+            this.gWhitecY100Spinner.Location = new System.Drawing.Point(727, 174);
             this.gWhitecY100Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3231,7 +3560,7 @@
             0,
             0,
             262144});
-            this.gWhitey100Spinner.Location = new System.Drawing.Point(747, 148);
+            this.gWhitey100Spinner.Location = new System.Drawing.Point(727, 148);
             this.gWhitey100Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3254,7 +3583,7 @@
             0,
             0,
             262144});
-            this.gWhitex100Spinner.Location = new System.Drawing.Point(747, 122);
+            this.gWhitex100Spinner.Location = new System.Drawing.Point(727, 122);
             this.gWhitex100Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3277,7 +3606,7 @@
             0,
             0,
             262144});
-            this.gBlue100Spinner.Location = new System.Drawing.Point(747, 86);
+            this.gBlue100Spinner.Location = new System.Drawing.Point(727, 86);
             this.gBlue100Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3300,7 +3629,7 @@
             0,
             0,
             262144});
-            this.gGreen100Spinner.Location = new System.Drawing.Point(747, 60);
+            this.gGreen100Spinner.Location = new System.Drawing.Point(727, 60);
             this.gGreen100Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3323,7 +3652,7 @@
             0,
             0,
             262144});
-            this.gRed100Spinner.Location = new System.Drawing.Point(747, 34);
+            this.gRed100Spinner.Location = new System.Drawing.Point(727, 34);
             this.gRed100Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3346,7 +3675,7 @@
             0,
             0,
             262144});
-            this.gWhitecY90Spinner.Location = new System.Drawing.Point(678, 174);
+            this.gWhitecY90Spinner.Location = new System.Drawing.Point(660, 174);
             this.gWhitecY90Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3369,7 +3698,7 @@
             0,
             0,
             262144});
-            this.gWhitecY80Spinner.Location = new System.Drawing.Point(609, 174);
+            this.gWhitecY80Spinner.Location = new System.Drawing.Point(593, 174);
             this.gWhitecY80Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3392,7 +3721,7 @@
             0,
             0,
             262144});
-            this.gWhitecY70Spinner.Location = new System.Drawing.Point(540, 174);
+            this.gWhitecY70Spinner.Location = new System.Drawing.Point(526, 174);
             this.gWhitecY70Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3415,7 +3744,7 @@
             0,
             0,
             262144});
-            this.gWhitecY60Spinner.Location = new System.Drawing.Point(471, 174);
+            this.gWhitecY60Spinner.Location = new System.Drawing.Point(459, 174);
             this.gWhitecY60Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3438,7 +3767,7 @@
             0,
             0,
             262144});
-            this.gWhitecY50Spinner.Location = new System.Drawing.Point(402, 174);
+            this.gWhitecY50Spinner.Location = new System.Drawing.Point(392, 174);
             this.gWhitecY50Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3461,7 +3790,7 @@
             0,
             0,
             262144});
-            this.gWhitecY40Spinner.Location = new System.Drawing.Point(333, 174);
+            this.gWhitecY40Spinner.Location = new System.Drawing.Point(325, 174);
             this.gWhitecY40Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3484,7 +3813,7 @@
             0,
             0,
             262144});
-            this.gWhitecY30Spinner.Location = new System.Drawing.Point(264, 174);
+            this.gWhitecY30Spinner.Location = new System.Drawing.Point(258, 174);
             this.gWhitecY30Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3507,7 +3836,7 @@
             0,
             0,
             262144});
-            this.gWhitecY20Spinner.Location = new System.Drawing.Point(195, 174);
+            this.gWhitecY20Spinner.Location = new System.Drawing.Point(191, 174);
             this.gWhitecY20Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3530,7 +3859,7 @@
             0,
             0,
             262144});
-            this.gWhitecY10Spinner.Location = new System.Drawing.Point(126, 174);
+            this.gWhitecY10Spinner.Location = new System.Drawing.Point(124, 174);
             this.gWhitecY10Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3553,7 +3882,7 @@
             0,
             0,
             262144});
-            this.gWhitey90Spinner.Location = new System.Drawing.Point(678, 148);
+            this.gWhitey90Spinner.Location = new System.Drawing.Point(660, 148);
             this.gWhitey90Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3576,7 +3905,7 @@
             0,
             0,
             262144});
-            this.gWhitey80Spinner.Location = new System.Drawing.Point(609, 148);
+            this.gWhitey80Spinner.Location = new System.Drawing.Point(593, 148);
             this.gWhitey80Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3599,7 +3928,7 @@
             0,
             0,
             262144});
-            this.gWhitey70Spinner.Location = new System.Drawing.Point(540, 148);
+            this.gWhitey70Spinner.Location = new System.Drawing.Point(526, 148);
             this.gWhitey70Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3622,7 +3951,7 @@
             0,
             0,
             262144});
-            this.gWhitey60Spinner.Location = new System.Drawing.Point(471, 148);
+            this.gWhitey60Spinner.Location = new System.Drawing.Point(459, 148);
             this.gWhitey60Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3645,7 +3974,7 @@
             0,
             0,
             262144});
-            this.gWhitey50Spinner.Location = new System.Drawing.Point(402, 148);
+            this.gWhitey50Spinner.Location = new System.Drawing.Point(392, 148);
             this.gWhitey50Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3668,7 +3997,7 @@
             0,
             0,
             262144});
-            this.gWhitey40Spinner.Location = new System.Drawing.Point(333, 148);
+            this.gWhitey40Spinner.Location = new System.Drawing.Point(325, 148);
             this.gWhitey40Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3691,7 +4020,7 @@
             0,
             0,
             262144});
-            this.gWhitey30Spinner.Location = new System.Drawing.Point(264, 148);
+            this.gWhitey30Spinner.Location = new System.Drawing.Point(258, 148);
             this.gWhitey30Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3714,7 +4043,7 @@
             0,
             0,
             262144});
-            this.gWhitey20Spinner.Location = new System.Drawing.Point(195, 148);
+            this.gWhitey20Spinner.Location = new System.Drawing.Point(191, 148);
             this.gWhitey20Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3737,7 +4066,7 @@
             0,
             0,
             262144});
-            this.gWhitey10Spinner.Location = new System.Drawing.Point(126, 148);
+            this.gWhitey10Spinner.Location = new System.Drawing.Point(124, 148);
             this.gWhitey10Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3760,7 +4089,7 @@
             0,
             0,
             262144});
-            this.gWhitex90Spinner.Location = new System.Drawing.Point(678, 122);
+            this.gWhitex90Spinner.Location = new System.Drawing.Point(660, 122);
             this.gWhitex90Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3783,7 +4112,7 @@
             0,
             0,
             262144});
-            this.gWhitex80Spinner.Location = new System.Drawing.Point(609, 122);
+            this.gWhitex80Spinner.Location = new System.Drawing.Point(593, 122);
             this.gWhitex80Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3806,7 +4135,7 @@
             0,
             0,
             262144});
-            this.gWhitex70Spinner.Location = new System.Drawing.Point(540, 122);
+            this.gWhitex70Spinner.Location = new System.Drawing.Point(526, 122);
             this.gWhitex70Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3829,7 +4158,7 @@
             0,
             0,
             262144});
-            this.gWhitex60Spinner.Location = new System.Drawing.Point(471, 122);
+            this.gWhitex60Spinner.Location = new System.Drawing.Point(459, 122);
             this.gWhitex60Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3852,7 +4181,7 @@
             0,
             0,
             262144});
-            this.gWhitex50Spinner.Location = new System.Drawing.Point(402, 122);
+            this.gWhitex50Spinner.Location = new System.Drawing.Point(392, 122);
             this.gWhitex50Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3875,7 +4204,7 @@
             0,
             0,
             262144});
-            this.gWhitex40Spinner.Location = new System.Drawing.Point(333, 122);
+            this.gWhitex40Spinner.Location = new System.Drawing.Point(325, 122);
             this.gWhitex40Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3898,7 +4227,7 @@
             0,
             0,
             262144});
-            this.gWhitex30Spinner.Location = new System.Drawing.Point(264, 122);
+            this.gWhitex30Spinner.Location = new System.Drawing.Point(258, 122);
             this.gWhitex30Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3921,7 +4250,7 @@
             0,
             0,
             262144});
-            this.gWhitex20Spinner.Location = new System.Drawing.Point(195, 122);
+            this.gWhitex20Spinner.Location = new System.Drawing.Point(191, 122);
             this.gWhitex20Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3944,7 +4273,7 @@
             0,
             0,
             262144});
-            this.gWhitex10Spinner.Location = new System.Drawing.Point(126, 122);
+            this.gWhitex10Spinner.Location = new System.Drawing.Point(124, 122);
             this.gWhitex10Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3967,7 +4296,7 @@
             0,
             0,
             262144});
-            this.gBlue90Spinner.Location = new System.Drawing.Point(678, 86);
+            this.gBlue90Spinner.Location = new System.Drawing.Point(660, 86);
             this.gBlue90Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -3990,7 +4319,7 @@
             0,
             0,
             262144});
-            this.gBlue80Spinner.Location = new System.Drawing.Point(609, 86);
+            this.gBlue80Spinner.Location = new System.Drawing.Point(593, 86);
             this.gBlue80Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4013,7 +4342,7 @@
             0,
             0,
             262144});
-            this.gBlue70Spinner.Location = new System.Drawing.Point(540, 86);
+            this.gBlue70Spinner.Location = new System.Drawing.Point(526, 86);
             this.gBlue70Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4036,7 +4365,7 @@
             0,
             0,
             262144});
-            this.gBlue60Spinner.Location = new System.Drawing.Point(471, 86);
+            this.gBlue60Spinner.Location = new System.Drawing.Point(459, 86);
             this.gBlue60Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4059,7 +4388,7 @@
             0,
             0,
             262144});
-            this.gBlue50Spinner.Location = new System.Drawing.Point(402, 86);
+            this.gBlue50Spinner.Location = new System.Drawing.Point(392, 86);
             this.gBlue50Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4082,7 +4411,7 @@
             0,
             0,
             262144});
-            this.gBlue40Spinner.Location = new System.Drawing.Point(333, 86);
+            this.gBlue40Spinner.Location = new System.Drawing.Point(325, 86);
             this.gBlue40Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4105,7 +4434,7 @@
             0,
             0,
             262144});
-            this.gBlue30Spinner.Location = new System.Drawing.Point(264, 86);
+            this.gBlue30Spinner.Location = new System.Drawing.Point(258, 86);
             this.gBlue30Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4128,7 +4457,7 @@
             0,
             0,
             262144});
-            this.gBlue20Spinner.Location = new System.Drawing.Point(195, 86);
+            this.gBlue20Spinner.Location = new System.Drawing.Point(191, 86);
             this.gBlue20Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4151,7 +4480,7 @@
             0,
             0,
             262144});
-            this.gBlue10Spinner.Location = new System.Drawing.Point(126, 86);
+            this.gBlue10Spinner.Location = new System.Drawing.Point(124, 86);
             this.gBlue10Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4174,7 +4503,7 @@
             0,
             0,
             262144});
-            this.gGreen90Spinner.Location = new System.Drawing.Point(678, 60);
+            this.gGreen90Spinner.Location = new System.Drawing.Point(660, 60);
             this.gGreen90Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4197,7 +4526,7 @@
             0,
             0,
             262144});
-            this.gGreen80Spinner.Location = new System.Drawing.Point(609, 60);
+            this.gGreen80Spinner.Location = new System.Drawing.Point(593, 60);
             this.gGreen80Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4220,7 +4549,7 @@
             0,
             0,
             262144});
-            this.gGreen70Spinner.Location = new System.Drawing.Point(540, 60);
+            this.gGreen70Spinner.Location = new System.Drawing.Point(526, 60);
             this.gGreen70Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4243,7 +4572,7 @@
             0,
             0,
             262144});
-            this.gGreen60Spinner.Location = new System.Drawing.Point(471, 60);
+            this.gGreen60Spinner.Location = new System.Drawing.Point(459, 60);
             this.gGreen60Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4266,7 +4595,7 @@
             0,
             0,
             262144});
-            this.gGreen50Spinner.Location = new System.Drawing.Point(402, 60);
+            this.gGreen50Spinner.Location = new System.Drawing.Point(392, 60);
             this.gGreen50Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4289,7 +4618,7 @@
             0,
             0,
             262144});
-            this.gGreen40Spinner.Location = new System.Drawing.Point(333, 60);
+            this.gGreen40Spinner.Location = new System.Drawing.Point(325, 60);
             this.gGreen40Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4312,7 +4641,7 @@
             0,
             0,
             262144});
-            this.gGreen30Spinner.Location = new System.Drawing.Point(264, 60);
+            this.gGreen30Spinner.Location = new System.Drawing.Point(258, 60);
             this.gGreen30Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4335,7 +4664,7 @@
             0,
             0,
             262144});
-            this.gGreen20Spinner.Location = new System.Drawing.Point(195, 60);
+            this.gGreen20Spinner.Location = new System.Drawing.Point(191, 60);
             this.gGreen20Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4358,7 +4687,7 @@
             0,
             0,
             262144});
-            this.gGreen10Spinner.Location = new System.Drawing.Point(126, 60);
+            this.gGreen10Spinner.Location = new System.Drawing.Point(124, 60);
             this.gGreen10Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4381,7 +4710,7 @@
             0,
             0,
             262144});
-            this.gRed90Spinner.Location = new System.Drawing.Point(678, 34);
+            this.gRed90Spinner.Location = new System.Drawing.Point(660, 34);
             this.gRed90Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4404,7 +4733,7 @@
             0,
             0,
             262144});
-            this.gRed80Spinner.Location = new System.Drawing.Point(609, 34);
+            this.gRed80Spinner.Location = new System.Drawing.Point(593, 34);
             this.gRed80Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4427,7 +4756,7 @@
             0,
             0,
             262144});
-            this.gRed70Spinner.Location = new System.Drawing.Point(540, 34);
+            this.gRed70Spinner.Location = new System.Drawing.Point(526, 34);
             this.gRed70Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4450,7 +4779,7 @@
             0,
             0,
             262144});
-            this.gRed60Spinner.Location = new System.Drawing.Point(471, 34);
+            this.gRed60Spinner.Location = new System.Drawing.Point(459, 34);
             this.gRed60Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4473,7 +4802,7 @@
             0,
             0,
             262144});
-            this.gRed50Spinner.Location = new System.Drawing.Point(402, 34);
+            this.gRed50Spinner.Location = new System.Drawing.Point(392, 34);
             this.gRed50Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4496,7 +4825,7 @@
             0,
             0,
             262144});
-            this.gRed40Spinner.Location = new System.Drawing.Point(333, 34);
+            this.gRed40Spinner.Location = new System.Drawing.Point(325, 34);
             this.gRed40Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4519,7 +4848,7 @@
             0,
             0,
             262144});
-            this.gRed30Spinner.Location = new System.Drawing.Point(264, 34);
+            this.gRed30Spinner.Location = new System.Drawing.Point(258, 34);
             this.gRed30Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4542,7 +4871,7 @@
             0,
             0,
             262144});
-            this.gRed20Spinner.Location = new System.Drawing.Point(195, 34);
+            this.gRed20Spinner.Location = new System.Drawing.Point(191, 34);
             this.gRed20Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4565,7 +4894,7 @@
             0,
             0,
             262144});
-            this.gRed10Spinner.Location = new System.Drawing.Point(126, 34);
+            this.gRed10Spinner.Location = new System.Drawing.Point(124, 34);
             this.gRed10Spinner.Maximum = new decimal(new int[] {
             20,
             0,
@@ -4721,7 +5050,7 @@
             // g100Label
             // 
             this.g100Label.AutoSize = true;
-            this.g100Label.Location = new System.Drawing.Point(755, 16);
+            this.g100Label.Location = new System.Drawing.Point(735, 16);
             this.g100Label.Name = "g100Label";
             this.g100Label.Size = new System.Drawing.Size(46, 13);
             this.g100Label.TabIndex = 10;
@@ -4730,7 +5059,7 @@
             // g90Label
             // 
             this.g90Label.AutoSize = true;
-            this.g90Label.Location = new System.Drawing.Point(689, 16);
+            this.g90Label.Location = new System.Drawing.Point(671, 16);
             this.g90Label.Name = "g90Label";
             this.g90Label.Size = new System.Drawing.Size(40, 13);
             this.g90Label.TabIndex = 9;
@@ -4739,7 +5068,7 @@
             // g80Label
             // 
             this.g80Label.AutoSize = true;
-            this.g80Label.Location = new System.Drawing.Point(620, 16);
+            this.g80Label.Location = new System.Drawing.Point(604, 16);
             this.g80Label.Name = "g80Label";
             this.g80Label.Size = new System.Drawing.Size(40, 13);
             this.g80Label.TabIndex = 8;
@@ -4748,7 +5077,7 @@
             // g70Label
             // 
             this.g70Label.AutoSize = true;
-            this.g70Label.Location = new System.Drawing.Point(551, 16);
+            this.g70Label.Location = new System.Drawing.Point(537, 16);
             this.g70Label.Name = "g70Label";
             this.g70Label.Size = new System.Drawing.Size(40, 13);
             this.g70Label.TabIndex = 7;
@@ -4757,7 +5086,7 @@
             // g60Label
             // 
             this.g60Label.AutoSize = true;
-            this.g60Label.Location = new System.Drawing.Point(482, 16);
+            this.g60Label.Location = new System.Drawing.Point(470, 16);
             this.g60Label.Name = "g60Label";
             this.g60Label.Size = new System.Drawing.Size(40, 13);
             this.g60Label.TabIndex = 6;
@@ -4766,7 +5095,7 @@
             // g50Label
             // 
             this.g50Label.AutoSize = true;
-            this.g50Label.Location = new System.Drawing.Point(413, 16);
+            this.g50Label.Location = new System.Drawing.Point(403, 16);
             this.g50Label.Name = "g50Label";
             this.g50Label.Size = new System.Drawing.Size(40, 13);
             this.g50Label.TabIndex = 5;
@@ -4775,7 +5104,7 @@
             // g40Label
             // 
             this.g40Label.AutoSize = true;
-            this.g40Label.Location = new System.Drawing.Point(344, 16);
+            this.g40Label.Location = new System.Drawing.Point(336, 16);
             this.g40Label.Name = "g40Label";
             this.g40Label.Size = new System.Drawing.Size(40, 13);
             this.g40Label.TabIndex = 4;
@@ -4784,7 +5113,7 @@
             // g30Label
             // 
             this.g30Label.AutoSize = true;
-            this.g30Label.Location = new System.Drawing.Point(275, 16);
+            this.g30Label.Location = new System.Drawing.Point(269, 16);
             this.g30Label.Name = "g30Label";
             this.g30Label.Size = new System.Drawing.Size(40, 13);
             this.g30Label.TabIndex = 3;
@@ -4793,7 +5122,7 @@
             // g20Label
             // 
             this.g20Label.AutoSize = true;
-            this.g20Label.Location = new System.Drawing.Point(206, 16);
+            this.g20Label.Location = new System.Drawing.Point(202, 16);
             this.g20Label.Name = "g20Label";
             this.g20Label.Size = new System.Drawing.Size(40, 13);
             this.g20Label.TabIndex = 2;
@@ -4802,7 +5131,7 @@
             // g10Label
             // 
             this.g10Label.AutoSize = true;
-            this.g10Label.Location = new System.Drawing.Point(137, 16);
+            this.g10Label.Location = new System.Drawing.Point(135, 16);
             this.g10Label.Name = "g10Label";
             this.g10Label.Size = new System.Drawing.Size(40, 13);
             this.g10Label.TabIndex = 1;
@@ -4881,7 +5210,7 @@
             this.customTab.Location = new System.Drawing.Point(4, 22);
             this.customTab.Name = "customTab";
             this.customTab.Padding = new System.Windows.Forms.Padding(3);
-            this.customTab.Size = new System.Drawing.Size(835, 456);
+            this.customTab.Size = new System.Drawing.Size(817, 427);
             this.customTab.TabIndex = 3;
             this.customTab.Text = "Custom Test Pattern";
             this.customTab.UseVisualStyleBackColor = true;
@@ -5865,7 +6194,7 @@
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(864, 24);
+            this.menuStrip.Size = new System.Drawing.Size(844, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -6115,9 +6444,9 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 519);
+            this.statusStrip.Location = new System.Drawing.Point(0, 489);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(864, 22);
+            this.statusStrip.Size = new System.Drawing.Size(844, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
@@ -6138,9 +6467,9 @@
             this.logMessageColumn});
             this.log.FullRowSelect = true;
             this.log.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.log.Location = new System.Drawing.Point(12, 515);
+            this.log.Location = new System.Drawing.Point(12, 486);
             this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(841, 0);
+            this.log.Size = new System.Drawing.Size(823, 0);
             this.log.TabIndex = 3;
             this.log.UseCompatibleStateImageBehavior = false;
             this.log.View = System.Windows.Forms.View.Details;
@@ -6179,7 +6508,7 @@
             // showLog
             // 
             this.showLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.showLog.Location = new System.Drawing.Point(789, 518);
+            this.showLog.Location = new System.Drawing.Point(769, 488);
             this.showLog.Name = "showLog";
             this.showLog.Size = new System.Drawing.Size(75, 23);
             this.showLog.TabIndex = 5;
@@ -6195,11 +6524,16 @@
             // 
             this.saveFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
             // 
+            // menuTimeoutTimer
+            // 
+            this.menuTimeoutTimer.Interval = 40000;
+            this.menuTimeoutTimer.Tick += new System.EventHandler(this.menuTimeoutTimer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 541);
+            this.ClientSize = new System.Drawing.Size(844, 511);
             this.Controls.Add(this.showLog);
             this.Controls.Add(this.log);
             this.Controls.Add(this.statusStrip);
@@ -6209,16 +6543,14 @@
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(880, 10000);
-            this.MinimumSize = new System.Drawing.Size(880, 580);
+            this.MinimumSize = new System.Drawing.Size(860, 550);
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "DVDO iScan Duo Control Panel - v0.8";
+            this.Text = "DVDO iScan Duo Control Panel - v0.9";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.tabControl.ResumeLayout(false);
             this.settingsTab.ResumeLayout(false);
-            this.otherGroup.ResumeLayout(false);
-            this.otherGroup.PerformLayout();
             this.aspectRatioGroup.ResumeLayout(false);
             this.aspectRatioGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomSpinner)).EndInit();
@@ -6229,17 +6561,13 @@
             this.inputAdjustGroup.ResumeLayout(false);
             this.inputAdjustGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.audioDelaySpinner)).EndInit();
-            this.remoteGroup.ResumeLayout(false);
-            this.remoteGroup.PerformLayout();
-            this.configurationGroup.ResumeLayout(false);
-            this.configurationGroup.PerformLayout();
-            this.outputGroup.ResumeLayout(false);
-            this.outputGroup.PerformLayout();
             this.outputSetupGroup.ResumeLayout(false);
             this.outputSetupGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maskLevelSpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.borderLevelSpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.underscanSpinner)).EndInit();
+            this.outputGroup.ResumeLayout(false);
+            this.outputGroup.PerformLayout();
             this.inputGroup.ResumeLayout(false);
             this.inputGroup.PerformLayout();
             this.pictureGroup.ResumeLayout(false);
@@ -6251,6 +6579,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ycDelaySpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailEnhancementSpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeEnhancementSpinner)).EndInit();
+            this.configurationTab.ResumeLayout(false);
+            this.otherGroup.ResumeLayout(false);
+            this.otherGroup.PerformLayout();
+            this.remoteGroup.ResumeLayout(false);
+            this.remoteGroup.PerformLayout();
+            this.configurationGroup.ResumeLayout(false);
+            this.configurationGroup.PerformLayout();
             this.cmsTab.ResumeLayout(false);
             this.incrementGroup.ResumeLayout(false);
             this.incrementGroup.PerformLayout();
@@ -6492,9 +6827,7 @@
         public System.Windows.Forms.Label inputARPresetsLabel;
         public System.Windows.Forms.Label horizontalStretchLabel;
         public System.Windows.Forms.Label zoomLabel;
-        public System.Windows.Forms.Label verticalStretchLabel;
         public System.Windows.Forms.Label horizontalShiftLabel;
-        public System.Windows.Forms.Label verticalShiftLabel;
         public System.Windows.Forms.NumericUpDown zoomSpinner;
         public System.Windows.Forms.NumericUpDown horizontalStretchSpinner;
         public System.Windows.Forms.NumericUpDown verticalStretchSpinner;
@@ -6640,38 +6973,8 @@
         public System.Windows.Forms.Label frameLockModeLabel;
         public System.Windows.Forms.Label outputColorSpaceLabel;
         public System.Windows.Forms.Label outputVideoLevelLabel;
-        public System.Windows.Forms.Button onButton;
-        public System.Windows.Forms.Button offButton;
-        public System.Windows.Forms.Button resetButton;
-        public System.Windows.Forms.GroupBox remoteGroup;
-        public System.Windows.Forms.ComboBox testPatternCombo;
-        public System.Windows.Forms.Button exitButton;
-        public System.Windows.Forms.Label testPatternLabel;
-        public System.Windows.Forms.Button leftButton;
-        public System.Windows.Forms.Button rightButton;
-        public System.Windows.Forms.Button upButton;
-        public System.Windows.Forms.Button downButton;
-        public System.Windows.Forms.ComboBox infoScreenCombo;
-        public System.Windows.Forms.Button menuButton;
-        public System.Windows.Forms.Button enterButton;
-        public System.Windows.Forms.Label infoScreenLabel;
-        public System.Windows.Forms.GroupBox configurationGroup;
-        public System.Windows.Forms.Label autoStandbyLabel;
-        public System.Windows.Forms.Label menuTimeoutLabel;
-        public System.Windows.Forms.ComboBox menuTimeoutCombo;
-        public System.Windows.Forms.CheckBox autoStandbyCheck;
-        public System.Windows.Forms.Label autoWakeupLabel;
-        public System.Windows.Forms.ComboBox autoWakeupCombo;
-        public System.Windows.Forms.GroupBox otherGroup;
-        public System.Windows.Forms.Label productNameLabel;
-        public System.Windows.Forms.Label versionNumberLabel;
-        public System.Windows.Forms.TextBox versionNumberText;
-        public System.Windows.Forms.TextBox productNameText;
-        public System.Windows.Forms.ComboBox factoryDefaultCombo;
-        public System.Windows.Forms.Label factoryDefaultLabel;
-        public System.Windows.Forms.Button firmwareUpdateButton;
         public System.Windows.Forms.Label dayNightProfileLabel;
-        public System.Windows.Forms.ComboBox dayNightProfileCombo;
+        public System.Windows.Forms.ComboBox profileCombo;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
         private System.Windows.Forms.ToolStripMenuItem armMenu;
@@ -6805,6 +7108,67 @@
         public System.Windows.Forms.Label label22;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        public System.Windows.Forms.Label activeARLabel;
+        public System.Windows.Forms.Label pictureARLabel;
+        public System.Windows.Forms.Label autoARLabel;
+        public System.Windows.Forms.Label panoramaLabel;
+        private System.Windows.Forms.TabPage configurationTab;
+        public System.Windows.Forms.GroupBox otherGroup;
+        public System.Windows.Forms.Button onButton;
+        public System.Windows.Forms.Button firmwareUpdateButton;
+        public System.Windows.Forms.Button offButton;
+        public System.Windows.Forms.ComboBox factoryDefaultCombo;
+        public System.Windows.Forms.Label factoryDefaultLabel;
+        public System.Windows.Forms.TextBox versionNumberText;
+        public System.Windows.Forms.Button resetButton;
+        public System.Windows.Forms.TextBox productNameText;
+        public System.Windows.Forms.Label productNameLabel;
+        public System.Windows.Forms.Label versionNumberLabel;
+        public System.Windows.Forms.GroupBox remoteGroup;
+        public System.Windows.Forms.ComboBox testPatternCombo;
+        public System.Windows.Forms.Button exitButton;
+        public System.Windows.Forms.Label testPatternLabel;
+        public System.Windows.Forms.Button leftButton;
+        public System.Windows.Forms.Button rightButton;
+        public System.Windows.Forms.Button upButton;
+        public System.Windows.Forms.Button downButton;
+        public System.Windows.Forms.ComboBox infoScreenCombo;
+        public System.Windows.Forms.Button menuButton;
+        public System.Windows.Forms.Button enterButton;
+        public System.Windows.Forms.Label infoScreenLabel;
+        public System.Windows.Forms.GroupBox configurationGroup;
+        public System.Windows.Forms.Label autoStandbyLabel;
+        public System.Windows.Forms.Label menuTimeoutLabel;
+        public System.Windows.Forms.ComboBox menuTimeoutCombo;
+        public System.Windows.Forms.CheckBox autoStandbyCheck;
+        public System.Windows.Forms.Label autoWakeupLabel;
+        public System.Windows.Forms.ComboBox autoWakeupCombo;
+        public System.Windows.Forms.Label inputDeepColorLabel;
+        public System.Windows.Forms.Label outputDeepColorLabel;
+        public System.Windows.Forms.Label verticalShiftLabel;
+        public System.Windows.Forms.Label verticalStretchLabel;
+        public System.Windows.Forms.ComboBox activeARCombo;
+        public System.Windows.Forms.ComboBox pictureARCombo;
+        public System.Windows.Forms.CheckBox autoARCheck;
+        public System.Windows.Forms.CheckBox panoramaCheck;
+        public System.Windows.Forms.ComboBox inputDeepColorCombo;
+        public System.Windows.Forms.ComboBox outputDeepColorCombo;
+        public System.Windows.Forms.CheckBox bypassCMSCheck;
+        public System.Windows.Forms.Label bitRateLabel;
+        public System.Windows.Forms.Label rgbsComponent2Label;
+        public System.Windows.Forms.Label rgbsComponent1Label;
+        public System.Windows.Forms.Label componentInputsLabel;
+        public System.Windows.Forms.Label frontPanelBrightnessLabel;
+        public System.Windows.Forms.Label osdInputIndicatorLabel;
+        public System.Windows.Forms.ComboBox componentInputsCombo;
+        public System.Windows.Forms.ComboBox bitRateCombo;
+        public System.Windows.Forms.ComboBox frontPanelBrightnessCombo;
+        public System.Windows.Forms.CheckBox rgbsComponent2Check;
+        public System.Windows.Forms.CheckBox rgbsComponent1Check;
+        public System.Windows.Forms.CheckBox osdInputIndicatorCheck;
+        private System.Windows.Forms.Timer menuTimeoutTimer;
+        public System.Windows.Forms.Label passThruLabel;
+        public System.Windows.Forms.ComboBox passThruCombo;
     }
 }
 
