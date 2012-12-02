@@ -98,7 +98,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(174, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Tested with Firmware version v2.30";
+            this.label7.Text = "Tested with Firmware version v2.40";
             // 
             // AboutDialog
             // 

@@ -82,7 +82,7 @@ namespace Profiler.UI
             inputConnectors.Add(ConnectListControl(DuoCommands.InputChromaticityCommand, form.inputChromaticityCombo, form.inputChromaticityLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.HotPlugSourceCommand, form.hotPlugSourceCombo, form.hotPlugSourceLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectBooleanControl(DuoCommands.InputHDCPModeCommand, form.inputHDCPModeCheck, form.inputHDCPModeLabel, CommandCategory.Input));
-            inputConnectors.Add(ConnectListControl(DuoCommands.PassThruCommand, form.passThruCombo, form.passThruLabel, CommandCategory.Configuration));
+            inputConnectors.Add(ConnectListControl(DuoCommands.PassThruCommand, form.passThruCombo, form.passThruLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.AudioInputCommand, form.audioInputCombo, form.audioInputLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.AudioDelayCommand, form.audioDelaySpinner, form.audioDelayLabel, CommandCategory.Input));
         }
