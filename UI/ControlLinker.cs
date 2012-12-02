@@ -20,7 +20,7 @@ namespace Profiler.UI
         private IConnector[][][] colorGamutConnectors;
         private IConnector[][] grayscaleConnectors;
 
-        private IConnector autoARConnector;
+        private BooleanConnector autoARConnector;
         private IConnector activeARConnector;
         private IConnector pictureARConnector;
         private IConnector panoramaARConnector;
@@ -356,6 +356,12 @@ namespace Profiler.UI
 
             pictureARConnector.AddDependantConnector(autoARConnector);
             panoramaARConnector.AddDependantConnector(autoARConnector);
+
+            autoARConnector.EnableableCheckValue = false;
+            autoARConnector.AddEnableableConnector(presetARConnector);
+            autoARConnector.AddEnableableConnector(activeARConnector);
+            autoARConnector.AddEnableableConnector(pictureARConnector);
+            autoARConnector.AddEnableableConnector(panoramaARConnector);
         }
     }
 }

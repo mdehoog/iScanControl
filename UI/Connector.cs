@@ -52,7 +52,7 @@ namespace Profiler.UI
             AddControlChangeListener(new EventHandler(ControlChanged));
         }
 
-        public void SetControlValue(T value)
+        public virtual void SetControlValue(T value)
         {
             if (CurrentControlValue().Equals(value))
             {

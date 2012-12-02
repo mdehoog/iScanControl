@@ -9,9 +9,24 @@ namespace Profiler.UI
 {
     public class BooleanConnector : Connector<bool>
     {
+        private readonly IList<IConnector> enableableConnectors = new List<IConnector>();
+        private bool enableableCheckValue = true;
+
         public BooleanConnector(BooleanCommand command, CheckBox control, Label label, CommandCategory category)
             : base(command, control, label, category)
         {
+            Control.CheckedChanged += new EventHandler(UpdateEnableables);
+        }
+
+        public void AddEnableableConnector(IConnector connector)
+        {
+            enableableConnectors.Add(connector);
+        }
+
+        public bool EnableableCheckValue
+        {
+            get { return enableableCheckValue; }
+            set { enableableCheckValue = value; }
         }
 
         public new CheckBox Control
@@ -27,6 +42,12 @@ namespace Profiler.UI
         public override bool DoCurrentControlValue()
         {
             return Control.Checked;
+        }
+
+        public override void SetControlValue(bool value)
+        {
+            base.SetControlValue(value);
+            UpdateEnableables(null, null);
         }
 
         protected override void DoSetControlValue(bool value)
@@ -54,6 +75,14 @@ namespace Profiler.UI
         protected override void SetupControl()
         {
             Control.Checked = Command.DefaultValue;
+        }
+
+        void UpdateEnableables(object sender, EventArgs e)
+        {
+            foreach (IConnector connector in enableableConnectors)
+            {
+                connector.Control.Enabled = Control.Checked == EnableableCheckValue;
+            }
         }
     }
 }
