@@ -83,14 +83,14 @@ namespace Profiler.Protocol
         public static readonly StringCommand ProductNameCommand = new StringCommand("Product Name", "A8");
         public static readonly StringCommand VersionNumberCommand = new StringCommand("Version Number", "A9");
 
-        /*public static readonly DecimalCommand UCRedxCommand = new DecimalCommand("User Chromaticity - Red-x", "DD", "0", 4);
+        public static readonly DecimalCommand UCRedxCommand = new DecimalCommand("User Chromaticity - Red-x", "DD", "0", 4);
         public static readonly DecimalCommand UCRedyCommand = new DecimalCommand("User Chromaticity - Red-y", "DD", "1", 4);
         public static readonly DecimalCommand UCGreenxCommand = new DecimalCommand("User Chromaticity - Green-x", "DD", "2", 4);
         public static readonly DecimalCommand UCGreenyCommand = new DecimalCommand("User Chromaticity - Green-y", "DD", "3", 4);
         public static readonly DecimalCommand UCBluexCommand = new DecimalCommand("User Chromaticity - Blue-x", "DD", "4", 4);
         public static readonly DecimalCommand UCBlueyCommand = new DecimalCommand("User Chromaticity - Blue-y", "DD", "5", 4);
         public static readonly DecimalCommand UCWhitexCommand = new DecimalCommand("User Chromaticity - White-x", "DD", "6", 4);
-        public static readonly DecimalCommand UCWhiteyCommand = new DecimalCommand("User Chromaticity - White-y", "DD", "7", 4);*/
+        public static readonly DecimalCommand UCWhiteyCommand = new DecimalCommand("User Chromaticity - White-y", "DD", "7", 4);
 
         public static readonly DecimalCommand CGRedxCommand = new DecimalCommand("Color Gamut - Red-x", "DE", "0", 4);
         public static readonly DecimalCommand CGRedyCommand = new DecimalCommand("Color Gamut - Red-y", "DE", "1", 4);

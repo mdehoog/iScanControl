@@ -162,7 +162,7 @@ namespace Profiler.UI
             dayNightProfileConnector = ConnectListControl(DuoCommands.DayNightCommand, form.profileCombo, form.dayNightProfileLabel, CommandCategory.CMS);
             ConnectBooleanControl(DuoCommands.CMSBypassCommand, form.bypassCMSCheck, null, CommandCategory.CMS);
 
-            /*ConnectMultiParameterControls(new DecimalCommand[][]
+            ConnectMultiParameterControls(new DecimalCommand[][]
             {
                 new DecimalCommand[]{ DuoCommands.UCRedxCommand, DuoCommands.UCRedyCommand },
                 new DecimalCommand[]{ DuoCommands.UCGreenxCommand, DuoCommands.UCGreenyCommand },
@@ -180,7 +180,7 @@ namespace Profiler.UI
             }, new Label[]
             {
                 form.ucxLabel, form.ucyLabel
-            }, CommandCategory.CMS);*/
+            }, CommandCategory.CMS);
 
             colorGamutConnectors = new IConnector[2][][];
             colorGamutConnectors[0] = ConnectMultiParameterControls(new DecimalCommand[][]

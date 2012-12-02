@@ -373,11 +373,11 @@ namespace Profiler
 
         private void cmsTab_MouseUp(object sender, MouseEventArgs e)
         {
-            if (userChromaticityGroup.Bounds.Contains(e.Location))
+            /*if (userChromaticityGroup.Bounds.Contains(e.Location))
             {
                 MessageBox.Show(this, "The User Chromaticity settings are disabled because the current iScan Duo firmware seems to have a bug: the device freezes every time a User Chromaticity parameter is queried or set.\n\nFeel free to report this bug to Anchor Bay.",
                     "User Chromaticity disabled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            }*/
         }
 
         private void testPatternCombo_SelectedIndexChanged(object sender, EventArgs e)

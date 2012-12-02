@@ -2495,7 +2495,6 @@
             this.userChromaticityGroup.Controls.Add(this.ucBlueLabel);
             this.userChromaticityGroup.Controls.Add(this.ucGreenLabel);
             this.userChromaticityGroup.Controls.Add(this.ucRedLabel);
-            this.userChromaticityGroup.Enabled = false;
             this.userChromaticityGroup.Location = new System.Drawing.Point(6, 63);
             this.userChromaticityGroup.Name = "userChromaticityGroup";
             this.userChromaticityGroup.Size = new System.Drawing.Size(183, 141);
