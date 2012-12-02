@@ -227,7 +227,9 @@ namespace Profiler.Protocol
             new ListValue("User", 8));
         public static readonly ListValues DayNightProfileValues = new ListValues(0,
             new ListValue("Day", 0),
-            new ListValue("Night", 1));
+            new ListValue("Night", 1),
+            new ListValue("ISF Day", 2),
+            new ListValue("ISF Night", 3));
         public static readonly ListValues BitRateValues = new ListValues(4,
             new ListValue("4800", 1),
             new ListValue("9600", 2),

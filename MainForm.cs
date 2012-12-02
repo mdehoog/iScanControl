@@ -509,18 +509,24 @@ namespace Profiler
             if (value == null)
                 return;
 
-            bool day = value.Value == 0;
-            bool night = value.Value == 1;
-            if (!(day || night))
-                return;
+            IList<ListValue> profiles = new List<ListValue>();
+            foreach(ListValue profile in DuoListValues.DayNightProfileValues)
+            {
+                if(profile != value)
+                {
+                    profiles.Add(profile);
+                }
+            }
 
-            string from = day ? "Day" : "Night";
-            string to = day ? "Night" : "Day";
-            DialogResult result = MessageBox.Show(this,
-                "This will override all the CMS settings in the " + to + " profile with the values in the " + from + " profile. Are you sure you want to continue?",
-                "Copy profile", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result != DialogResult.Yes)
+            ProfileSelector selector = new ProfileSelector();
+            selector.profileCombo.Items.AddRange(profiles.ToArray());
+            selector.profileCombo.SelectedIndex = 0;
+            selector.infoText.Text = "This will override all the CMS settings in the selected profile below with the values in the " + value + " profile. Please select the profile to override.";
+            if (selector.ShowDialog(this) != DialogResult.OK)
+            {
                 return;
+            }
+            ListValue dst = selector.SelectedProfile;
 
             IList<IConnector> cmsConnectors = Context.ConnectorRegistry.ConnectorsInCategory(CommandCategory.CMS);
             if (cmsConnectors != null)
@@ -538,7 +544,7 @@ namespace Profiler
                 }
 
                 //swap the profile
-                profileCombo.SelectedItem = DuoListValues.DayNightProfileValues.ValueToValue(day ? 1 : 0);
+                profileCombo.SelectedItem = dst;
                 //plug in the old values
                 for (int i = 0; i < values.Count; i++)
                 {

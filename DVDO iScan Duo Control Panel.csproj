@@ -72,6 +72,12 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileSelector.Designer.cs">
+      <DependentUpon>ProfileSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="SaveColor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PortSelector.resx">
       <DependentUpon>PortSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileSelector.resx">
+      <DependentUpon>ProfileSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
