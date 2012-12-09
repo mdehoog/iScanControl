@@ -162,7 +162,7 @@ namespace Profiler.Serial
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Context.Logger.Error(e);
             }
         }
 
