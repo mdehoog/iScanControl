@@ -54,6 +54,8 @@
             this.horizontalShiftSpinner = new System.Windows.Forms.NumericUpDown();
             this.verticalShiftSpinner = new System.Windows.Forms.NumericUpDown();
             this.inputAdjustGroup = new System.Windows.Forms.GroupBox();
+            this.prioritySpinner = new System.Windows.Forms.NumericUpDown();
+            this.priorityLabel = new System.Windows.Forms.Label();
             this.passThruLabel = new System.Windows.Forms.Label();
             this.inputDeepColorCombo = new System.Windows.Forms.ComboBox();
             this.passThruCombo = new System.Windows.Forms.ComboBox();
@@ -143,6 +145,37 @@
             this.cueCorrectionCombo = new System.Windows.Forms.ComboBox();
             this.cueCorrectionLabel = new System.Windows.Forms.Label();
             this.configurationTab = new System.Windows.Forms.TabPage();
+            this.inputLabelsGroup = new System.Windows.Forms.GroupBox();
+            this.vgaLabelText = new System.Windows.Forms.TextBox();
+            this.hdmi8LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi7LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi6LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi5LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi4LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi3LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi2LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi8LabelLabel = new System.Windows.Forms.Label();
+            this.hdmi1LabelText = new System.Windows.Forms.TextBox();
+            this.component1LabelText = new System.Windows.Forms.TextBox();
+            this.svideoLabelText = new System.Windows.Forms.TextBox();
+            this.video3LabelText = new System.Windows.Forms.TextBox();
+            this.video2LabelText = new System.Windows.Forms.TextBox();
+            this.video1LabelText = new System.Windows.Forms.TextBox();
+            this.hdmi7LabelLabel = new System.Windows.Forms.Label();
+            this.hdmi6LabelLabel = new System.Windows.Forms.Label();
+            this.hdmi5LabelLabel = new System.Windows.Forms.Label();
+            this.hdmi4LabelLabel = new System.Windows.Forms.Label();
+            this.hdmi3LabelLabel = new System.Windows.Forms.Label();
+            this.hdmi2LabelLabel = new System.Windows.Forms.Label();
+            this.vgaLabelLabel = new System.Windows.Forms.Label();
+            this.hdmi1LabelLabel = new System.Windows.Forms.Label();
+            this.component1LabelLabel = new System.Windows.Forms.Label();
+            this.component2LabelLabel = new System.Windows.Forms.Label();
+            this.svideoLabelLabel = new System.Windows.Forms.Label();
+            this.component2LabelText = new System.Windows.Forms.TextBox();
+            this.video3LabelLabel = new System.Windows.Forms.Label();
+            this.video1LabelLabel = new System.Windows.Forms.Label();
+            this.video2LabelLabel = new System.Windows.Forms.Label();
             this.otherGroup = new System.Windows.Forms.GroupBox();
             this.onButton = new System.Windows.Forms.Button();
             this.firmwareUpdateButton = new System.Windows.Forms.Button();
@@ -467,6 +500,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.horizontalShiftSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verticalShiftSpinner)).BeginInit();
             this.inputAdjustGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.prioritySpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.audioDelaySpinner)).BeginInit();
             this.outputSetupGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maskLevelSpinner)).BeginInit();
@@ -483,6 +517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.detailEnhancementSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeEnhancementSpinner)).BeginInit();
             this.configurationTab.SuspendLayout();
+            this.inputLabelsGroup.SuspendLayout();
             this.otherGroup.SuspendLayout();
             this.remoteGroup.SuspendLayout();
             this.configurationGroup.SuspendLayout();
@@ -940,6 +975,8 @@
             // 
             // inputAdjustGroup
             // 
+            this.inputAdjustGroup.Controls.Add(this.prioritySpinner);
+            this.inputAdjustGroup.Controls.Add(this.priorityLabel);
             this.inputAdjustGroup.Controls.Add(this.passThruLabel);
             this.inputAdjustGroup.Controls.Add(this.inputDeepColorCombo);
             this.inputAdjustGroup.Controls.Add(this.passThruCombo);
@@ -971,10 +1008,31 @@
             this.inputAdjustGroup.Controls.Add(this.audioDelayLabel);
             this.inputAdjustGroup.Location = new System.Drawing.Point(194, 6);
             this.inputAdjustGroup.Name = "inputAdjustGroup";
-            this.inputAdjustGroup.Size = new System.Drawing.Size(201, 391);
+            this.inputAdjustGroup.Size = new System.Drawing.Size(201, 414);
             this.inputAdjustGroup.TabIndex = 1;
             this.inputAdjustGroup.TabStop = false;
             this.inputAdjustGroup.Text = "Input Adjust";
+            // 
+            // prioritySpinner
+            // 
+            this.prioritySpinner.Location = new System.Drawing.Point(106, 388);
+            this.prioritySpinner.Maximum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+            this.prioritySpinner.Name = "prioritySpinner";
+            this.prioritySpinner.Size = new System.Drawing.Size(54, 20);
+            this.prioritySpinner.TabIndex = 29;
+            // 
+            // priorityLabel
+            // 
+            this.priorityLabel.AutoSize = true;
+            this.priorityLabel.Location = new System.Drawing.Point(32, 390);
+            this.priorityLabel.Name = "priorityLabel";
+            this.priorityLabel.Size = new System.Drawing.Size(68, 13);
+            this.priorityLabel.TabIndex = 27;
+            this.priorityLabel.Text = "Input Priority:";
             // 
             // passThruLabel
             // 
@@ -1885,6 +1943,7 @@
             // 
             // configurationTab
             // 
+            this.configurationTab.Controls.Add(this.inputLabelsGroup);
             this.configurationTab.Controls.Add(this.otherGroup);
             this.configurationTab.Controls.Add(this.remoteGroup);
             this.configurationTab.Controls.Add(this.configurationGroup);
@@ -1895,6 +1954,300 @@
             this.configurationTab.TabIndex = 4;
             this.configurationTab.Text = "Configuration";
             this.configurationTab.UseVisualStyleBackColor = true;
+            // 
+            // inputLabelsGroup
+            // 
+            this.inputLabelsGroup.Controls.Add(this.vgaLabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi8LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi7LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi6LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi5LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi4LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi3LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi2LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi8LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.hdmi1LabelText);
+            this.inputLabelsGroup.Controls.Add(this.component1LabelText);
+            this.inputLabelsGroup.Controls.Add(this.svideoLabelText);
+            this.inputLabelsGroup.Controls.Add(this.video3LabelText);
+            this.inputLabelsGroup.Controls.Add(this.video2LabelText);
+            this.inputLabelsGroup.Controls.Add(this.video1LabelText);
+            this.inputLabelsGroup.Controls.Add(this.hdmi7LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.hdmi6LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.hdmi5LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.hdmi4LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.hdmi3LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.hdmi2LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.vgaLabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.hdmi1LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.component1LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.component2LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.svideoLabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.component2LabelText);
+            this.inputLabelsGroup.Controls.Add(this.video3LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.video1LabelLabel);
+            this.inputLabelsGroup.Controls.Add(this.video2LabelLabel);
+            this.inputLabelsGroup.Location = new System.Drawing.Point(247, 7);
+            this.inputLabelsGroup.Name = "inputLabelsGroup";
+            this.inputLabelsGroup.Size = new System.Drawing.Size(308, 411);
+            this.inputLabelsGroup.TabIndex = 12;
+            this.inputLabelsGroup.TabStop = false;
+            this.inputLabelsGroup.Text = "Input Labels";
+            // 
+            // vgaLabelText
+            // 
+            this.vgaLabelText.Location = new System.Drawing.Point(87, 383);
+            this.vgaLabelText.MaxLength = 19;
+            this.vgaLabelText.Name = "vgaLabelText";
+            this.vgaLabelText.Size = new System.Drawing.Size(215, 20);
+            this.vgaLabelText.TabIndex = 35;
+            // 
+            // hdmi8LabelText
+            // 
+            this.hdmi8LabelText.Location = new System.Drawing.Point(87, 357);
+            this.hdmi8LabelText.MaxLength = 19;
+            this.hdmi8LabelText.Name = "hdmi8LabelText";
+            this.hdmi8LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi8LabelText.TabIndex = 34;
+            // 
+            // hdmi7LabelText
+            // 
+            this.hdmi7LabelText.Location = new System.Drawing.Point(87, 331);
+            this.hdmi7LabelText.MaxLength = 19;
+            this.hdmi7LabelText.Name = "hdmi7LabelText";
+            this.hdmi7LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi7LabelText.TabIndex = 33;
+            // 
+            // hdmi6LabelText
+            // 
+            this.hdmi6LabelText.Location = new System.Drawing.Point(87, 305);
+            this.hdmi6LabelText.MaxLength = 19;
+            this.hdmi6LabelText.Name = "hdmi6LabelText";
+            this.hdmi6LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi6LabelText.TabIndex = 32;
+            // 
+            // hdmi5LabelText
+            // 
+            this.hdmi5LabelText.Location = new System.Drawing.Point(87, 279);
+            this.hdmi5LabelText.MaxLength = 19;
+            this.hdmi5LabelText.Name = "hdmi5LabelText";
+            this.hdmi5LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi5LabelText.TabIndex = 31;
+            // 
+            // hdmi4LabelText
+            // 
+            this.hdmi4LabelText.Location = new System.Drawing.Point(87, 253);
+            this.hdmi4LabelText.MaxLength = 19;
+            this.hdmi4LabelText.Name = "hdmi4LabelText";
+            this.hdmi4LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi4LabelText.TabIndex = 30;
+            // 
+            // hdmi3LabelText
+            // 
+            this.hdmi3LabelText.Location = new System.Drawing.Point(87, 227);
+            this.hdmi3LabelText.MaxLength = 19;
+            this.hdmi3LabelText.Name = "hdmi3LabelText";
+            this.hdmi3LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi3LabelText.TabIndex = 29;
+            // 
+            // hdmi2LabelText
+            // 
+            this.hdmi2LabelText.Location = new System.Drawing.Point(87, 201);
+            this.hdmi2LabelText.MaxLength = 19;
+            this.hdmi2LabelText.Name = "hdmi2LabelText";
+            this.hdmi2LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi2LabelText.TabIndex = 28;
+            // 
+            // hdmi8LabelLabel
+            // 
+            this.hdmi8LabelLabel.AutoSize = true;
+            this.hdmi8LabelLabel.Location = new System.Drawing.Point(34, 360);
+            this.hdmi8LabelLabel.Name = "hdmi8LabelLabel";
+            this.hdmi8LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi8LabelLabel.TabIndex = 20;
+            this.hdmi8LabelLabel.Text = "HDMI 8:";
+            // 
+            // hdmi1LabelText
+            // 
+            this.hdmi1LabelText.Location = new System.Drawing.Point(87, 175);
+            this.hdmi1LabelText.MaxLength = 19;
+            this.hdmi1LabelText.Name = "hdmi1LabelText";
+            this.hdmi1LabelText.Size = new System.Drawing.Size(215, 20);
+            this.hdmi1LabelText.TabIndex = 27;
+            // 
+            // component1LabelText
+            // 
+            this.component1LabelText.Location = new System.Drawing.Point(87, 123);
+            this.component1LabelText.MaxLength = 19;
+            this.component1LabelText.Name = "component1LabelText";
+            this.component1LabelText.Size = new System.Drawing.Size(215, 20);
+            this.component1LabelText.TabIndex = 26;
+            // 
+            // svideoLabelText
+            // 
+            this.svideoLabelText.Location = new System.Drawing.Point(87, 97);
+            this.svideoLabelText.MaxLength = 19;
+            this.svideoLabelText.Name = "svideoLabelText";
+            this.svideoLabelText.Size = new System.Drawing.Size(215, 20);
+            this.svideoLabelText.TabIndex = 25;
+            // 
+            // video3LabelText
+            // 
+            this.video3LabelText.Location = new System.Drawing.Point(87, 71);
+            this.video3LabelText.MaxLength = 19;
+            this.video3LabelText.Name = "video3LabelText";
+            this.video3LabelText.Size = new System.Drawing.Size(215, 20);
+            this.video3LabelText.TabIndex = 24;
+            // 
+            // video2LabelText
+            // 
+            this.video2LabelText.Location = new System.Drawing.Point(87, 45);
+            this.video2LabelText.MaxLength = 19;
+            this.video2LabelText.Name = "video2LabelText";
+            this.video2LabelText.Size = new System.Drawing.Size(215, 20);
+            this.video2LabelText.TabIndex = 23;
+            // 
+            // video1LabelText
+            // 
+            this.video1LabelText.Location = new System.Drawing.Point(87, 19);
+            this.video1LabelText.MaxLength = 19;
+            this.video1LabelText.Name = "video1LabelText";
+            this.video1LabelText.Size = new System.Drawing.Size(215, 20);
+            this.video1LabelText.TabIndex = 22;
+            // 
+            // hdmi7LabelLabel
+            // 
+            this.hdmi7LabelLabel.AutoSize = true;
+            this.hdmi7LabelLabel.Location = new System.Drawing.Point(34, 334);
+            this.hdmi7LabelLabel.Name = "hdmi7LabelLabel";
+            this.hdmi7LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi7LabelLabel.TabIndex = 20;
+            this.hdmi7LabelLabel.Text = "HDMI 7:";
+            // 
+            // hdmi6LabelLabel
+            // 
+            this.hdmi6LabelLabel.AutoSize = true;
+            this.hdmi6LabelLabel.Location = new System.Drawing.Point(34, 308);
+            this.hdmi6LabelLabel.Name = "hdmi6LabelLabel";
+            this.hdmi6LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi6LabelLabel.TabIndex = 20;
+            this.hdmi6LabelLabel.Text = "HDMI 6:";
+            // 
+            // hdmi5LabelLabel
+            // 
+            this.hdmi5LabelLabel.AutoSize = true;
+            this.hdmi5LabelLabel.Location = new System.Drawing.Point(34, 282);
+            this.hdmi5LabelLabel.Name = "hdmi5LabelLabel";
+            this.hdmi5LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi5LabelLabel.TabIndex = 20;
+            this.hdmi5LabelLabel.Text = "HDMI 5:";
+            // 
+            // hdmi4LabelLabel
+            // 
+            this.hdmi4LabelLabel.AutoSize = true;
+            this.hdmi4LabelLabel.Location = new System.Drawing.Point(34, 256);
+            this.hdmi4LabelLabel.Name = "hdmi4LabelLabel";
+            this.hdmi4LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi4LabelLabel.TabIndex = 20;
+            this.hdmi4LabelLabel.Text = "HDMI 4:";
+            // 
+            // hdmi3LabelLabel
+            // 
+            this.hdmi3LabelLabel.AutoSize = true;
+            this.hdmi3LabelLabel.Location = new System.Drawing.Point(34, 232);
+            this.hdmi3LabelLabel.Name = "hdmi3LabelLabel";
+            this.hdmi3LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi3LabelLabel.TabIndex = 20;
+            this.hdmi3LabelLabel.Text = "HDMI 3:";
+            // 
+            // hdmi2LabelLabel
+            // 
+            this.hdmi2LabelLabel.AutoSize = true;
+            this.hdmi2LabelLabel.Location = new System.Drawing.Point(34, 204);
+            this.hdmi2LabelLabel.Name = "hdmi2LabelLabel";
+            this.hdmi2LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi2LabelLabel.TabIndex = 21;
+            this.hdmi2LabelLabel.Text = "HDMI 2:";
+            // 
+            // vgaLabelLabel
+            // 
+            this.vgaLabelLabel.AutoSize = true;
+            this.vgaLabelLabel.Location = new System.Drawing.Point(49, 386);
+            this.vgaLabelLabel.Name = "vgaLabelLabel";
+            this.vgaLabelLabel.Size = new System.Drawing.Size(32, 13);
+            this.vgaLabelLabel.TabIndex = 20;
+            this.vgaLabelLabel.Text = "VGA:";
+            // 
+            // hdmi1LabelLabel
+            // 
+            this.hdmi1LabelLabel.AutoSize = true;
+            this.hdmi1LabelLabel.Location = new System.Drawing.Point(34, 178);
+            this.hdmi1LabelLabel.Name = "hdmi1LabelLabel";
+            this.hdmi1LabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.hdmi1LabelLabel.TabIndex = 19;
+            this.hdmi1LabelLabel.Text = "HDMI 1:";
+            // 
+            // component1LabelLabel
+            // 
+            this.component1LabelLabel.AutoSize = true;
+            this.component1LabelLabel.Location = new System.Drawing.Point(8, 126);
+            this.component1LabelLabel.Name = "component1LabelLabel";
+            this.component1LabelLabel.Size = new System.Drawing.Size(73, 13);
+            this.component1LabelLabel.TabIndex = 17;
+            this.component1LabelLabel.Text = "Component 1:";
+            // 
+            // component2LabelLabel
+            // 
+            this.component2LabelLabel.AutoSize = true;
+            this.component2LabelLabel.Location = new System.Drawing.Point(8, 152);
+            this.component2LabelLabel.Name = "component2LabelLabel";
+            this.component2LabelLabel.Size = new System.Drawing.Size(73, 13);
+            this.component2LabelLabel.TabIndex = 18;
+            this.component2LabelLabel.Text = "Component 2:";
+            // 
+            // svideoLabelLabel
+            // 
+            this.svideoLabelLabel.AutoSize = true;
+            this.svideoLabelLabel.Location = new System.Drawing.Point(34, 100);
+            this.svideoLabelLabel.Name = "svideoLabelLabel";
+            this.svideoLabelLabel.Size = new System.Drawing.Size(47, 13);
+            this.svideoLabelLabel.TabIndex = 16;
+            this.svideoLabelLabel.Text = "S-Video:";
+            // 
+            // component2LabelText
+            // 
+            this.component2LabelText.Location = new System.Drawing.Point(87, 149);
+            this.component2LabelText.MaxLength = 19;
+            this.component2LabelText.Name = "component2LabelText";
+            this.component2LabelText.Size = new System.Drawing.Size(215, 20);
+            this.component2LabelText.TabIndex = 10;
+            // 
+            // video3LabelLabel
+            // 
+            this.video3LabelLabel.AutoSize = true;
+            this.video3LabelLabel.Location = new System.Drawing.Point(35, 74);
+            this.video3LabelLabel.Name = "video3LabelLabel";
+            this.video3LabelLabel.Size = new System.Drawing.Size(46, 13);
+            this.video3LabelLabel.TabIndex = 15;
+            this.video3LabelLabel.Text = "Video 3:";
+            // 
+            // video1LabelLabel
+            // 
+            this.video1LabelLabel.AutoSize = true;
+            this.video1LabelLabel.Location = new System.Drawing.Point(35, 22);
+            this.video1LabelLabel.Name = "video1LabelLabel";
+            this.video1LabelLabel.Size = new System.Drawing.Size(46, 13);
+            this.video1LabelLabel.TabIndex = 13;
+            this.video1LabelLabel.Text = "Video 1:";
+            // 
+            // video2LabelLabel
+            // 
+            this.video2LabelLabel.AutoSize = true;
+            this.video2LabelLabel.Location = new System.Drawing.Point(35, 48);
+            this.video2LabelLabel.Name = "video2LabelLabel";
+            this.video2LabelLabel.Size = new System.Drawing.Size(46, 13);
+            this.video2LabelLabel.TabIndex = 14;
+            this.video2LabelLabel.Text = "Video 2:";
             // 
             // otherGroup
             // 
@@ -1908,7 +2261,7 @@
             this.otherGroup.Controls.Add(this.productNameText);
             this.otherGroup.Controls.Add(this.productNameLabel);
             this.otherGroup.Controls.Add(this.versionNumberLabel);
-            this.otherGroup.Location = new System.Drawing.Point(453, 6);
+            this.otherGroup.Location = new System.Drawing.Point(561, 179);
             this.otherGroup.Name = "otherGroup";
             this.otherGroup.Size = new System.Drawing.Size(201, 165);
             this.otherGroup.TabIndex = 11;
@@ -2016,7 +2369,7 @@
             this.remoteGroup.Controls.Add(this.menuButton);
             this.remoteGroup.Controls.Add(this.enterButton);
             this.remoteGroup.Controls.Add(this.infoScreenLabel);
-            this.remoteGroup.Location = new System.Drawing.Point(246, 6);
+            this.remoteGroup.Location = new System.Drawing.Point(561, 7);
             this.remoteGroup.Name = "remoteGroup";
             this.remoteGroup.Size = new System.Drawing.Size(201, 165);
             this.remoteGroup.TabIndex = 10;
@@ -6559,6 +6912,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.verticalShiftSpinner)).EndInit();
             this.inputAdjustGroup.ResumeLayout(false);
             this.inputAdjustGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.prioritySpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.audioDelaySpinner)).EndInit();
             this.outputSetupGroup.ResumeLayout(false);
             this.outputSetupGroup.PerformLayout();
@@ -6579,6 +6933,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.detailEnhancementSpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeEnhancementSpinner)).EndInit();
             this.configurationTab.ResumeLayout(false);
+            this.inputLabelsGroup.ResumeLayout(false);
+            this.inputLabelsGroup.PerformLayout();
             this.otherGroup.ResumeLayout(false);
             this.otherGroup.PerformLayout();
             this.remoteGroup.ResumeLayout(false);
@@ -7168,6 +7524,39 @@
         private System.Windows.Forms.Timer menuTimeoutTimer;
         public System.Windows.Forms.Label passThruLabel;
         public System.Windows.Forms.ComboBox passThruCombo;
+        public System.Windows.Forms.NumericUpDown prioritySpinner;
+        public System.Windows.Forms.Label priorityLabel;
+        private System.Windows.Forms.GroupBox inputLabelsGroup;
+        public System.Windows.Forms.TextBox component2LabelText;
+        public System.Windows.Forms.TextBox vgaLabelText;
+        public System.Windows.Forms.TextBox hdmi8LabelText;
+        public System.Windows.Forms.TextBox hdmi7LabelText;
+        public System.Windows.Forms.TextBox hdmi6LabelText;
+        public System.Windows.Forms.TextBox hdmi5LabelText;
+        public System.Windows.Forms.TextBox hdmi4LabelText;
+        public System.Windows.Forms.TextBox hdmi3LabelText;
+        public System.Windows.Forms.TextBox hdmi2LabelText;
+        public System.Windows.Forms.TextBox hdmi1LabelText;
+        public System.Windows.Forms.TextBox component1LabelText;
+        public System.Windows.Forms.TextBox svideoLabelText;
+        public System.Windows.Forms.TextBox video3LabelText;
+        public System.Windows.Forms.TextBox video2LabelText;
+        public System.Windows.Forms.TextBox video1LabelText;
+        public System.Windows.Forms.Label video1LabelLabel;
+        public System.Windows.Forms.Label video2LabelLabel;
+        public System.Windows.Forms.Label video3LabelLabel;
+        public System.Windows.Forms.Label component1LabelLabel;
+        public System.Windows.Forms.Label svideoLabelLabel;
+        public System.Windows.Forms.Label component2LabelLabel;
+        public System.Windows.Forms.Label hdmi1LabelLabel;
+        public System.Windows.Forms.Label hdmi8LabelLabel;
+        public System.Windows.Forms.Label hdmi7LabelLabel;
+        public System.Windows.Forms.Label hdmi6LabelLabel;
+        public System.Windows.Forms.Label hdmi5LabelLabel;
+        public System.Windows.Forms.Label hdmi4LabelLabel;
+        public System.Windows.Forms.Label hdmi3LabelLabel;
+        public System.Windows.Forms.Label hdmi2LabelLabel;
+        public System.Windows.Forms.Label vgaLabelLabel;
     }
 }
 

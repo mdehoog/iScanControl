@@ -18,7 +18,8 @@ namespace Profiler
             port.Open();
             //byte[] buffer = new byte[] { 2, (byte)'3', (byte)'0', (byte)'0', (byte)'5', (byte)'A', (byte)'1', 0, (byte)'1', 0, 3 };
             //byte[] buffer = new byte[] { 2, (byte)'2', (byte)'0', (byte)'0', (byte)'3', (byte)'2', (byte)'1', 0, 3 };
-            byte[] buffer = Serial.DuoProtocol.QueryPacket(Protocol.DuoCommands.UCRedxCommand);
+            //byte[] buffer = Serial.DuoProtocol.QueryPacket(Protocol.DuoCommands.UCRedxCommand);
+            byte[] buffer = Serial.DuoProtocol.QueryPacket(Protocol.DuoCommands.InputLabelCommand);
             port.Write(buffer, 0, buffer.Length);
 
             string commandId, response;
@@ -28,7 +29,9 @@ namespace Profiler
             //System.Threading.Thread.Sleep(1000);
             //Console.WriteLine(port.ReadExisting());
 
-            port.Close();*/
+            port.Close();
+            
+            Console.ReadKey();*/
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

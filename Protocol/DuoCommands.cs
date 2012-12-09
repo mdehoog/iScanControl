@@ -67,6 +67,7 @@ namespace Profiler.Protocol
         public static readonly DecimalCommand UnderscanCommand = new DecimalCommand("Underscan", "8B", 0);
         public static readonly DecimalCommand BorderLevelCommand = new DecimalCommand("Border Level", "4F", 0);
         public static readonly DecimalCommand MaskLevelCommand = new DecimalCommand("Mask Level", "F7", 0); //serial automation header says pictureAR is 4E, masking is F7
+        public static readonly DecimalCommand InputPriorityCommand = new DecimalCommand("Input Priority", "81", 0);
 
         public static readonly BooleanCommand GameModeCommand = new BooleanCommand("Game Mode", "2D", true, false);
         public static readonly BooleanCommand InputHDCPModeCommand = new BooleanCommand("Input HDCP Mode", "86", true, true);
@@ -82,6 +83,22 @@ namespace Profiler.Protocol
 
         public static readonly StringCommand ProductNameCommand = new StringCommand("Product Name", "A8");
         public static readonly StringCommand VersionNumberCommand = new StringCommand("Version Number", "A9");
+
+        public static readonly StringCommand Video1InputLabelCommand = new StringCommand("Video 1 Input Label", "FE", "1", true);
+        public static readonly StringCommand Video2InputLabelCommand = new StringCommand("Video 2 Input Label", "FE", "2", true);
+        public static readonly StringCommand Video3InputLabelCommand = new StringCommand("Video 3 Input Label", "FE", "3", true);
+        public static readonly StringCommand SVideoInputLabelCommand = new StringCommand("S-Video Input Label", "FE", "4", true);
+        public static readonly StringCommand Component1InputLabelCommand = new StringCommand("Component 1 Input Label", "FE", "5", true);
+        public static readonly StringCommand Component2InputLabelCommand = new StringCommand("Component 2 Input Label", "FE", "6", true);
+        public static readonly StringCommand HDMI1InputLabelCommand = new StringCommand("HDMI 1 Input Label", "FE", "7", true);
+        public static readonly StringCommand HDMI2InputLabelCommand = new StringCommand("HDMI 2 Input Label", "FE", "8", true);
+        public static readonly StringCommand HDMI3InputLabelCommand = new StringCommand("HDMI 3 Input Label", "FE", "9", true);
+        public static readonly StringCommand HDMI4InputLabelCommand = new StringCommand("HDMI 4 Input Label", "FE", "10", true);
+        public static readonly StringCommand HDMI5InputLabelCommand = new StringCommand("HDMI 5 Input Label", "FE", "11", true);
+        public static readonly StringCommand HDMI6InputLabelCommand = new StringCommand("HDMI 6 Input Label", "FE", "12", true);
+        public static readonly StringCommand HDMI7InputLabelCommand = new StringCommand("HDMI 7 Input Label", "FE", "13", true);
+        public static readonly StringCommand HDMI8InputLabelCommand = new StringCommand("HDMI 8 Input Label", "FE", "14", true);
+        public static readonly StringCommand VGAInputLabelCommand = new StringCommand("VGA Input Label", "FE", "15", true);
 
         public static readonly DecimalCommand UCRedxCommand = new DecimalCommand("User Chromaticity - Red-x", "DD", "0", 4);
         public static readonly DecimalCommand UCRedyCommand = new DecimalCommand("User Chromaticity - Red-y", "DD", "1", 4);

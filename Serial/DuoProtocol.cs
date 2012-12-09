@@ -151,10 +151,18 @@ namespace Profiler.Serial
 
         public static string TranslateQueryErrorCode(ICommand command, ErrorCode errorCode)
         {
-            if (command == DuoCommands.InputSelectCommand && errorCode == ErrorCode.InvalidPacketId)
+            if (errorCode == ErrorCode.InvalidPacketId)
             {
-                //querying InputSelect when InputSelect == 'auto' returns an InvalidPacketId error
-                return "0";
+                if (command == DuoCommands.InputSelectCommand)
+                {
+                    //querying InputSelect when InputSelect == 'auto' returns an InvalidPacketId error
+                    return "0";
+                }
+                else if (command == DuoCommands.InputARPresetsCommand)
+                {
+                    //querying InputARPresents and AR preset is not currently enabled returns an InvalidPacketId error
+                    return "5";
+                }
             }
             return null;
         }

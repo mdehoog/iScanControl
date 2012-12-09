@@ -12,6 +12,11 @@ namespace Profiler.Protocol
         {
         }
 
+        public StringCommand(string name, string id, string valuePrefix, bool savable)
+            : base(name, id, valuePrefix, savable, null)
+        {
+        }
+
         public override string ValueToString(string value)
         {
             return value;
@@ -19,7 +24,8 @@ namespace Profiler.Protocol
 
         public override string StringToValue(string str)
         {
-            return str;
+            //input label values return with NULL characters instead of spaces
+            return str.Replace("\0", " ");
         }
     }
 }

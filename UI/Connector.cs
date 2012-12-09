@@ -17,7 +17,7 @@ namespace Profiler.UI
         private readonly Label label;
         private readonly CommandCategory category;
         private T lastGoodValue;
-        private bool settingControl = false;
+        protected bool settingControl = false;
         private readonly IList<IConnector> dependantConnectors = new List<IConnector>();
 
         private readonly ConnectorQueryCommandListener queryListener;
@@ -83,7 +83,7 @@ namespace Profiler.UI
         protected abstract void SetupControl();
         protected abstract void AddControlChangeListener(EventHandler eventHandler);
 
-        public Command<T> Command
+        public virtual Command<T> Command
         {
             get { return command; }
         }
@@ -129,11 +129,11 @@ namespace Profiler.UI
             return dependantConnectors;
         }
 
-        public void QueryValue()
+        public virtual void QueryValue()
         {
-            if (command.IsQueryable)
+            if (Command.IsQueryable)
             {
-                Context.Communicator.QueryValue<T>(command, CurrentControlValue(), queryListener);
+                Context.Communicator.QueryValue<T>(Command, CurrentControlValue(), queryListener);
             }
         }
 

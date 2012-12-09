@@ -35,11 +35,10 @@ namespace Profiler.UI
             ConnectPictureControls(form);
             ConnectOutputControls(form);
             ConnectConfigurationControls(form);
+            ConnectInputLabelControls(form);
             ConnectRemoteControls(form);
             ConnectOtherControls(form);
             ConnectCMSControls(form);
-
-            ConnectSpecialControls(form);
 
             ConnectDependants();
         }
@@ -85,6 +84,7 @@ namespace Profiler.UI
             inputConnectors.Add(ConnectListControl(DuoCommands.PassThruCommand, form.passThruCombo, form.passThruLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.AudioInputCommand, form.audioInputCombo, form.audioInputLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.AudioDelayCommand, form.audioDelaySpinner, form.audioDelayLabel, CommandCategory.Input));
+            inputConnectors.Add(ConnectDecimalControl(DuoCommands.InputPriorityCommand, form.prioritySpinner, form.priorityLabel, CommandCategory.Input));
         }
 
         private void ConnectPictureControls(MainForm form)
@@ -123,13 +123,33 @@ namespace Profiler.UI
         {
             ConnectBooleanControl(DuoCommands.AutoStandbyCommand, form.autoStandbyCheck, form.autoStandbyLabel, CommandCategory.Configuration);
             ConnectListControl(DuoCommands.AutoWakeupCommand, form.autoWakeupCombo, form.autoWakeupLabel, CommandCategory.Configuration);
-            ConnectListControl(DuoCommands.BitRateCommand, form.bitRateCombo, form.bitRateLabel, CommandCategory.Configuration);
+            ConnectWarningListControl(DuoCommands.BitRateCommand, form.bitRateCombo, form.bitRateLabel, CommandCategory.Configuration,
+                 "Setting the " + DuoCommands.BitRateCommand.Name + " to '{0}' will interrupt the serial connection. You will have to reconnect using the new value. Are you sure?", DuoCommands.BitRateCommand.Name, false);
             ConnectListControl(DuoCommands.ComponentInputsCommand, form.componentInputsCombo, form.componentInputsLabel, CommandCategory.Configuration);
             ConnectBooleanControl(DuoCommands.RGBsComponent1Command, form.rgbsComponent1Check, form.rgbsComponent1Label, CommandCategory.Configuration);
             ConnectBooleanControl(DuoCommands.RGBsComponent2Command, form.rgbsComponent2Check, form.rgbsComponent2Label, CommandCategory.Configuration);
             ConnectListControl(DuoCommands.MenuTimeoutCommand, form.menuTimeoutCombo, form.menuTimeoutLabel, CommandCategory.Configuration);
             ConnectListControl(DuoCommands.FrontPanelBrightnessCommand, form.frontPanelBrightnessCombo, form.frontPanelBrightnessLabel, CommandCategory.Configuration);
             ConnectBooleanControl(DuoCommands.OSDInputIndicatorCommand, form.osdInputIndicatorCheck, form.osdInputIndicatorLabel, CommandCategory.Configuration);
+        }
+
+        private void ConnectInputLabelControls(MainForm form)
+        {
+            ConnectStringControl(DuoCommands.Video1InputLabelCommand, form.video1LabelText, form.video1LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.Video2InputLabelCommand, form.video2LabelText, form.video2LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.Video3InputLabelCommand, form.video3LabelText, form.video3LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.SVideoInputLabelCommand, form.svideoLabelText, form.svideoLabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.Component1InputLabelCommand, form.component1LabelText, form.component1LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.Component2InputLabelCommand, form.component2LabelText, form.component2LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI1InputLabelCommand, form.hdmi1LabelText, form.hdmi1LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI2InputLabelCommand, form.hdmi2LabelText, form.hdmi2LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI3InputLabelCommand, form.hdmi3LabelText, form.hdmi3LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI4InputLabelCommand, form.hdmi4LabelText, form.hdmi4LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI5InputLabelCommand, form.hdmi5LabelText, form.hdmi5LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI6InputLabelCommand, form.hdmi6LabelText, form.hdmi6LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI7InputLabelCommand, form.hdmi7LabelText, form.hdmi7LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.HDMI8InputLabelCommand, form.hdmi8LabelText, form.hdmi8LabelLabel, CommandCategory.Configuration);
+            ConnectStringControl(DuoCommands.VGAInputLabelCommand, form.vgaLabelText, form.vgaLabelLabel, CommandCategory.Configuration);
         }
 
         private void ConnectRemoteControls(MainForm form)
@@ -155,6 +175,9 @@ namespace Profiler.UI
             ConnectButtonControl(DuoCommands.PowerCommand, 1, form.onButton, CommandCategory.Other);
             ConnectButtonControl(DuoCommands.ResetCommand, 0, form.resetButton, CommandCategory.Other);
             ConnectButtonControl(DuoCommands.FirmwareUpdateCommand, 0, form.firmwareUpdateButton, CommandCategory.Other);
+
+            ConnectWarningListControl(DuoCommands.FactoryDefaultCommand, form.factoryDefaultCombo, form.factoryDefaultLabel, CommandCategory.Other,
+                "This will reset the '{0}' settings to their factory defaults. Are you sure?", "Factory defaults", true);
         }
 
         private void ConnectCMSControls(MainForm form)
@@ -246,15 +269,14 @@ namespace Profiler.UI
             }, CommandCategory.CMS);
         }
 
-        private void ConnectSpecialControls(MainForm form)
-        {
-            new WarningListConnector(DuoCommands.FactoryDefaultCommand, form.factoryDefaultCombo, form.factoryDefaultLabel, CommandCategory.Other,
-                "This will reset the '{0}' settings to their factory defaults. Are you sure?", "Factory defaults");
-        }
-
         private ListConnector ConnectListControl(ListCommand command, ComboBox control, Label label, CommandCategory category)
         {
             return new ListConnector(command, control, label, category);
+        }
+
+        private WarningListConnector ConnectWarningListControl(ListCommand command, ComboBox control, Label label, CommandCategory category, string message, string caption, bool clearSelectedItem)
+        {
+            return new WarningListConnector(command, control, label, category, message, caption, clearSelectedItem);
         }
 
         private BooleanConnector ConnectBooleanControl(BooleanCommand command, CheckBox control, Label label, CommandCategory category)
