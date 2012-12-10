@@ -12,6 +12,7 @@ namespace Profiler.Protocol
     public class DecimalCommand : Command<decimal>
     {
         private readonly int decimalPlaces;
+        private readonly static CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
 
         public DecimalCommand(string name, string id, string valuePrefix, bool savable, decimal defaultValue, int decimalPlaces)
             : base(name, id, valuePrefix, savable, defaultValue)
@@ -41,13 +42,15 @@ namespace Profiler.Protocol
 
         public override string ValueToString(decimal value)
         {
-            return value.ToString("F" + decimalPlaces, CultureInfo.CreateSpecificCulture("en-US"));
+            return value.ToString("F" + decimalPlaces, culture);
         }
 
         public override decimal StringToValue(string str)
         {
             decimal value;
-            if (!decimal.TryParse(str, out value))
+            NumberStyles style = NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite |
+                NumberStyles.AllowLeadingSign | NumberStyles.AllowTrailingSign | NumberStyles.AllowDecimalPoint;
+            if (!decimal.TryParse(str, style, culture, out value))
             {
                 Context.Logger.Warning("Could not parse decimal: " + str);
             }
