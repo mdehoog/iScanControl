@@ -150,6 +150,7 @@
     <Compile Include="UI\ControlColorer.cs" />
     <Compile Include="UI\DecimalConnector.cs" />
     <Compile Include="UI\IConnector.cs" />
+    <Compile Include="UI\InputPriorityDecimalConnector.cs" />
     <Compile Include="UI\IRowColumnConnector.cs" />
     <Compile Include="UI\ListConnector.cs" />
     <Compile Include="UI\RowColumnDecimalConnector.cs" />

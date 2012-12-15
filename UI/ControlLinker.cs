@@ -9,7 +9,7 @@ namespace Profiler.UI
 {
     public class ControlLinker
     {
-        private IConnector inputSelectConnector;
+        private ListConnector inputSelectConnector;
         private IList<IConnector> inputConnectors = new List<IConnector>();
 
         private IConnector verticalShiftConnector;
@@ -84,7 +84,8 @@ namespace Profiler.UI
             inputConnectors.Add(ConnectListControl(DuoCommands.PassThruCommand, form.passThruCombo, form.passThruLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectListControl(DuoCommands.AudioInputCommand, form.audioInputCombo, form.audioInputLabel, CommandCategory.Input));
             inputConnectors.Add(ConnectDecimalControl(DuoCommands.AudioDelayCommand, form.audioDelaySpinner, form.audioDelayLabel, CommandCategory.Input));
-            inputConnectors.Add(ConnectDecimalControl(DuoCommands.InputPriorityCommand, form.prioritySpinner, form.priorityLabel, CommandCategory.Input));
+            inputConnectors.Add(new InputPriorityDecimalConnector(DuoCommands.InputPriorityCommand, form.prioritySpinner, form.priorityLabel, CommandCategory.Input, inputSelectConnector));
+            //inputConnectors.Add(ConnectDecimalControl(DuoCommands.InputPriorityCommand, form.prioritySpinner, form.priorityLabel, CommandCategory.Input));
         }
 
         private void ConnectPictureControls(MainForm form)

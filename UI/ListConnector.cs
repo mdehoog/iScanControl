@@ -56,5 +56,10 @@ namespace Profiler.UI
             Control.Items.AddRange(Command.ListValues.ToArray<ListValue>());
             Control.SelectedItem = Command.DefaultValue;
         }
+
+        public void AddListControlChangeListener(EventHandler eventHandler)
+        {
+            Control.SelectedValueChanged += eventHandler;
+        }
     }
 }
