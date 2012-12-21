@@ -6788,7 +6788,7 @@
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutMenuItem.Text = "About";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
@@ -6898,7 +6898,7 @@
             this.MinimumSize = new System.Drawing.Size(860, 550);
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "DVDO iScan Duo Control Panel - v1.0";
+            this.Text = "DVDO iScan Duo Control Panel - v1.1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.tabControl.ResumeLayout(false);
