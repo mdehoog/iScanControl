@@ -51,6 +51,8 @@ namespace Profiler.Serial
                 else
                     break;
             }
+
+            errorCode = DuoProtocol.TranslateSetErrorCode(command, value, errorCode);
             
             if (errorCode == ErrorCode.NoError)
             {

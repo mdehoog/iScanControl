@@ -166,5 +166,22 @@ namespace Profiler.Serial
             }
             return null;
         }
+
+        public static ErrorCode TranslateSetErrorCode<T>(Command<T> command, T value, ErrorCode errorCode)
+        {
+            if (errorCode == ErrorCode.InvalidPacketId)
+            {
+                if ((ICommand)command == DuoCommands.DeinterlacerModeCommand)
+                {
+                    String valueString = command.ValueToString(value);
+                    if ("6".Equals(valueString) || "1".Equals(valueString))
+                    {
+                        //setting DeinterlacerMode to 'Auto' or 'Video' results in InvalidPacketId
+                        return ErrorCode.NoError;
+                    }
+                }
+            }
+            return errorCode;
+        }
     }
 }
