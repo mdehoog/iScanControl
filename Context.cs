@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Logging;
-using Profiler.Serial;
-using Profiler.UI;
+using Qixle.iScanDuo.Controller.Logging;
+using Qixle.iScanDuo.Controller.Serial;
+using Qixle.iScanDuo.Controller.UI;
 
-namespace Profiler
+namespace Qixle.iScanDuo.Controller
 {
     public class Context
     {

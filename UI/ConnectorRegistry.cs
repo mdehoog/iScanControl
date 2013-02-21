@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Protocol;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Xml.XPath;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Profiler.UI
+namespace Qixle.iScanDuo.Controller.UI
 {
     public class ConnectorRegistry
     {

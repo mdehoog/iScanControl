@@ -6,17 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Profiler.UI;
-using Profiler.Serial;
-using Profiler.Logging;
+using Qixle.iScanDuo.Controller.UI;
+using Qixle.iScanDuo.Controller.Serial;
+using Qixle.iScanDuo.Controller.Logging;
 using System.IO;
-using Profiler.Protocol;
-using Profiler.Conversion;
+using Qixle.iScanDuo.Controller.Protocol;
+using Qixle.iScanDuo.Controller.Conversion;
 using System.IO.Ports;
-using Profiler.Settings;
+using Qixle.iScanDuo.Controller.Settings;
 using System.Xml.Serialization;
 
-namespace Profiler
+namespace Qixle.iScanDuo.Controller
 {
     public partial class MainForm : Form, ICommunicatorListener
     {

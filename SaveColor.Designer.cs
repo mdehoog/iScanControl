@@ -1,4 +1,4 @@
-﻿namespace Profiler
+﻿namespace Qixle.iScanDuo.Controller
 {
     partial class SaveColor
     {

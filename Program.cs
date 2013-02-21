@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.IO.Ports;
 
-namespace Profiler
+namespace Qixle.iScanDuo.Controller
 {
     static class Program
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Protocol
+namespace Qixle.iScanDuo.Controller.Protocol
 {
     public class ListCommand : Command<ListValue>
     {

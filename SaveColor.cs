@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Profiler.Conversion;
-using Profiler.Settings;
+using Qixle.iScanDuo.Controller.Conversion;
+using Qixle.iScanDuo.Controller.Settings;
 
-namespace Profiler
+namespace Qixle.iScanDuo.Controller
 {
     public partial class SaveColor : Form
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Serial
+namespace Qixle.iScanDuo.Controller.Serial
 {
     public interface ICommunicatorListener
     {

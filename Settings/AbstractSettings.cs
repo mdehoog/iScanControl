@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace Profiler.Settings
+namespace Qixle.iScanDuo.Controller.Settings
 {
     public abstract class AbstractSettings
     {

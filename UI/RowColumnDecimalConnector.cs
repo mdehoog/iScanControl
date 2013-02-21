@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Protocol;
 using System.Drawing;
 
-namespace Profiler.UI
+namespace Qixle.iScanDuo.Controller.UI
 {
     public class RowColumnDecimalConnector : DecimalConnector, IRowColumnConnector
     {

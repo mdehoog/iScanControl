@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Serial;
-using Profiler.UI;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Serial;
+using Qixle.iScanDuo.Controller.UI;
+using Qixle.iScanDuo.Controller.Protocol;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Profiler
+namespace Qixle.iScanDuo.Controller
 {
     public class Backup : ICommunicatorListener
     {

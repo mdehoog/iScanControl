@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 
-namespace Profiler.Protocol
+namespace Qixle.iScanDuo.Controller.Protocol
 {
     /// <summary>
     /// Command used to send decimal values (including integers) to the Duo.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Conversion
+namespace Qixle.iScanDuo.Controller.Conversion
 {
     /// <summary>
     /// ColorVector subclass that provides the ability to label a color, for UI purposes.

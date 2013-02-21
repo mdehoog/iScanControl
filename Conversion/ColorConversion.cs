@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Conversion
+namespace Qixle.iScanDuo.Controller.Conversion
 {
     /// <summary>
     /// Class used to convert between different color spaces (RGB, XYZ, and xyY). Uses a standard power-law gamma function, and a ColorMatrix that converts between RGB and XYZ.

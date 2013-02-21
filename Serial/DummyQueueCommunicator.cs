@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.IO.Ports;
 
-namespace Profiler.Serial
+namespace Qixle.iScanDuo.Controller.Serial
 {
     public class DummyQueueCommunicator : AbstractQueueCommunicator
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Serial;
+using Qixle.iScanDuo.Controller.Serial;
 
-namespace Profiler.Protocol
+namespace Qixle.iScanDuo.Controller.Protocol
 {
     /// <summary>
     /// Command used to enable the hidden test pattern functionality. Value is "RED GREEN BLUE SIZE", with spaces between values.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Protocol
+namespace Qixle.iScanDuo.Controller.Protocol
 {
     /// <summary>
     /// Represents a command that can be sent to the Duo to set or query data.

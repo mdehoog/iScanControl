@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Conversion
+namespace Qixle.iScanDuo.Controller.Conversion
 {
     /// <summary>
     /// Represents a matrix that can be used to convert between color spaces (used for RGB to XYZ conversion and vice versa).

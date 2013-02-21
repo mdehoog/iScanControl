@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO.Ports;
 using System.Globalization;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Protocol;
 
-namespace Profiler.Serial
+namespace Qixle.iScanDuo.Controller.Serial
 {
     public enum ErrorCode
     {

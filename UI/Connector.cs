@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Protocol;
 using System.Windows.Forms;
-using Profiler.Serial;
+using Qixle.iScanDuo.Controller.Serial;
 using System.Drawing;
 
-namespace Profiler.UI
+namespace Qixle.iScanDuo.Controller.UI
 {
     public abstract class Connector<T> : IConnector
     {

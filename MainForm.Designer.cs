@@ -1,4 +1,4 @@
-﻿namespace Profiler
+﻿namespace Qixle.iScanDuo.Controller
 {
     partial class MainForm
     {
@@ -6081,7 +6081,7 @@
             // 
             // ctpExportButton
             // 
-            this.ctpExportButton.Image = global::Profiler.Properties.Resources.export;
+            this.ctpExportButton.Image = global::Qixle.iScanDuo.Controller.Properties.Resources.export;
             this.ctpExportButton.Location = new System.Drawing.Point(381, 231);
             this.ctpExportButton.Name = "ctpExportButton";
             this.ctpExportButton.Size = new System.Drawing.Size(23, 23);
@@ -6102,7 +6102,7 @@
             // 
             // ctpImportButton
             // 
-            this.ctpImportButton.Image = global::Profiler.Properties.Resources.import;
+            this.ctpImportButton.Image = global::Qixle.iScanDuo.Controller.Properties.Resources.import;
             this.ctpImportButton.Location = new System.Drawing.Point(352, 231);
             this.ctpImportButton.Name = "ctpImportButton";
             this.ctpImportButton.Size = new System.Drawing.Size(23, 23);
@@ -6508,7 +6508,7 @@
             // 
             // ctpAddButton
             // 
-            this.ctpAddButton.Image = global::Profiler.Properties.Resources.add;
+            this.ctpAddButton.Image = global::Qixle.iScanDuo.Controller.Properties.Resources.add;
             this.ctpAddButton.Location = new System.Drawing.Point(294, 231);
             this.ctpAddButton.Name = "ctpAddButton";
             this.ctpAddButton.Size = new System.Drawing.Size(23, 23);
@@ -6529,7 +6529,7 @@
             // 
             // ctpRemoveButton
             // 
-            this.ctpRemoveButton.Image = global::Profiler.Properties.Resources.remove;
+            this.ctpRemoveButton.Image = global::Qixle.iScanDuo.Controller.Properties.Resources.remove;
             this.ctpRemoveButton.Location = new System.Drawing.Point(323, 231);
             this.ctpRemoveButton.Name = "ctpRemoveButton";
             this.ctpRemoveButton.Size = new System.Drawing.Size(23, 23);

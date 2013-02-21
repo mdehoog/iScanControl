@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Conversion
+namespace Qixle.iScanDuo.Controller.Conversion
 {
     /// <summary>
     /// Represents a single color, in either RGB, xyY, or XYZ space. RGB values must be scaled between 0 and 1.

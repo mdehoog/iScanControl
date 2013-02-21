@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Profiler.UI
+namespace Qixle.iScanDuo.Controller.UI
 {
     public interface IRowColumnConnector : IConnector
     {

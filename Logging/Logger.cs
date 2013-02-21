@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Logging
+namespace Qixle.iScanDuo.Controller.Logging
 {
     /// <summary>
     /// Abstract class that provides a interface for logging messages.

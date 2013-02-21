@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Profiler.Conversion
+namespace Qixle.iScanDuo.Controller.Conversion
 {
     public class ColorChecker
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Profiler.Logging
+namespace Qixle.iScanDuo.Controller.Logging
 {
     public class ListLogger : Logger
     {

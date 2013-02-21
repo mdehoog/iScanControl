@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Profiler
+namespace Qixle.iScanDuo.Controller
 {
     public partial class AboutDialog : Form
     {

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Protocol;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Profiler.UI
+namespace Qixle.iScanDuo.Controller.UI
 {
     public class DecimalConnector : Connector<decimal>
     {

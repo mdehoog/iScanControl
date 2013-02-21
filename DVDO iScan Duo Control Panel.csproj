@@ -8,7 +8,7 @@
     <ProjectGuid>{832D35A9-8F61-42CA-8D45-E8F920D26EA6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Profiler</RootNamespace>
+    <RootNamespace>Qixle.iScanDuo.Controller</RootNamespace>
     <AssemblyName>DVDO iScan Duo Control Panel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

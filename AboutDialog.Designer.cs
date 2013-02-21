@@ -1,4 +1,4 @@
-﻿namespace Profiler
+﻿namespace Qixle.iScanDuo.Controller
 {
     partial class AboutDialog
     {
@@ -39,7 +39,7 @@
             // 
             // label1
             // 
-            this.label1.Image = global::Profiler.Properties.Resources.dvdo_abt_logo;
+            this.label1.Image = global::Qixle.iScanDuo.Controller.Properties.Resources.dvdo_abt_logo;
             this.label1.Location = new System.Drawing.Point(-4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(460, 74);

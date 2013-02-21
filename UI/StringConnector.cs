@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Protocol;
 using System.Windows.Forms;
 
-namespace Profiler.UI
+namespace Qixle.iScanDuo.Controller.UI
 {
     public class StringConnector : Connector<string>
     {

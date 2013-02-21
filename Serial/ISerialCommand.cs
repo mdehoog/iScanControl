@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Profiler.Protocol;
+using Qixle.iScanDuo.Controller.Protocol;
 using System.IO.Ports;
 
-namespace Profiler.Serial
+namespace Qixle.iScanDuo.Controller.Serial
 {
     public interface ISerialCommand : IComparable<ISerialCommand>
     {
