@@ -145,7 +145,10 @@ namespace Qixle.iScanDuo.Controller.Serial
             }
             finally
             {
-                port.DiscardInBuffer();
+                if (port.IsOpen)
+                {
+                    port.DiscardInBuffer();
+                }
             }
         }
 
